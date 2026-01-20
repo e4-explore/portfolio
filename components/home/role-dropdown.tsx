@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useTheme } from "next-themes";
 import { ChevronDown, Navigation, Bot, Pencil, LayoutGrid, Sparkles, Palette } from "lucide-react";
 
 const roles = [
@@ -41,6 +42,7 @@ export function RoleDropdown() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedRole, setSelectedRole] = useState(roles[0]);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { resolvedTheme } = useTheme();
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -72,18 +74,22 @@ export function RoleDropdown() {
   };
 
   const SelectedIcon = selectedRole.icon;
+  const selectedLabel =
+    selectedRole.id === "product-designer" && resolvedTheme === "dark"
+      ? "Vibe Coder"
+      : selectedRole.label;
 
   return (
     <div className="relative inline-block" ref={dropdownRef}>
       {/* Dropdown Trigger */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex items-center gap-2 px-4 py-2 bg-[#FFF5F0] hover:bg-[#FFE8DD] text-[#E85D2D] font-semibold text-xl md:text-2xl rounded-xl transition-colors duration-200 cursor-pointer"
+        className="inline-flex items-center gap-2 px-4 py-2 bg-accent hover:bg-muted text-foreground font-semibold text-xl md:text-2xl rounded-xl transition-colors duration-200 cursor-pointer border border-border"
         aria-expanded={isOpen}
         aria-haspopup="listbox"
       >
         <SelectedIcon className="w-5 h-5 md:w-6 md:h-6" />
-        <span>{selectedRole.label}</span>
+        <span className="capitalize">{selectedLabel}</span>
         <ChevronDown 
           className={`w-5 h-5 md:w-6 md:h-6 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} 
         />

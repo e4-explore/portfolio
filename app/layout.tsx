@@ -2,6 +2,7 @@ import React from "react"
 import type { Metadata, Viewport } from 'next'
 import { Plus_Jakarta_Sans, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { ThemeProvider } from "@/components/theme-provider"
 import './globals.css'
 
 const plusJakartaSans = Plus_Jakarta_Sans({ 
@@ -41,9 +42,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${plusJakartaSans.variable} ${playfairDisplay.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${plusJakartaSans.variable} ${playfairDisplay.variable}`}
+    >
       <body className="font-sans antialiased">
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          {children}
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

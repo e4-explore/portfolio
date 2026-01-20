@@ -47,7 +47,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <>
       <Header />
-      <main className="pt-20">
+      <main className="pt-4">
         <ProjectHero project={project} />
         <ProjectContent project={project} />
         <ProjectNavigation

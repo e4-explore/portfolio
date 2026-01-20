@@ -28,7 +28,7 @@ export function Section({
       id={id}
       className={cn(
         "section-padding",
-        variant === "alt" && "bg-[var(--brand-cream)]",
+        variant === "alt" && "bg-pattern-dots",
         className
       )}
     >

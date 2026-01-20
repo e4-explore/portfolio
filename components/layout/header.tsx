@@ -1,32 +1,39 @@
 "use client";
 
-import React from "react"
-
 import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useState, type ReactNode } from "react";
 import { Menu, X } from "lucide-react";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm">
+    <header
+      className={
+        isHome
+          ? "relative z-50"
+          : "fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm"
+      }
+    >
       <div className="container-default">
-        <nav className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            
-            <span className="text-lg font-semibold text-foreground hidden sm:block">
-              👋 Hi, I'm Ethan<br>
-            </span>
-          </Link>
+        <nav className={isHome ? "flex items-center justify-end h-16 md:h-20" : "flex items-center justify-between h-16 md:h-20"}>
+          {/* Logo (hidden on home) */}
+          {!isHome && (
+            <Link href="/" className="flex items-center gap-2 group">
+              <span className="text-lg font-semibold text-foreground hidden sm:block">
+                👋 Hi, I'm Ethan<br />
+              </span>
+            </Link>
+          )}
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <NavLink href="/#work">WORK<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full"></span>K</NavLink>
-            <NavLink href="/#contact">NOT WORK<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full"></span></NavLink>
-            <NavLink href="/#about">ME<span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full"></span></NavLink>
+            <NavLink href="/#work">WORK</NavLink>
+            <NavLink href="https://windows-ep.vercel.app/">NOT WORK</NavLink>
+            <NavLink href="/#about">ME</NavLink>
           </div>
 
           {/* Mobile Menu Button */}
@@ -47,7 +54,10 @@ export function Header() {
               <MobileNavLink href="/#work" onClick={() => setMobileMenuOpen(false)}>
                 WORK
               </MobileNavLink>
-              <MobileNavLink href="/#contact" onClick={() => setMobileMenuOpen(false)}>
+              <MobileNavLink
+                href="https://windows-ep.vercel.app/"
+                onClick={() => setMobileMenuOpen(false)}
+              >
                 NOT WORK
               </MobileNavLink>
               <MobileNavLink href="/#about" onClick={() => setMobileMenuOpen(false)}>
@@ -61,10 +71,13 @@ export function Header() {
   );
 }
 
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+function NavLink({ href, children }: { href: string; children: ReactNode }) {
+  const isExternal = href.startsWith("http");
   return (
     <Link
       href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
     >
       {children}
@@ -79,13 +92,16 @@ function MobileNavLink({
   onClick,
 }: {
   href: string;
-  children: React.ReactNode;
+  children: ReactNode;
   onClick: () => void;
 }) {
+  const isExternal = href.startsWith("http");
   return (
     <Link
       href={href}
       onClick={onClick}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       className="text-lg font-medium text-foreground hover:text-muted-foreground transition-colors py-2"
     >
       {children}

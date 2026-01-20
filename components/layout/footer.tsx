@@ -28,6 +28,11 @@ const socialLinks = [
     icon: XIcon,
   },
   {
+    name: "Email",
+    href: "mailto:ethanphilipgrove@gmail.com",
+    icon: Mail,
+  },
+  {
     name: "Medium",
     href: "https://medium.com/@ethanphilipgrove",
     icon: BookOpen,
@@ -46,19 +51,19 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer id="contact" className="bg-background border-t border-border">
+    <footer id="contact" className="bg-background border-t border-dashed border-border">
       <div className="container-default section-padding">
-        <div className="flex flex-col items-center gap-8">
+        <div className="flex flex-col items-center gap-8 md:flex-row md:items-center md:justify-between">
           {/* Social Links */}
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4 md:justify-end">
             {socialLinks.map((link) => (
               <SocialLink key={link.name} {...link} />
             ))}
           </div>
 
           {/* Copyright */}
-          <p className="text-sm text-muted-foreground">
-            &copy;{new Date().getFullYear()} Ethan Philip Grove
+          <p className="text-sm text-muted-foreground w-full text-center md:w-auto md:text-left md:order-first">
+            &copy;{new Date().getFullYear()}
           </p>
         </div>
       </div>
@@ -80,10 +85,12 @@ function SocialLink({
       href={href}
       target={href.startsWith("http") ? "_blank" : undefined}
       rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-      className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground bg-muted hover:bg-accent rounded-full transition-all duration-200"
+      aria-label={name}
+      title={name}
+      className="inline-flex items-center justify-center p-3 text-muted-foreground hover:text-foreground rounded-full transition-colors hover:bg-muted"
     >
-      <Icon className="w-4 h-4" />
-      <span>{name}</span>
+      <Icon className="w-5 h-5" />
+      <span className="sr-only">{name}</span>
     </Link>
   );
 }

@@ -2,11 +2,11 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const clients = [
-  { name: "Hudl", logo: "/images/clients/hudl.svg" },
-  { name: "High Alpha", logo: "/images/clients/high-alpha.svg" },
-  { name: "Demandwell", logo: "/images/clients/demandwell.svg" },
-  { name: "Pillar", logo: "/images/clients/pillar.svg" },
-  { name: "Ball State", logo: "/images/clients/ball-state.svg" },
+  { name: "Demandwell", logo: "/assets/clients/demandwell.svg" },
+  { name: "Pillar", logo: "/assets/clients/pillar.svg" },
+  { name: "Upperhand", logo: "/assets/clients/upperhand.svg" },
+  { name: "Apex", logo: "/assets/clients/apex.svg" },
+  { name: "Colaboratory", logo: "/assets/clients/colaboratory.svg" },
 ];
 
 interface ClientLogosProps {

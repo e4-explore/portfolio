@@ -27,7 +27,7 @@ export const projects: ProjectDetails[] = [
     description:
       "Demandwell is a startup focused on helping customers grow their SEO organically. Their approach combines SEO expert consultation with platform automation.",
     tags: ["UX Research", "UX/UI Design", "Prototyping"],
-    thumbnail: "/images/projects/seo-keywords-thumb.jpg",
+    thumbnail: "/assets/projects/seo-keyword-research.png",
     company: "Demandwell",
     role: "Product Designer",
     team: "Ethan Grove & Demandwell Team",
@@ -69,7 +69,7 @@ export const projects: ProjectDetails[] = [
     description:
       "Streamlining the content creation workflow from ideation to publication with an intuitive management system.",
     tags: ["UX Research", "UX/UI Design", "Prototyping"],
-    thumbnail: "/images/projects/content-production-thumb.jpg",
+    thumbnail: "/assets/projects/content-production.png",
     company: "Demandwell",
     role: "Product Designer",
     team: "Ethan Grove & Demandwell Team",
@@ -105,7 +105,7 @@ export const projects: ProjectDetails[] = [
     description:
       "High Alpha partnered with Pillar to redesign their interview intelligence platform for a new user persona.",
     tags: ["UX Research", "UX/UI Design", "Design Systems"],
-    thumbnail: "/images/projects/interview-intelligence-thumb.jpg",
+    thumbnail: "/assets/projects/interview-intelligence.png",
     company: "High Alpha x Pillar",
     role: "Product Designer",
     team: "Ethan Grove, JP Pritzel & Pillar Team",
@@ -152,7 +152,7 @@ export const projects: ProjectDetails[] = [
     description:
       "Designing and launching an MVP product for brand collaboration partnerships.",
     tags: ["UX Research", "UX/UI Design", "Design Systems"],
-    thumbnail: "/images/projects/brand-x-brand-thumb.jpg",
+    thumbnail: "/assets/projects/brand-x-brand.png",
     company: "Client Project",
     role: "Product Designer",
     tools: ["Figma", "Figjam"],

@@ -22,7 +22,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
       </div>
 
       {/* Title & Subtitle */}
-      <div className="max-w-4xl">
+      <div>
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 text-balance">
           {project.subtitle}
         </h1>

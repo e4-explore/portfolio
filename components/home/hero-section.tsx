@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { ClientLogos } from "./client-logos";
 import { RoleDropdown } from "./role-dropdown";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function HeroSection() {
   return (
-    <section className="relative pt-32 md:pt-40 pb-16 md:pb-24">
+    <section className="relative pt-32 md:pt-4 pb-16 md:pb-24">
       <div className="container-default">
-        <div className="max-w-4xl mx-auto">
+        <div className="mx-auto">
           {/* Greeting */}
           <div className="flex items-center gap-4 mb-8">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
@@ -17,15 +18,17 @@ export function HeroSection() {
           {/* Title & Description */}
           <div className="space-y-6 mb-12">
             <div className="flex flex-col gap-2">
-              <div className="text-xl md:text-2xl text-muted-foreground">
+              <div className="flex flex-wrap items-center gap-3 text-xl md:text-5xl text-muted-foreground">
                 <RoleDropdown />
+                <span className="text-muted-foreground text-base md:text-2xl">by</span>
+                <ThemeToggle />
               </div>
-              <p className="text-xl md:text-2xl text-muted-foreground">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
                 based in Indianapolis, IN.
-              </p>
+              </h2>
             </div>
 
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl px-0">
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed px-0">
               I'm a versatile designer who clears ambiguity and helps teams ship products.
               Currently, I am helping{" "}
               <Link
@@ -41,7 +44,7 @@ export function HeroSection() {
               parents and fans.
             </p>
 
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl px-0">
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed px-0">
               In the past, I have teamed up with many amazing individuals to create engaging
               digital solutions that not only solve problems but also delight users.
             </p>
@@ -51,7 +54,7 @@ export function HeroSection() {
           <ClientLogos className="mb-12" />
 
           {/* Industries */}
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl">
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
             I have worked in a variety of industries, ranging from marketing to HR to sports
             and fitness, where I have helped solve user problems related to scheduling,
             payments, reporting, monitoring, video analysis, and more.
