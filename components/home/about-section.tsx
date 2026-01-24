@@ -56,16 +56,7 @@ export function AboutSection() {
           </p>
 
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Currently, I live in{" "}
-            <Link
-              href="https://en.wikipedia.org/wiki/Greenwood,_Indiana"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground font-medium link-underline"
-            >
-              Greenwood
-            </Link>
-            , which is about 20 minutes south of Indy, with my wife, Hanna, and our dog, Leo.
+            Currently, I live about 20 minutes south of Indy with my wife, Hanna, and our dog, Leo.
             Besides faith and family, the most important thing to me is learning and growing every day as a designer and as a person.
           </p>
 

@@ -7,6 +7,7 @@ interface SectionProps {
   id?: string;
   variant?: "default" | "alt";
   container?: "default" | "narrow" | "wide" | "full";
+  background?: React.ReactNode;
 }
 
 export function Section({
@@ -15,6 +16,7 @@ export function Section({
   id,
   variant = "default",
   container = "default",
+  background,
 }: SectionProps) {
   const containerClasses = {
     default: "container-default",
@@ -28,10 +30,12 @@ export function Section({
       id={id}
       className={cn(
         "section-padding",
+        background && "relative overflow-hidden",
         variant === "alt" && "bg-pattern-dots",
         className
       )}
     >
+      {background}
       <div className={cn(containerClasses[container])}>{children}</div>
     </section>
   );

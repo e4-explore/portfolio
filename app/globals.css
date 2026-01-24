@@ -42,6 +42,15 @@
   --link: #1a1a1a;
   --link-hover: #666666;
   --link-underline: #1a1a1a;
+
+  /* Role accent (driven by RoleDropdown) */
+  --role-accent: #e85d2d;
+  --role-accent-bg: rgba(232, 93, 45, 0.14);
+  --role-accent-bg-hover: rgba(232, 93, 45, 0.20);
+
+  /* Selection */
+  --selection-bg: var(--role-accent-bg);
+  --selection-fg: var(--foreground);
   
   /* Component tokens */
   --primary: #1a1a1a;
@@ -190,6 +199,15 @@
   --link: #f5f7fa;
   --link-hover: rgba(245, 247, 250, 0.78);
   --link-underline: rgba(245, 247, 250, 0.70);
+
+  /* Role accent (driven by RoleDropdown) */
+  --role-accent: #39ff14;
+  --role-accent-bg: rgba(57, 255, 20, 0.14);
+  --role-accent-bg-hover: rgba(57, 255, 20, 0.20);
+
+  /* Selection */
+  --selection-bg: var(--role-accent-bg);
+  --selection-fg: var(--foreground);
 
   /* Component tokens */
   --primary: #f5f7fa;
@@ -384,10 +402,17 @@
     color: var(--link-hover);
   }
   
-  /* Selection */
-  ::selection {
-    background-color: var(--brand-charcoal);
-    color: var(--text-light);
+  /* Selection (match RoleDropdown tint) */
+  ::selection,
+  *::selection {
+    background-color: var(--role-accent-bg);
+    color: var(--foreground);
+  }
+
+  /* Firefox */
+  ::-moz-selection {
+    background-color: var(--role-accent-bg);
+    color: var(--foreground);
   }
 }
 
