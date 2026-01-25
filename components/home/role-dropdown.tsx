@@ -215,7 +215,7 @@ export function RoleDropdown() {
   }, [roleStyle.accent, roleStyle.bg, roleStyle.bgHover]);
 
   return (
-    <div className="relative inline-block" ref={dropdownRef}>
+    <div className="relative inline-block z-[100]" ref={dropdownRef}>
       {/* Dropdown Trigger */}
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -249,7 +249,7 @@ export function RoleDropdown() {
       {/* Dropdown Menu */}
       {isOpen && (
         <div 
-          className="absolute left-0 top-full mt-3 w-80 bg-background rounded-2xl shadow-xl border border-border overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200"
+          className="absolute left-0 top-full mt-3 w-80 bg-background rounded-2xl shadow-xl border border-border overflow-hidden z-[110] animate-in fade-in slide-in-from-top-2 duration-200"
           role="listbox"
           aria-label="Select role"
         >

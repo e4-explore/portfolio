@@ -17,7 +17,7 @@ export function ThemeToggle() {
     setMounted(true);
   }, []);
 
-  const enableThemeTransition = () => {
+  const enableThemeTransition = (durationMs = 300) => {
     if (typeof window === "undefined") return;
 
     const root = window.document.documentElement;
@@ -30,7 +30,7 @@ export function ThemeToggle() {
     transitionTimeoutRef.current = window.setTimeout(() => {
       root.classList.remove("theme-transition");
       transitionTimeoutRef.current = null;
-    }, 300);
+    }, durationMs);
   };
 
   const triggerThemeGlitch = () => {
@@ -62,7 +62,7 @@ export function ThemeToggle() {
     sunriseTimeoutRef.current = window.setTimeout(() => {
       root.classList.remove("theme-sunrise");
       sunriseTimeoutRef.current = null;
-    }, 700);
+    }, 1800);
   };
 
   return (
@@ -70,7 +70,8 @@ export function ThemeToggle() {
       type="button"
       onClick={() => {
         const nextTheme = isDark ? "light" : "dark";
-        enableThemeTransition();
+        // Match transition window to overlay duration (sunrise/glitch).
+        enableThemeTransition(nextTheme === "light" ? 1800 : 550);
         if (nextTheme === "dark") {
           triggerThemeGlitch();
         } else {
@@ -81,11 +82,27 @@ export function ThemeToggle() {
       aria-pressed={isDark}
       className="inline-flex h-10 md:h-20 items-center gap-0 md:gap-3 px-2 md:px-6 rounded-full border-2 border-border bg-background hover:bg-muted text-foreground transition-colors"
     >
-      {isDark ? (
-        <Moon className="w-6 h-6 md:w-9 md:h-9" />
-      ) : (
-        <Sun className="w-6 h-6 md:w-9 md:h-9" />
-      )}
+      <span
+        className="relative block w-6 h-6 md:w-9 md:h-9"
+        aria-hidden="true"
+      >
+        <Sun
+          className={[
+            "absolute inset-0 w-6 h-6 md:w-9 md:h-9",
+            "transition-[transform,opacity] duration-500 ease-out",
+            "motion-reduce:transition-none",
+            isDark ? "opacity-0 scale-50 rotate-90" : "opacity-100 scale-100 rotate-0",
+          ].join(" ")}
+        />
+        <Moon
+          className={[
+            "absolute inset-0 w-6 h-6 md:w-9 md:h-9",
+            "transition-[transform,opacity] duration-500 ease-out",
+            "motion-reduce:transition-none",
+            isDark ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-50 -rotate-90",
+          ].join(" ")}
+        />
+      </span>
       <span className="hidden md:inline text-2xl md:text-4xl font-bold leading-none">
         {isDark ? "Night" : "Day"}
       </span>

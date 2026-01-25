@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from "@/components/theme-provider"
 import { DebugClient } from "@/components/debug-client"
+import { AutoReveal } from "@/components/ui/auto-reveal"
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -37,6 +38,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           {children}
+          <AutoReveal />
         </ThemeProvider>
         <DebugClient />
         <Analytics />

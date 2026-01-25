@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Linkedin, Mail, Dribbble, FileText, BookOpen } from "lucide-react";
+import { Reveal } from "@/components/ui/reveal";
 
 // X (Twitter) icon component
 function XIcon({ className }: { className?: string }) {
@@ -57,17 +58,21 @@ export function Footer() {
     >
       <div className="container-default pt-12 pb-20">
         <div className="flex flex-col items-center gap-8 md:flex-row md:items-center md:justify-between">
-          {/* Social Links */}
-          <div className="grid grid-cols-3 gap-4 place-items-center md:flex md:flex-wrap md:justify-end">
-            {socialLinks.map((link) => (
-              <SocialLink key={link.name} {...link} />
-            ))}
-          </div>
+          <Reveal className="md:order-last">
+            {/* Social Links */}
+            <div className="grid grid-cols-3 gap-4 place-items-center md:flex md:flex-wrap md:justify-end">
+              {socialLinks.map((link) => (
+                <SocialLink key={link.name} {...link} />
+              ))}
+            </div>
+          </Reveal>
 
-          {/* Copyright */}
-          <p className="text-5xl font-semibold text-foreground w-full text-center md:w-auto md:text-left md:order-first">
-            &copy;{new Date().getFullYear()}
-          </p>
+          <Reveal delayMs={120} className="md:order-first">
+            {/* Copyright */}
+            <p className="text-5xl font-semibold text-foreground w-full text-center md:w-auto md:text-left">
+              &copy;{new Date().getFullYear()}
+            </p>
+          </Reveal>
         </div>
       </div>
     </footer>
