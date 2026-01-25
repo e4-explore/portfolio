@@ -2,13 +2,16 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState, type ReactNode } from "react";
-import { Menu, X } from "lucide-react";
+import { ArrowLeft, Menu, X } from "lucide-react";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
   const isHome = pathname === "/";
+  const isProjectPage = pathname.startsWith("/work/");
 
   return (
     <header
@@ -19,46 +22,69 @@ export function Header() {
       }
     >
       <div className="container-default">
-        <nav className={isHome ? "flex items-center justify-end h-16 md:h-20" : "flex items-center justify-between h-16 md:h-20"}>
+        <nav
+          className={
+            isHome
+              ? "flex items-center justify-end h-16 md:h-20 pt-4"
+              : "flex items-center justify-between h-16 md:h-20 pt-4"
+          }
+        >
           {/* Logo (hidden on home) */}
           {!isHome && (
-            <Link href="/" className="flex items-center gap-2 group">
-              <span className="text-lg font-semibold text-foreground hidden sm:block">
-                👋 Hi, I'm Ethan<br />
-              </span>
-            </Link>
+            <>
+              {isProjectPage ? (
+                <button
+                  type="button"
+                  onClick={() => router.back()}
+                  className="inline-flex items-center gap-2 px-3 py-2 rounded-full border border-border bg-background hover:bg-muted text-foreground font-semibold transition-colors"
+                  aria-label="Go back"
+                >
+                  <ArrowLeft className="w-4 h-4" aria-hidden="true" />
+                  <span className="text-sm">Back</span>
+                </button>
+              ) : (
+                <Link href="/" className="flex items-center gap-2 group">
+                  <span className="text-lg font-semibold text-foreground hidden sm:block">
+                    👋 Hi, I'm Ethan<br />
+                  </span>
+                </Link>
+              )}
+            </>
           )}
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            <NavLink href="/#work">WORK</NavLink>
-            <NavLink href="https://windows-ep.vercel.app/">NOT WORK</NavLink>
-            <NavLink href="/#about">ME</NavLink>
-          </div>
+          {/* Navigation */}
+          {isProjectPage ? null : isHome ? (
+            // Home: show nav on desktop only
+            <div className="hidden md:flex items-center gap-8">
+              <NavLink href="/#work">WORK</NavLink>
+              <NavLink href="/#about">ME</NavLink>
+            </div>
+          ) : (
+            // Other pages: desktop nav + mobile menu button
+            <>
+              <div className="hidden md:flex items-center gap-8">
+                <NavLink href="/#work">WORK</NavLink>
+                <NavLink href="/#about">ME</NavLink>
+              </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            type="button"
-            className="md:hidden p-2 text-foreground hover:bg-muted rounded-lg transition-colors"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+              <button
+                type="button"
+                className="md:hidden p-2 text-foreground hover:bg-muted rounded-lg transition-colors"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </>
+          )}
         </nav>
 
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
+        {/* Mobile Navigation (not on home; not on project pages) */}
+        {!isHome && !isProjectPage && mobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-4">
               <MobileNavLink href="/#work" onClick={() => setMobileMenuOpen(false)}>
                 WORK
-              </MobileNavLink>
-              <MobileNavLink
-                href="https://windows-ep.vercel.app/"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                NOT WORK
               </MobileNavLink>
               <MobileNavLink href="/#about" onClick={() => setMobileMenuOpen(false)}>
                 ME
@@ -80,8 +106,18 @@ function NavLink({ href, children }: { href: string; children: ReactNode }) {
       rel={isExternal ? "noopener noreferrer" : undefined}
       className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
     >
-      {children}
-      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full" />
+      <span className="relative z-10">{children}</span>
+      {/* Accent “underline” above text that thickens up to the top of the screen */}
+      <span
+        className="
+          pointer-events-none absolute left-0 right-0 bottom-full
+          w-0 h-[3px]
+          bg-[var(--role-accent)]
+          transition-[width,height,opacity] duration-500 ease-out
+          opacity-90
+          group-hover:w-full group-hover:h-[100vh]
+        "
+      />
     </Link>
   );
 }

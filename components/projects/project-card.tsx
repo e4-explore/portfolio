@@ -12,6 +12,8 @@ export interface Project {
   tags: string[];
   thumbnail: string;
   color?: string;
+  externalUrl?: string;
+  heroImage?: string;
 }
 
 interface ProjectCardProps {

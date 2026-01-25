@@ -21,7 +21,7 @@ function XIcon({ className }: { className?: string }) {
 const CONTACT_EMAIL = "ethanphilipgrove@gmail.com";
 
 const helpfulLinks = [
-  { label: "Resume", href: "/resume.pdf", icon: FileText },
+  { label: "Resume", href: "/Grove_Resume_2023.pdf", icon: FileText },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/ethangrove/", icon: Linkedin },
   { label: "Twitter", href: "https://x.com/e4_explore", icon: XIcon },
   { label: "Email", href: `mailto:${CONTACT_EMAIL}`, icon: Mail },
@@ -40,7 +40,7 @@ export function AboutSection() {
         {/* Image */}
         <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-muted">
           <Image
-            src="/assets/me.jpg"
+            src="/me.jpg"
             alt="Ethan Grove"
             fill
             className="object-cover"
@@ -61,7 +61,7 @@ export function AboutSection() {
           </p>
 
           {/* Helpful Links */}
-          <div className="pt-6 border-t border-border">
+          <div className="mt-16">
             <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">
               Helpful links
             </h3>
@@ -70,8 +70,16 @@ export function AboutSection() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    target={link.href.startsWith("http") ? "_blank" : undefined}
-                    rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    target={
+                      link.href.startsWith("http") || link.href.toLowerCase().endsWith(".pdf")
+                        ? "_blank"
+                        : undefined
+                    }
+                    rel={
+                      link.href.startsWith("http") || link.href.toLowerCase().endsWith(".pdf")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
                     className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground bg-muted hover:bg-accent rounded-full transition-all duration-200"
                   >
                     <link.icon className="w-4 h-4" />

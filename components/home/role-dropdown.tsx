@@ -2,7 +2,35 @@
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { useTheme } from "next-themes";
-import { ChevronDown, Navigation, Bot, Pencil, LayoutGrid, Sparkles, Palette } from "lucide-react";
+import { ChevronDown, Navigation, Bot, Pencil, LayoutGrid, Sparkles, Palette, Clapperboard, Shell, LandPlot, Briefcase } from "lucide-react";
+
+function FilledCheckCircleIcon({
+  className,
+  style,
+}: {
+  className?: string;
+  style?: React.CSSProperties;
+}) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      focusable="false"
+      className={className}
+      style={style}
+    >
+      <circle cx="12" cy="12" r="10" fill="currentColor" />
+      <path
+        d="M8 12.5l2.5 2.5L16.5 9"
+        fill="none"
+        stroke="var(--background)"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 const LIGHT_ROLE_STYLES: Record<string, { accent: string; bg: string; bgHover: string }> = {
   "product-designer": {
@@ -20,7 +48,7 @@ const LIGHT_ROLE_STYLES: Record<string, { accent: string; bg: string; bgHover: s
     bg: "rgba(14, 165, 233, 0.14)",
     bgHover: "rgba(14, 165, 233, 0.20)",
   },
-  animator: {
+  "interaction-designer": {
     accent: "#EC4899",
     bg: "rgba(236, 72, 153, 0.14)",
     bgHover: "rgba(236, 72, 153, 0.20)",
@@ -54,7 +82,7 @@ const DARK_ROLE_STYLES: Record<string, { accent: string; bg: string; bgHover: st
     bg: "rgba(255, 43, 214, 0.12)",
     bgHover: "rgba(255, 43, 214, 0.18)",
   },
-  animator: {
+  "anime-watcher": {
     accent: "#FF7A18",
     bg: "rgba(255, 122, 24, 0.14)",
     bgHover: "rgba(255, 122, 24, 0.20)",
@@ -79,8 +107,8 @@ const LIGHT_ROLES = [
     icon: LayoutGrid,
   },
   {
-    id: "animator",
-    label: "animator",
+    id: "interaction-designer",
+    label: "interaction designer",
     icon: Sparkles,
   },
   {
@@ -98,10 +126,10 @@ const DARK_ROLES = [
     icon: Bot,
     isDefault: true,
   },
-  { id: "entrepreneur", label: "entrepreneur", icon: LayoutGrid },
-  { id: "golf-apparel", label: "golf brand owner", icon: Palette },
-  { id: "movies-tv", label: "movies & tv nerd", icon: Bot },
-  { id: "animator", label: "animation enjoyer", icon: Pencil },
+  { id: "golf-apparel", label: "golf brand owner", icon: LandPlot },
+  { id: "entrepreneur", label: "entrepreneur", icon: Briefcase },
+  { id: "movies-tv", label: "movie junkie", icon: Clapperboard },
+  { id: "anime-watcher", label: "anime watcher", icon: Shell },
 ];
 
 type Role = (typeof LIGHT_ROLES)[number] | (typeof DARK_ROLES)[number];
@@ -198,22 +226,22 @@ export function RoleDropdown() {
             "--role-accent-bg-hover": roleStyle.bgHover,
           } as React.CSSProperties
         }
-        className="inline-flex h-16 md:h-20 items-center gap-3 px-7 md:px-10 rounded-full transition-colors duration-200 cursor-pointer border border-[var(--role-accent)] bg-[var(--role-accent-bg)] hover:bg-[var(--role-accent-bg-hover)] text-foreground"
+        className="inline-flex h-10 md:h-20 items-center gap-2 md:gap-3 px-3 md:px-6 rounded-full transition-colors duration-200 cursor-pointer border border-[var(--role-accent)] bg-[var(--role-accent-bg)] hover:bg-[var(--role-accent-bg-hover)] text-foreground"
         aria-expanded={isOpen}
         aria-haspopup="listbox"
       >
         <SelectedIcon
-          className="w-7 h-7 md:w-9 md:h-9 shrink-0"
+          className="w-6 h-6 md:w-9 md:h-9 shrink-0"
           style={{ color: "var(--role-accent)" }}
         />
         <span
-          className="capitalize text-2xl md:text-4xl font-bold leading-none"
+          className="capitalize text-lg md:text-4xl font-bold leading-none"
           style={{ color: "var(--role-accent)" }}
         >
           {selectedLabel}
         </span>
         <ChevronDown 
-          className={`w-7 h-7 md:w-9 md:h-9 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} 
+          className={`w-6 h-6 md:w-9 md:h-9 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} 
           style={{ color: "var(--role-accent)" }}
         />
       </button>
@@ -226,8 +254,9 @@ export function RoleDropdown() {
           aria-label="Select role"
         >
           <div className="p-2">
-            {roles.filter((role) => role.id !== selectedRole.id).map((role) => {
+            {roles.map((role) => {
               const Icon = role.icon;
+              const isActive = selectedRole.id === role.id;
               return (
                 <button
                   key={role.id}
@@ -236,8 +265,20 @@ export function RoleDropdown() {
                   role="option"
                   aria-selected={selectedRole.id === role.id}
                 >
-                  <Icon className="w-5 h-5 md:w-6 md:h-6 text-muted-foreground" />
-                  <span className="capitalize">{role.label}</span>
+                  {isActive ? (
+                    <FilledCheckCircleIcon
+                      className="w-5 h-5 md:w-6 md:h-6"
+                      style={{ color: "var(--role-accent)" }}
+                    />
+                  ) : (
+                    <Icon className="w-5 h-5 md:w-6 md:h-6 text-muted-foreground" />
+                  )}
+                  <span
+                    className="capitalize"
+                    style={isActive ? { color: "var(--role-accent)" } : undefined}
+                  >
+                    {role.label}
+                  </span>
                 </button>
               );
             })}

@@ -24,7 +24,9 @@ export function SectionHeading({
   return (
     <Component
       className={cn(
-        "font-bold text-foreground leading-tight text-balance",
+        Component === "h2"
+          ? "font-bold text-foreground leading-[48px] text-balance"
+          : "font-bold text-foreground leading-tight text-balance",
         sizeClasses[size],
         className
       )}

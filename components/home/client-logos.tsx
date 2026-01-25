@@ -2,12 +2,36 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const clients = [
-  { name: "Demandwell", logo: "/assets/clients/demandwell.svg" },
-  { name: "Pillar", logo: "/assets/clients/pillar.svg" },
-  { name: "Upperhand", logo: "/assets/clients/upperhand.svg" },
-  { name: "Apex", logo: "/assets/clients/apex.svg" },
-  { name: "Colaboratory", logo: "/assets/clients/colaboratory.svg" },
-  { name: "High Alpha", logo: "/assets/clients/high-alpha.svg" },
+  {
+    name: "Demandwell",
+    lightLogo: "/clients/demandwell - light mode.svg",
+    darkLogo: "/clients/demandwell - dark mode.svg",
+    height: 24,
+    heightClassName: "h-6",
+  },
+  { name: "Pillar", lightLogo: "/clients/pillar.svg", darkLogo: "/clients/pillar.svg", height: 32, heightClassName: "h-8" },
+  {
+    name: "Upperhand",
+    lightLogo: "/clients/upperhand - light mode.svg",
+    darkLogo: "/clients/upperhand - dark mode.svg",
+    height: 40,
+    heightClassName: "h-10",
+  },
+  { name: "Apex", lightLogo: "/clients/apex - light mode.svg", darkLogo: "/clients/apex - dark mode.svg", height: 40, heightClassName: "h-10" },
+  {
+    name: "Colaboratory",
+    lightLogo: "/clients/colaboratory - light mode.svg",
+    darkLogo: "/clients/colaboratory - dark mode.svg",
+    height: 32,
+    heightClassName: "h-8",
+  },
+  {
+    name: "High Alpha",
+    lightLogo: "/clients/high-alpha - light mode.svg",
+    darkLogo: "/clients/high-alpha - dark mode.svg",
+    height: 32,
+    heightClassName: "h-8",
+  },
 ];
 
 interface ClientLogosProps {
@@ -23,18 +47,30 @@ export function ClientLogos({ className }: ClientLogosProps) {
       )}
     >
       {clients.map((client) => (
-        <div key={client.name} className="h-6 md:h-8 flex items-center">
+        <div key={client.name} className={cn("flex items-center", client.heightClassName)}>
           <Image
-            src={client.logo || "/placeholder.svg"}
+            src={client.lightLogo || "/placeholder.svg"}
             alt={client.name}
-            width={160}
-            height={48}
+            width={240}
+            height={client.height}
             className={cn(
-              "h-6 md:h-8 w-auto object-contain",
+              client.heightClassName,
+              "w-auto object-contain",
               // Light mode: grey -> original on hover
               "grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300",
-              // Dark mode: dark-grey -> brighter on hover (+ make black marks white)
-              "dark:invert dark:brightness-0 dark:opacity-60 dark:hover:opacity-100"
+              "dark:hidden"
+            )}
+          />
+          <Image
+            src={client.darkLogo || "/placeholder.svg"}
+            alt={client.name}
+            width={240}
+            height={client.height}
+            className={cn(
+              client.heightClassName,
+              "w-auto object-contain",
+              "grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300",
+              "hidden dark:block"
             )}
           />
         </div>

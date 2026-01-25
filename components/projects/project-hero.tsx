@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Section } from "@/components/ui/section";
 import { TagList } from "@/components/ui/tag";
 import type { ProjectDetails } from "@/data/projects";
@@ -13,7 +14,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
       {/* Hero Image */}
       <div className="relative aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden bg-muted mb-12">
         <Image
-          src={project.thumbnail || "/placeholder.svg"}
+          src={project.heroImage || project.thumbnail || "/placeholder.svg"}
           alt={project.title}
           fill
           className="object-cover"
@@ -26,9 +27,22 @@ export function ProjectHero({ project }: ProjectHeroProps) {
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 text-balance">
           {project.subtitle}
         </h1>
-        <h2 className="text-2xl md:text-3xl font-semibold text-muted-foreground mb-8">
-          {project.company}
-        </h2>
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+          <h2 className="text-2xl md:text-3xl font-semibold text-muted-foreground">
+            {project.company}
+          </h2>
+
+          {project.externalUrl && (
+            <Link
+              href={project.externalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-5 py-3 rounded-full border-2 border-border bg-background hover:bg-muted text-foreground font-semibold transition-colors w-fit"
+            >
+              View project
+            </Link>
+          )}
+        </div>
 
         {/* Overview */}
         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">

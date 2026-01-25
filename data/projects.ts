@@ -27,7 +27,7 @@ export const projects: ProjectDetails[] = [
     description:
       "Demandwell is a startup focused on helping customers grow their SEO organically. Their approach combines SEO expert consultation with platform automation.",
     tags: ["UX Research", "UX/UI Design", "Prototyping"],
-    thumbnail: "/assets/projects/seo-keyword-research.png",
+    thumbnail: "/projects/seo-keyword-research/seo-keyword-research.png",
     company: "Demandwell",
     role: "Product Designer",
     team: "Ethan Grove & Demandwell Team",
@@ -57,7 +57,7 @@ export const projects: ProjectDetails[] = [
         title: "Solution",
         content:
           "We designed an intuitive keyword research tool that automates discovery and provides actionable insights.",
-        image: "/images/projects/seo-keywords-solution.jpg",
+        image: "/projects/seo-keyword-research/seo-keyword-research.png",
         imageAlt: "SEO Keyword Research Platform Interface",
       },
     ],
@@ -69,7 +69,7 @@ export const projects: ProjectDetails[] = [
     description:
       "Streamlining the content creation workflow from ideation to publication with an intuitive management system.",
     tags: ["UX Research", "UX/UI Design", "Prototyping"],
-    thumbnail: "/assets/projects/content-production.png",
+    thumbnail: "/projects/content production and management/content production and management.png",
     company: "Demandwell",
     role: "Product Designer",
     team: "Ethan Grove & Demandwell Team",
@@ -105,7 +105,7 @@ export const projects: ProjectDetails[] = [
     description:
       "High Alpha partnered with Pillar to redesign their interview intelligence platform for a new user persona.",
     tags: ["UX Research", "UX/UI Design", "Design Systems"],
-    thumbnail: "/assets/projects/interview-intelligence.png",
+    thumbnail: "/projects/interview intelligence/interview intelligence.png",
     company: "High Alpha x Pillar",
     role: "Product Designer",
     team: "Ethan Grove, JP Pritzel & Pillar Team",
@@ -135,7 +135,7 @@ export const projects: ProjectDetails[] = [
         title: "Design Strategy",
         content:
           "We focused on three key areas: updating to the new brand, simplifying flows, and designing with empathy.",
-        image: "/images/projects/interview-intelligence-strategy.jpg",
+        image: "/projects/interview intelligence/persona-flows.png",
         imageAlt: "Interview Intelligence Design Strategy",
       },
       {
@@ -152,7 +152,7 @@ export const projects: ProjectDetails[] = [
     description:
       "Designing and launching an MVP product for brand collaboration partnerships.",
     tags: ["UX Research", "UX/UI Design", "Design Systems"],
-    thumbnail: "/assets/projects/brand-x-brand.png",
+    thumbnail: "/projects/brand-x-brand-collaboration/brand-x-brand-collaboration.png",
     company: "Client Project",
     role: "Product Designer",
     tools: ["Figma", "Figjam"],
@@ -176,6 +176,42 @@ export const projects: ProjectDetails[] = [
         title: "MVP Development",
         content:
           "We focused on core features that would validate the concept and provide value to early adopters.",
+      },
+    ],
+  },
+  {
+    slug: "windows-ep.os",
+    title: "windows-ep.os",
+    subtitle: "Vibe coding project",
+    description:
+      "A playful “OS-in-the-browser” experiment built to explore interaction, motion, and UI vibes.",
+    tags: ["AI Experiment", "Cursor", "Claude"],
+    thumbnail: "/projects/window-ep.os/boot-screen.png",
+    heroImage: "/projects/window-ep.os/desktop.png",
+    company: "Personal project",
+    role: "Designer / builder",
+    tools: ["Next.js", "React", "Tailwind"],
+    timeline: "Ongoing",
+    externalUrl: "https://windows-ep.vercel.app/",
+    challenge:
+      "Create a fun, high-polish interactive web experience that feels like a tiny operating system—without taking itself too seriously.",
+    overview:
+      "This project is a sandbox for playful UI: window management, interaction patterns, and a little bit of chaos. It’s meant to be explored, not explained.",
+    sections: [
+      {
+        title: "What it is",
+        content:
+          "A vibe-first build where the goal is delight: familiar OS patterns, quick interactions, and a bunch of small details that make it feel alive.",
+      },
+      {
+        title: "What I focused on",
+        content:
+          "Interaction and motion: responsiveness, layering, micro-transitions, and keeping the whole thing snappy even as complexity grows.",
+        bullets: [
+          "Window-like UI patterns",
+          "Motion + feedback for interactions",
+          "A cohesive visual system that still feels playful",
+        ],
       },
     ],
   },

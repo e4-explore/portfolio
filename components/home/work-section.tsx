@@ -19,18 +19,21 @@ export function WorkSection() {
           "--work-accent-bg-hover": "rgba(232, 93, 45, 0.20)",
         } as React.CSSProperties)
       : ({
-          "--work-accent": "#39FF14",
-          "--work-accent-bg": "rgba(57, 255, 20, 0.14)",
-          "--work-accent-bg-hover": "rgba(57, 255, 20, 0.20)",
+          "--work-accent": "var(--vibe-green)",
+          "--work-accent-bg": "var(--vibe-green-bg)",
+          "--work-accent-bg-hover": "var(--vibe-green-bg-hover)",
         } as React.CSSProperties);
 
   const vibeCoderProjects = useMemo(() => {
     // Keep vibe-coder mode safely linked to existing /work/[slug] pages.
-    const filtered = projects.filter((p) => p.tags?.includes("Design Systems"));
-    return filtered.length ? filtered : projects;
+    return projects.filter((p) => p.tags?.includes("AI Experiment"));
   }, []);
 
-  const visibleProjects = workMode === "product" ? projects : vibeCoderProjects;
+  const productProjects = useMemo(() => {
+    return projects.filter((p) => !p.tags?.includes("AI Experiment"));
+  }, []);
+
+  const visibleProjects = workMode === "product" ? productProjects : vibeCoderProjects;
 
   return (
     <Section
@@ -44,25 +47,27 @@ export function WorkSection() {
       }
     >
       <SectionHeading className="relative z-10 mb-12">
-        Here is some of my recent{" "}
-        <button
-          type="button"
-          onClick={() => setWorkMode((m) => (m === "product" ? "vibe" : "product"))}
-          style={toggleStyle}
-          className="inline-flex items-center gap-3 h-12 md:h-14 px-5 md:px-7 rounded-full border border-[var(--work-accent)] bg-[var(--work-accent-bg)] hover:bg-[var(--work-accent-bg-hover)] transition-colors"
-          aria-pressed={workMode !== "product"}
-          aria-label="Toggle between Product Design and Vibe Coding"
-        >
-          {workMode === "product" ? (
-            <Navigation className="w-5 h-5 md:w-6 md:h-6" style={{ color: "var(--work-accent)" }} />
-          ) : (
-            <Bot className="w-5 h-5 md:w-6 md:h-6" style={{ color: "var(--work-accent)" }} />
-          )}
-          <span className="text-xl md:text-2xl font-bold leading-none" style={{ color: "var(--work-accent)" }}>
-            {workMode === "product" ? "Product Design" : "Vibe Coding"}
-          </span>
-        </button>{" "}
-        ...
+        <span className="inline-flex flex-wrap items-center gap-x-3 gap-y-3 leading-[48px]">
+          <span>Here is some recent</span>
+          <button
+            type="button"
+            onClick={() => setWorkMode((m) => (m === "product" ? "vibe" : "product"))}
+            style={toggleStyle}
+            className="inline-flex items-center gap-2 md:gap-3 h-10 md:h-14 px-4 md:px-5 rounded-full border border-[var(--work-accent)] bg-[var(--work-accent-bg)] hover:bg-[var(--work-accent-bg-hover)] transition-colors align-middle"
+            aria-pressed={workMode !== "product"}
+            aria-label="Toggle between Product Design and Vibe Coding"
+          >
+            {workMode === "product" ? (
+              <Navigation className="w-4 h-4 md:w-6 md:h-6" style={{ color: "var(--work-accent)" }} />
+            ) : (
+              <Bot className="w-4 h-4 md:w-6 md:h-6" style={{ color: "var(--work-accent)" }} />
+            )}
+            <span className="text-lg md:text-2xl font-bold leading-none" style={{ color: "var(--work-accent)" }}>
+              {workMode === "product" ? "Product Design" : "Vibe Coding"}
+            </span>
+          </button>
+          <span aria-hidden="true">...</span>
+        </span>
       </SectionHeading>
 
       <div className="relative z-10 grid gap-8">

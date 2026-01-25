@@ -48,6 +48,11 @@
   --role-accent-bg: rgba(232, 93, 45, 0.14);
   --role-accent-bg-hover: rgba(232, 93, 45, 0.20);
 
+  /* Vibe coding green (theme-aware for accessibility) */
+  --vibe-green: #00a700;
+  --vibe-green-bg: rgba(15, 122, 15, 0.14);
+  --vibe-green-bg-hover: rgba(15, 122, 15, 0.20);
+
   /* Selection */
   --selection-bg: var(--role-accent-bg);
   --selection-fg: var(--foreground);
@@ -88,7 +93,7 @@
   --grid-color: rgba(26, 26, 26, 0.06);
 
   /* Pattern backgrounds (dots/lines) */
-  --pattern-dot: rgba(26, 26, 26, 0.10);
+  --pattern-dot: rgba(26, 26, 26, 0.14);
   --pattern-line: rgba(26, 26, 26, 0.08);
   
   /* Container */
@@ -204,6 +209,11 @@
   --role-accent: #39ff14;
   --role-accent-bg: rgba(57, 255, 20, 0.14);
   --role-accent-bg-hover: rgba(57, 255, 20, 0.20);
+
+  /* Vibe coding green (theme-aware for accessibility) */
+  --vibe-green: #39ff14;
+  --vibe-green-bg: rgba(57, 255, 20, 0.14);
+  --vibe-green-bg-hover: rgba(57, 255, 20, 0.20);
 
   /* Selection */
   --selection-bg: var(--role-accent-bg);
@@ -378,6 +388,7 @@
   
   h2 {
     font-size: var(--font-size-3xl);
+    line-height: 48px;
   }
   
   h3 {
@@ -476,6 +487,35 @@
   html.theme-glitch body {
     animation: theme-glitch-jitter 550ms steps(2, end) both;
   }
+
+  /* Sunrise overlay when switching back to light mode */
+  html.theme-sunrise::after {
+    content: "";
+    position: fixed;
+    inset: -20%;
+    pointer-events: none;
+    z-index: 2147483647;
+    opacity: 0;
+    background:
+      radial-gradient(
+        circle at 50% 115%,
+        rgba(255, 210, 130, 0.65) 0%,
+        rgba(255, 165, 90, 0.35) 28%,
+        rgba(255, 120, 60, 0.20) 48%,
+        rgba(255, 255, 255, 0.0) 70%
+      ),
+      linear-gradient(
+        to top,
+        rgba(255, 200, 120, 0.24),
+        rgba(255, 255, 255, 0.0) 55%
+      );
+    mix-blend-mode: screen;
+    animation: theme-sunrise-overlay 700ms ease-out both;
+  }
+
+  html.theme-sunrise body {
+    animation: theme-sunrise-warmth 700ms ease-out both;
+  }
 }
 
 @keyframes theme-noise {
@@ -564,6 +604,36 @@
   }
 }
 
+@keyframes theme-sunrise-overlay {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 12%, 0);
+    filter: blur(10px) saturate(1.15);
+  }
+  35% {
+    opacity: 0.85;
+    transform: translate3d(0, 0%, 0);
+    filter: blur(4px) saturate(1.25);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -8%, 0);
+    filter: blur(0px) saturate(1.05);
+  }
+}
+
+@keyframes theme-sunrise-warmth {
+  0% {
+    filter: saturate(1.0) brightness(1.0);
+  }
+  35% {
+    filter: saturate(1.15) brightness(1.06);
+  }
+  100% {
+    filter: saturate(1.0) brightness(1.0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html.theme-transition,
   html.theme-transition * {
@@ -577,6 +647,11 @@
 
   html.theme-glitch::after,
   html.theme-glitch body {
+    animation: none !important;
+  }
+
+  html.theme-sunrise::after,
+  html.theme-sunrise body {
     animation: none !important;
   }
 }

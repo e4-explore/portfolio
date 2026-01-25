@@ -44,25 +44,28 @@ const socialLinks = [
   },
   {
     name: "Resume",
-    href: "/resume.pdf",
+    href: "/Grove_Resume_2023.pdf",
     icon: FileText,
   },
 ];
 
 export function Footer() {
   return (
-    <footer id="contact" className="bg-background border-t border-dashed border-border">
-      <div className="container-default section-padding">
+    <footer
+      id="contact"
+      className="relative bg-background border-0 border-none before:content-[''] before:absolute before:inset-x-0 before:top-0 before:h-[1px] before:bg-[repeating-linear-gradient(90deg,var(--border)_0_12px,transparent_12px_24px)]"
+    >
+      <div className="container-default pt-12 pb-20">
         <div className="flex flex-col items-center gap-8 md:flex-row md:items-center md:justify-between">
           {/* Social Links */}
-          <div className="flex flex-wrap justify-center gap-4 md:justify-end">
+          <div className="grid grid-cols-3 gap-4 place-items-center md:flex md:flex-wrap md:justify-end">
             {socialLinks.map((link) => (
               <SocialLink key={link.name} {...link} />
             ))}
           </div>
 
           {/* Copyright */}
-          <p className="text-sm text-muted-foreground w-full text-center md:w-auto md:text-left md:order-first">
+          <p className="text-5xl font-semibold text-foreground w-full text-center md:w-auto md:text-left md:order-first">
             &copy;{new Date().getFullYear()}
           </p>
         </div>
@@ -80,11 +83,13 @@ function SocialLink({
   href: string;
   icon: React.ElementType;
 }) {
+  const isExternal = href.startsWith("http");
+  const isPdf = href.toLowerCase().endsWith(".pdf");
   return (
     <Link
       href={href}
-      target={href.startsWith("http") ? "_blank" : undefined}
-      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+      target={isExternal || isPdf ? "_blank" : undefined}
+      rel={isExternal || isPdf ? "noopener noreferrer" : undefined}
       aria-label={name}
       title={name}
       className="inline-flex items-center justify-center p-3 text-muted-foreground hover:text-foreground rounded-full transition-colors hover:bg-muted"
