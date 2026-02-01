@@ -43,6 +43,25 @@ export function WaveInterferenceV5Background({
     const parent = canvas.parentElement;
     if (!parent) return;
 
+    // #region agent log (wave mounted)
+    fetch("http://127.0.0.1:7248/ingest/0a0b2c69-3acb-4c12-b656-5ee9a2a79423", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        sessionId: "debug-session",
+        runId: "pre-fix",
+        hypothesisId: "C",
+        location: "components/home/wave-interference-v5.tsx:WaveInterferenceV5Background.useEffect",
+        message: "Wave background mounted",
+        data: {
+          htmlHasDark: document.documentElement.classList.contains("dark"),
+          htmlClass: document.documentElement.className,
+        },
+        timestamp: Date.now(),
+      }),
+    }).catch(() => {});
+    // #endregion agent log (wave mounted)
+
     let width = 0;
     let height = 0;
     let dpr = 1;
@@ -274,6 +293,23 @@ export function WaveInterferenceV5Background({
       observer.disconnect();
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
       rafRef.current = null;
+      // #region agent log (wave unmounted)
+      fetch("http://127.0.0.1:7248/ingest/0a0b2c69-3acb-4c12-b656-5ee9a2a79423", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          sessionId: "debug-session",
+          runId: "pre-fix",
+          hypothesisId: "C",
+          location: "components/home/wave-interference-v5.tsx:WaveInterferenceV5Background.cleanup",
+          message: "Wave background unmounted",
+          data: {
+            htmlHasDark: document.documentElement.classList.contains("dark"),
+          },
+          timestamp: Date.now(),
+        }),
+      }).catch(() => {});
+      // #endregion agent log (wave unmounted)
     };
   }, [constants.TWO_PI]);
 

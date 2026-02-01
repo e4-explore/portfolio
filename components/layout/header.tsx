@@ -3,22 +3,40 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { ArrowLeft, Menu, X } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
   const isHome = pathname === "/";
   const isProjectPage = pathname.startsWith("/work/");
+
+  useEffect(() => {
+    if (isHome) return;
+
+    const onScroll = () => setIsScrolled(window.scrollY > 8);
+    onScroll();
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isHome]);
 
   return (
     <header
       className={
         isHome
           ? "relative z-50"
-          : "fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm"
+          : isProjectPage
+            ? `fixed top-0 left-0 right-0 z-50 transition-colors ${
+                isScrolled
+                  ? "bg-background/70 supports-[backdrop-filter]:bg-background/60 backdrop-blur-md border-b border-border/40"
+                  : "bg-transparent"
+              }`
+            : "fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm"
       }
     >
       <div className="container-default">
@@ -36,7 +54,7 @@ export function Header() {
                 <button
                   type="button"
                   onClick={() => router.back()}
-                  className="inline-flex items-center gap-2 px-3 py-2 rounded-full border border-border bg-background hover:bg-muted text-foreground font-semibold transition-colors"
+                  className="inline-flex h-10 items-center gap-2 px-4 rounded-full border border-border bg-background hover:bg-muted text-foreground font-semibold transition-colors"
                   aria-label="Go back"
                 >
                   <ArrowLeft className="w-4 h-4" aria-hidden="true" />
@@ -53,11 +71,17 @@ export function Header() {
           )}
 
           {/* Navigation */}
-          {isProjectPage ? null : isHome ? (
-            // Home: show nav on desktop only
-            <div className="hidden md:flex items-center gap-8">
-              <NavLink href="/#work">WORK</NavLink>
-              <NavLink href="/#about">ME</NavLink>
+          {isProjectPage ? (
+            <ThemeToggle variant="nav" />
+          ) : isHome ? (
+            <div className="flex items-center gap-4">
+              {/* Home: show section links on desktop */}
+              <div className="hidden md:flex items-center gap-8">
+                <NavLink href="/#work">WORK</NavLink>
+                <NavLink href="/#about">ME</NavLink>
+              </div>
+              {/* Keep theme toggle accessible after scrolling */}
+              <ThemeToggle variant="nav" />
             </div>
           ) : (
             // Other pages: desktop nav + mobile menu button

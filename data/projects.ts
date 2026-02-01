@@ -182,7 +182,7 @@ export const projects: ProjectDetails[] = [
   {
     slug: "windows-ep.os",
     title: "windows-ep.os",
-    subtitle: "Vibe coding project",
+    subtitle: "My AI Playground",
     description:
       "A playful “OS-in-the-browser” experiment built to explore interaction, motion, and UI vibes.",
     tags: ["AI Experiment", "Cursor", "Claude"],

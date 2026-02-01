@@ -56,7 +56,7 @@ export function Footer() {
       id="contact"
       className="relative bg-background border-0 border-none before:content-[''] before:absolute before:inset-x-0 before:top-0 before:h-[1px] before:bg-[repeating-linear-gradient(90deg,var(--border)_0_12px,transparent_12px_24px)]"
     >
-      <div className="container-default pt-12 pb-20">
+      <div className="container-default pt-12 pb-16">
         <div className="flex flex-col items-center gap-8 md:flex-row md:items-center md:justify-between">
           <Reveal className="md:order-last">
             {/* Social Links */}

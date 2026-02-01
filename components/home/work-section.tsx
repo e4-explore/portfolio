@@ -4,16 +4,44 @@ import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ProjectCard } from "@/components/projects/project-card";
 import { projects } from "@/data/projects";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { WaveInterferenceV5Background } from "@/components/home/wave-interference-v5";
 import { Bot, Navigation } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
+import { useTheme } from "next-themes";
 
 export function WorkSection() {
+  const { resolvedTheme } = useTheme();
   const [workMode, setWorkMode] = useState<"product" | "vibe">("product");
   const transitionTimeoutRef = useRef<number | null>(null);
   const glitchTimeoutRef = useRef<number | null>(null);
   const sunriseTimeoutRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    // #region agent log (theme/work mode state)
+    fetch("http://127.0.0.1:7248/ingest/0a0b2c69-3acb-4c12-b656-5ee9a2a79423", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        sessionId: "debug-session",
+        runId: "pre-fix",
+        hypothesisId: "A",
+        location: "components/home/work-section.tsx:WorkSection.useEffect",
+        message: "WorkSection state snapshot",
+        data: {
+          resolvedTheme,
+          workMode,
+          sectionVariant: workMode === "vibe" ? "default" : "alt",
+          backgroundRendersWave: workMode === "vibe",
+          htmlHasDark: window.document.documentElement.classList.contains("dark"),
+          htmlClass: window.document.documentElement.className,
+        },
+        timestamp: Date.now(),
+      }),
+    }).catch(() => {});
+    // #endregion agent log (theme/work mode state)
+  }, [resolvedTheme, workMode]);
 
   const enableUiTransition = (durationMs: number) => {
     if (typeof window === "undefined") return;
@@ -91,6 +119,28 @@ export function WorkSection() {
               type="button"
               onClick={() => {
                 const nextMode = workMode === "product" ? "vibe" : "product";
+                // #region agent log (work mode toggle click)
+                fetch("http://127.0.0.1:7248/ingest/0a0b2c69-3acb-4c12-b656-5ee9a2a79423", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({
+                    sessionId: "debug-session",
+                    runId: "pre-fix",
+                    hypothesisId: "A",
+                    location: "components/home/work-section.tsx:WorkSection.onClick",
+                    message: "Work mode toggle clicked",
+                    data: {
+                      prevWorkMode: workMode,
+                      nextMode,
+                      resolvedTheme,
+                      htmlHasDark:
+                        typeof window !== "undefined" &&
+                        window.document.documentElement.classList.contains("dark"),
+                    },
+                    timestamp: Date.now(),
+                  }),
+                }).catch(() => {});
+                // #endregion agent log (work mode toggle click)
                 if (nextMode === "vibe") {
                   enableUiTransition(300);
                   triggerUiGlitch();

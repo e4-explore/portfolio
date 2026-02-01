@@ -89,7 +89,7 @@
   --space-6xl: 10rem;     /* 160px */
   
   /* Section Spacing */
-  --section-padding-y: 5rem;
+  --section-padding-y: 4rem;
   --section-padding-x: 1.5rem;
 
   /* Grid background */
@@ -255,7 +255,7 @@
   --space-4xl: 6rem;
   --space-5xl: 8rem;
   --space-6xl: 10rem;
-  --section-padding-y: 5rem;
+  --section-padding-y: 4rem;
   --section-padding-x: 1.5rem;
 
   /* Grid background */

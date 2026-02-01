@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo } from "react";
+import { useLayoutEffect, useMemo } from "react";
 import { usePathname } from "next/navigation";
 
 type Options = {
@@ -29,9 +29,19 @@ export function AutoReveal({ staggerMs = 80 }: Options) {
   const pathname = usePathname();
   const key = useMemo(() => `${pathname}`, [pathname]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (typeof window === "undefined") return;
     if (prefersReducedMotion()) return;
+
+    // Prevent route transitions to /work/* from "starting" at the previous scroll position
+    // (especially noticeable because global CSS enables smooth scrolling).
+    if (pathname?.startsWith("/work/")) {
+      const root = window.document.documentElement;
+      const prevScrollBehavior = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";
+      window.scrollTo(0, 0);
+      root.style.scrollBehavior = prevScrollBehavior;
+    }
 
     const targets: HTMLElement[] = [];
 
@@ -103,7 +113,7 @@ export function AutoReveal({ staggerMs = 80 }: Options) {
       observer.disconnect();
       mo.disconnect();
     };
-  }, [key, staggerMs]);
+  }, [key, pathname, staggerMs]);
 
   return null;
 }

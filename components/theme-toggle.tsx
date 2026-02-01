@@ -4,18 +4,50 @@ import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
 
-export function ThemeToggle() {
+type ThemeToggleProps = {
+  /** Use a smaller, icon-only version for tight UI like the header. */
+  variant?: "default" | "nav";
+};
+
+export function ThemeToggle({ variant = "default" }: ThemeToggleProps) {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const transitionTimeoutRef = useRef<number | null>(null);
   const glitchTimeoutRef = useRef<number | null>(null);
   const sunriseTimeoutRef = useRef<number | null>(null);
   const isDark = mounted && resolvedTheme === "dark";
+  const isNav = variant === "nav";
 
   // Prevent hydration mismatch: server can't know system theme.
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (!mounted) return;
+    // #region agent log (theme resolved change)
+    fetch("http://127.0.0.1:7248/ingest/0a0b2c69-3acb-4c12-b656-5ee9a2a79423", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        sessionId: "debug-session",
+        runId: "pre-fix",
+        hypothesisId: "B",
+        location: "components/theme-toggle.tsx:ThemeToggle.useEffect",
+        message: "Theme resolvedTheme observed",
+        data: {
+          variant,
+          mounted,
+          resolvedTheme,
+          htmlHasDark: window.document.documentElement.classList.contains("dark"),
+          htmlClass: window.document.documentElement.className,
+        },
+        timestamp: Date.now(),
+      }),
+    }).catch(() => {});
+    // #endregion agent log (theme resolved change)
+  }, [mounted, resolvedTheme, variant]);
 
   const enableThemeTransition = (durationMs = 300) => {
     if (typeof window === "undefined") return;
@@ -70,6 +102,29 @@ export function ThemeToggle() {
       type="button"
       onClick={() => {
         const nextTheme = isDark ? "light" : "dark";
+        // #region agent log (theme toggle click)
+        fetch("http://127.0.0.1:7248/ingest/0a0b2c69-3acb-4c12-b656-5ee9a2a79423", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            sessionId: "debug-session",
+            runId: "pre-fix",
+            hypothesisId: "B",
+            location: "components/theme-toggle.tsx:ThemeToggle.onClick",
+            message: "Theme toggle clicked",
+            data: {
+              variant,
+              mounted,
+              resolvedTheme,
+              isDark,
+              nextTheme,
+              htmlHasDark:
+                typeof window !== "undefined" && window.document.documentElement.classList.contains("dark"),
+            },
+            timestamp: Date.now(),
+          }),
+        }).catch(() => {});
+        // #endregion agent log (theme toggle click)
         // Match transition window to overlay duration (sunrise/glitch).
         enableThemeTransition(nextTheme === "light" ? 1800 : 550);
         if (nextTheme === "dark") {
@@ -80,15 +135,19 @@ export function ThemeToggle() {
         setTheme(nextTheme);
       }}
       aria-pressed={isDark}
-      className="inline-flex h-10 md:h-20 items-center gap-0 md:gap-3 px-2 md:px-6 rounded-full border-2 border-border bg-background hover:bg-muted text-foreground transition-colors"
+      className={
+        isNav
+          ? "inline-flex h-10 items-center gap-0 px-3 rounded-full border border-border bg-background hover:bg-muted text-foreground transition-colors"
+          : "inline-flex h-10 md:h-20 items-center gap-0 md:gap-3 px-2 md:px-6 rounded-full border border-border bg-background hover:bg-muted text-foreground transition-colors"
+      }
     >
       <span
-        className="relative block w-6 h-6 md:w-9 md:h-9"
+        className={isNav ? "relative block w-5 h-5" : "relative block w-6 h-6 md:w-9 md:h-9"}
         aria-hidden="true"
       >
         <Sun
           className={[
-            "absolute inset-0 w-6 h-6 md:w-9 md:h-9",
+            isNav ? "absolute inset-0 w-5 h-5" : "absolute inset-0 w-6 h-6 md:w-9 md:h-9",
             "transition-[transform,opacity] duration-500 ease-out",
             "motion-reduce:transition-none",
             isDark ? "opacity-0 scale-50 rotate-90" : "opacity-100 scale-100 rotate-0",
@@ -96,16 +155,18 @@ export function ThemeToggle() {
         />
         <Moon
           className={[
-            "absolute inset-0 w-6 h-6 md:w-9 md:h-9",
+            isNav ? "absolute inset-0 w-5 h-5" : "absolute inset-0 w-6 h-6 md:w-9 md:h-9",
             "transition-[transform,opacity] duration-500 ease-out",
             "motion-reduce:transition-none",
             isDark ? "opacity-100 scale-100 rotate-0" : "opacity-0 scale-50 -rotate-90",
           ].join(" ")}
         />
       </span>
-      <span className="hidden md:inline text-2xl md:text-4xl font-bold leading-none">
-        {isDark ? "Night" : "Day"}
-      </span>
+      {!isNav && (
+        <span className="hidden md:inline text-2xl md:text-4xl font-bold leading-none">
+          {isDark ? "Night" : "Day"}
+        </span>
+      )}
     </button>
   );
 }
