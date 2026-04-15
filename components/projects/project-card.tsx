@@ -64,7 +64,7 @@ export function ProjectCard({ project, className, index = 0 }: ProjectCardProps)
             <TagList tags={project.tags} />
 
             <div className="flex items-center gap-2 text-sm font-medium text-foreground mt-2">
-              <span>View Project</span>
+              <span>View Details</span>
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </div>
           </div>

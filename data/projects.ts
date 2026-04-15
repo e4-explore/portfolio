@@ -180,6 +180,41 @@ export const projects: ProjectDetails[] = [
     ],
   },
   {
+    slug: "mystack",
+    title: "mystack",
+    subtitle: "My personal tech stack, visualized",
+    description:
+      "A clean, interactive showcase of my go-to tools and technologies — built to explore layout, animation, and a bit of personality.",
+    tags: ["AI Experiment", "Cursor", "Claude"],
+    thumbnail: "/projects/mystack/mystack.png",
+    company: "Personal project",
+    role: "Designer / builder",
+    tools: ["Next.js", "React", "Tailwind"],
+    timeline: "Ongoing",
+    externalUrl: "https://mystack-theta.vercel.app/",
+    challenge:
+      "Build a visually distinct, personal stack page that's more than a list — something that reflects taste and intention.",
+    overview:
+      "mystack is a playground for expressing the tools I actually use, in a format that's fun to look at and interact with.",
+    sections: [
+      {
+        title: "What it is",
+        content:
+          "A curated, interactive display of my tech stack — designed to feel intentional and opinionated rather than exhaustive.",
+      },
+      {
+        title: "What I focused on",
+        content:
+          "Layout, composition, and making something simple feel polished. The goal was clarity with character.",
+        bullets: [
+          "Clean visual hierarchy",
+          "Subtle interactions and hover states",
+          "A cohesive aesthetic that feels personal",
+        ],
+      },
+    ],
+  },
+  {
     slug: "windows-ep.os",
     title: "windows-ep.os",
     subtitle: "My AI Playground",
