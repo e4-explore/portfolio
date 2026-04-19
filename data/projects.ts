@@ -574,7 +574,7 @@ export const projects: ProjectDetails[] = [
     slug: "mystack",
     projectType: "vibe",
     title: "mystack",
-    subtitle: "Customizable curation pages",
+    subtitle: "Your personal curation page",
     description:
       "mystack is a customizable personal page where anyone can curate and share the things they rely on — tools, gear, products, content, anything.\n\nEveryone has a stack. Now there's somewhere to put it.",
     tags: ["AI Experiment", "Cursor", "Claude"],
