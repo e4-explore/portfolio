@@ -19,8 +19,17 @@ function readCssVar(name: string): string | null {
 // Waves emerge naturally from an unmoving center, finding peace in their flow.
 export function WaveInterferenceV5Background({
   className,
+  /** Broader ripples + wider field — tuned for tall sections (e.g. vibe project pages). */
+  spatialScale = "default",
+  /**
+   * Short, wide bars (e.g. project nav): scale ripples from width so the pattern fills the strip
+   * without changing container height. Canvas still uses `absolute inset-0` (fills parent).
+   */
+  layout = "default",
 }: {
   className?: string;
+  spatialScale?: "default" | "large";
+  layout?: "default" | "wideStrip";
 }) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const rafRef = useRef<number | null>(null);
@@ -72,6 +81,9 @@ export function WaveInterferenceV5Background({
     let field: Float32Array | null = null;
     let sources: Source[] = [];
 
+    const isLarge = spatialScale === "large";
+    const isWideStrip = layout === "wideStrip";
+
     const rebuild = () => {
       const rect = parent.getBoundingClientRect();
       width = Math.max(1, rect.width);
@@ -83,29 +95,35 @@ export function WaveInterferenceV5Background({
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
       const minDim = Math.min(width, height);
-      // Match the original look: ~3px on a 550 canvas
-      resolution = Math.max(2, Math.round(minDim / 180));
+      /** Spatial scale for sources + falloff: wide strips use width so short nav rows still look full. */
+      const scaleDim = isWideStrip ? Math.max(minDim, width * 0.3) : minDim;
+
+      // Match the original look: ~3px on a 550 canvas; slightly coarser when large for perf
+      resolution = Math.max(2, Math.round(minDim / (isLarge ? 200 : 180)));
       rows = Math.max(2, Math.floor(height / resolution));
       cols = Math.max(2, Math.floor(width / resolution));
       field = new Float32Array(rows * cols);
 
       // Build sources (scaled from the original 550×550 version)
       sources = [];
-      const numRings = 2;
+      const numRings = isWideStrip ? 3 : 2;
       const sourcesPerRing = 6;
 
-      const baseWavelength = Math.max(14, minDim / 22); // ~25 at 550
+      // Larger divisor → longer wavelength (fewer, broader ripples across the section)
+      const wavelengthDivisor = isLarge ? 12 : 22;
+      const baseWavelength = Math.max(isLarge ? 20 : 14, scaleDim / wavelengthDivisor);
       const center: Source = {
         x: width / 2,
         y: height / 2,
         wavelength: baseWavelength,
         phase: 0,
-        amplitude: 1.5,
+        amplitude: isLarge ? 1.65 : 1.5,
       };
       sources.push(center);
 
+      const ringRadiusFactor = isLarge ? 0.3 : isWideStrip ? 0.26 : 0.22;
       for (let ring = 1; ring <= numRings; ring++) {
-        const radius = ring * (minDim * 0.22); // ~120 at 550
+        const radius = ring * (scaleDim * ringRadiusFactor);
         const numSources = sourcesPerRing;
 
         for (let i = 0; i < numSources; i++) {
@@ -143,9 +161,12 @@ export function WaveInterferenceV5Background({
       const stroke = readCssVar("--foreground") ?? (isDark ? "#f5f7fa" : "#1a1a1a");
 
       const minDim = Math.min(width, height);
-      const falloffScale = Math.max(180, minDim * 0.55); // ~300 at 550
+      const scaleDim = isWideStrip ? Math.max(minDim, width * 0.3) : minDim;
+      const falloffScale = Math.max(isLarge ? 220 : 180, scaleDim * (isLarge ? 0.62 : 0.55));
       const INV_FALLOFF = 1 / falloffScale;
-      const maxDist = minDim * 0.73; // ~400 at 550
+      const maxDist = isWideStrip
+        ? Math.hypot(width * 0.52, height * 0.52)
+        : scaleDim * (isLarge ? 0.88 : 0.73);
 
       if (!field) {
         rafRef.current = requestAnimationFrame(animate);
@@ -181,7 +202,17 @@ export function WaveInterferenceV5Background({
 
       // Contours
       ctx.strokeStyle = stroke;
-      ctx.globalAlpha = isDark ? 0.18 : 0.14;
+      ctx.globalAlpha = isDark
+        ? isLarge
+          ? 0.2
+          : isWideStrip
+            ? 0.19
+            : 0.18
+        : isLarge
+          ? 0.17
+          : isWideStrip
+            ? 0.16
+            : 0.14;
 
       const contourLevels = [-0.8, -0.4, 0, 0.4, 0.8] as const;
       const lerp = (a: number, b: number, t: number) => a + t * (b - a);
@@ -311,7 +342,7 @@ export function WaveInterferenceV5Background({
       }).catch(() => {});
       // #endregion agent log (wave unmounted)
     };
-  }, [constants.TWO_PI]);
+  }, [constants.TWO_PI, spatialScale, layout]);
 
   return <canvas ref={canvasRef} aria-hidden="true" className={className} />;
 }

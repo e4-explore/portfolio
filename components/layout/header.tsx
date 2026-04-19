@@ -4,8 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
-import { ArrowLeft, Menu, X } from "lucide-react";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { ArrowLeft, Home, Menu, X } from "lucide-react";
+import { ThemeToggle, themeNavControlClassName } from "@/components/theme-toggle";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -51,15 +51,24 @@ export function Header() {
           {!isHome && (
             <>
               {isProjectPage ? (
-                <button
-                  type="button"
-                  onClick={() => router.back()}
-                  className="inline-flex h-10 items-center gap-2 px-4 rounded-full border border-border bg-background hover:bg-muted text-foreground font-semibold transition-colors"
-                  aria-label="Go back"
-                >
-                  <ArrowLeft className="w-4 h-4" aria-hidden="true" />
-                  <span className="text-sm">Back</span>
-                </button>
+                <div className="flex items-center gap-2">
+                  <Link
+                    href="/"
+                    className={themeNavControlClassName}
+                    aria-label="Home"
+                  >
+                    <Home className="w-5 h-5" aria-hidden="true" />
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => router.back()}
+                    className="inline-flex h-10 items-center gap-2 px-4 rounded-full border border-border bg-background hover:bg-muted text-foreground font-semibold transition-colors"
+                    aria-label="Go back"
+                  >
+                    <ArrowLeft className="w-4 h-4" aria-hidden="true" />
+                    <span className="text-sm">Back</span>
+                  </button>
+                </div>
               ) : (
                 <Link href="/" className="flex items-center gap-2 group">
                   <span className="text-lg font-semibold text-foreground hidden sm:block">

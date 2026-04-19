@@ -4,6 +4,8 @@ import { cn } from "@/lib/utils";
 interface SectionProps {
   children: React.ReactNode;
   className?: string;
+  /** Merged onto the inner container wrapper (e.g. `relative z-10` over a `background`). */
+  contentClassName?: string;
   id?: string;
   variant?: "default" | "alt";
   container?: "default" | "narrow" | "wide" | "full";
@@ -13,6 +15,7 @@ interface SectionProps {
 export function Section({
   children,
   className,
+  contentClassName,
   id,
   variant = "default",
   container = "default",
@@ -36,7 +39,7 @@ export function Section({
       )}
     >
       {background}
-      <div className={cn(containerClasses[container])}>{children}</div>
+      <div className={cn(containerClasses[container], contentClassName)}>{children}</div>
     </section>
   );
 }

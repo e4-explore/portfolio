@@ -10,6 +10,7 @@ interface ProjectNavigationProps {
   totalProjects: number;
   prevProject: ProjectDetails | null;
   nextProject: ProjectDetails | null;
+  projectType?: "design" | "vibe";
 }
 
 export function ProjectNavigation({
@@ -17,17 +18,25 @@ export function ProjectNavigation({
   totalProjects,
   prevProject,
   nextProject,
+  projectType,
 }: ProjectNavigationProps) {
+  const vibe = projectType === "vibe";
+
   return (
     <Section
-      variant="alt"
-      className="dark:!bg-none"
+      variant={vibe ? "default" : "alt"}
+      className={vibe ? "bg-[var(--background-alt)]" : undefined}
       background={
-        <WaveInterferenceV5Background className="hidden dark:block absolute inset-0 w-full h-full pointer-events-none" />
+        vibe ? (
+          <WaveInterferenceV5Background
+            layout="wideStrip"
+            className="pointer-events-none absolute inset-0 h-full w-full"
+          />
+        ) : undefined
       }
+      contentClassName={vibe ? "relative z-10" : undefined}
     >
-      <div className="relative z-10 flex flex-col items-center gap-6 sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-center">
-        {/* Last Project Link (hidden on first project) */}
+      <div className="flex flex-col items-center gap-6 sm:grid sm:grid-cols-[1fr_auto_1fr] sm:items-center">
         <div className="w-full flex justify-center sm:w-auto sm:justify-self-start sm:justify-start">
           {prevProject ? (
             <Reveal delayMs={0}>
@@ -42,7 +51,6 @@ export function ProjectNavigation({
           ) : null}
         </div>
 
-        {/* Project Counter */}
         <div className="sm:justify-self-center">
           <Reveal delayMs={90}>
             <span className="text-sm text-muted-foreground">
@@ -51,7 +59,6 @@ export function ProjectNavigation({
           </Reveal>
         </div>
 
-        {/* Next Project Link */}
         <div className="w-full flex justify-center sm:w-auto sm:justify-self-end sm:justify-end">
           <Reveal delayMs={180}>
             {nextProject ? (

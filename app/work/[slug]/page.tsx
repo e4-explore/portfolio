@@ -55,6 +55,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           totalProjects={projects.length}
           prevProject={prevProject}
           nextProject={nextProject}
+          projectType={project.projectType}
         />
       </main>
       <Footer />

@@ -9,6 +9,10 @@ type ThemeToggleProps = {
   variant?: "default" | "nav";
 };
 
+/** Shared with header controls (e.g. home) so they match the nav theme toggle. */
+export const themeNavControlClassName =
+  "inline-flex h-10 items-center justify-center gap-0 px-3 rounded-full border border-border bg-background hover:bg-muted text-foreground transition-colors";
+
 export function ThemeToggle({ variant = "default" }: ThemeToggleProps) {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -135,11 +139,7 @@ export function ThemeToggle({ variant = "default" }: ThemeToggleProps) {
         setTheme(nextTheme);
       }}
       aria-pressed={isDark}
-      className={
-        isNav
-          ? "inline-flex h-10 items-center gap-0 px-3 rounded-full border border-border bg-background hover:bg-muted text-foreground transition-colors"
-          : "inline-flex h-10 md:h-20 items-center gap-0 md:gap-3 px-2 md:px-6 rounded-full border border-border bg-background hover:bg-muted text-foreground transition-colors"
-      }
+      className={isNav ? themeNavControlClassName : "inline-flex h-10 md:h-20 items-center gap-0 md:gap-3 px-2 md:px-6 rounded-full border border-border bg-background hover:bg-muted text-foreground transition-colors"}
     >
       <span
         className={isNav ? "relative block w-5 h-5" : "relative block w-6 h-6 md:w-9 md:h-9"}
