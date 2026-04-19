@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Section } from "@/components/ui/section";
 import { TagList } from "@/components/ui/tag";
 import type { ProjectDetails } from "@/data/projects";
+import { AcquiredBadge, projectHeroCtaClassName } from "@/components/projects/acquired-badge";
 import { Reveal } from "@/components/ui/reveal";
 import { cn, imageFrameClassName } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
@@ -85,29 +86,38 @@ export function ProjectHero({ project }: ProjectHeroProps) {
         </div>
       </Reveal>
 
-      {/* Title & Subtitle */}
-      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between mb-8">
+      {/* Title row — same layout as vibe pages: headline + CTA (View project or Acquired badge) */}
+      <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-balance">
           {project.subtitle}
         </h1>
 
-        {project.externalUrl && (
-          <Link
-            href={project.externalUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-10 items-center justify-center gap-2 px-4 rounded-full border-2 border-border bg-background hover:bg-muted text-foreground font-semibold transition-colors w-fit md:shrink-0"
-          >
-            <span>View project</span>
-            <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
-          </Link>
+        {(project.externalUrl || project.acquisition) && (
+          <div className="flex w-full flex-col items-stretch gap-3 md:w-auto md:shrink-0 md:items-end">
+            {project.externalUrl ? (
+              <Link
+                href={project.externalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(projectHeroCtaClassName, "self-start md:self-end")}
+              >
+                <span>View project</span>
+                <ArrowUpRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+              </Link>
+            ) : null}
+            {project.acquisition ? (
+              <AcquiredBadge
+                variant="hero"
+                {...project.acquisition}
+                className="self-start md:self-end"
+              />
+            ) : null}
+          </div>
         )}
       </div>
 
       <Reveal delayMs={160}>
-        <h2 className="text-2xl md:text-3xl font-semibold text-muted-foreground mb-8">
-          {project.company}
-        </h2>
+        <h2 className="mb-8 text-2xl md:text-3xl font-semibold text-muted-foreground">{project.company}</h2>
 
         {/* Overview */}
         <Reveal delayMs={240}>

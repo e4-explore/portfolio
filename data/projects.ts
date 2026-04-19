@@ -16,6 +16,8 @@ export interface ProjectDetails extends Project {
   inProgress?: boolean;
   designFilesUrl?: string;
   projectType?: "design" | "vibe";
+  /** When true, only the hero image shows; challenge + section images/carousels are omitted. */
+  hideCaseStudyMedia?: boolean;
 }
 
 export interface ProjectSubItem {
@@ -189,7 +191,13 @@ export const projects: ProjectDetails[] = [
       "High Alpha partnered with Pillar to redesign their interview intelligence platform for a new user persona.",
     tags: ["UX Research", "UX/UI Design", "Design Systems"],
     thumbnail: "/projects/interview intelligence/interview intelligence.png",
-    heroImage: "/placeholder.svg",
+    heroImage: "/projects/interview intelligence/interview intelligence.png",
+    hideCaseStudyMedia: true,
+    acquisition: {
+      acquirerName: "Employ",
+      acquirerUrl: "https://www.employinc.com/",
+      acquirerLogo: "/brands/employs.svg",
+    },
     company: "High Alpha x Pillar",
     role: "Product Designer",
     team: "Ethan Grove, JP Pritzel & Pillar Team",
@@ -362,7 +370,8 @@ export const projects: ProjectDetails[] = [
       "High Alpha partnered with Colaboratory to design and launch an MVP brand collaboration platform for go-to-market.",
     tags: ["UX Research", "UX/UI Design", "Design Systems"],
     thumbnail: "/projects/brand-x-brand-collaboration/brand-x-brand-collaboration.png",
-    heroImage: "/placeholder.svg",
+    heroImage: "/projects/brand-x-brand-collaboration/brand-x-brand-collaboration.png",
+    hideCaseStudyMedia: true,
     company: "High Alpha x Colaboratory",
     role: "Lead Product Designer",
     team: "Ethan Grove, Chad Hostetter, Kristin Martin & Colaboratory Team",

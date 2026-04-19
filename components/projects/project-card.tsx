@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { TagList } from "@/components/ui/tag";
+import { AcquiredBadge, type AcquisitionInfo } from "@/components/projects/acquired-badge";
 import { cn } from "@/lib/utils";
 
 export interface Project {
@@ -14,6 +15,7 @@ export interface Project {
   color?: string;
   externalUrl?: string;
   heroImage?: string;
+  acquisition?: AcquisitionInfo;
 }
 
 interface ProjectCardProps {
@@ -52,6 +54,12 @@ export function ProjectCard({ project, className, index = 0 }: ProjectCardProps)
 
           {/* Content */}
           <div className="flex flex-col gap-4">
+            {project.acquisition ? (
+              <div className="w-fit">
+                <AcquiredBadge variant="card" {...project.acquisition} />
+              </div>
+            ) : null}
+
             <div className="space-y-2">
               <h3 className="text-2xl md:text-3xl font-bold text-foreground group-hover:text-muted-foreground transition-colors">
                 {project.title}

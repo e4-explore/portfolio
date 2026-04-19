@@ -13,6 +13,8 @@ const isVibe = (project: ProjectDetails) => project.projectType === "vibe";
 export function ProjectContent({ project }: ProjectContentProps) {
   if (isVibe(project)) return null;
 
+  const hideMedia = project.hideCaseStudyMedia === true;
+
   return (
     <>
       {/* Challenge Section */}
@@ -46,7 +48,7 @@ export function ProjectContent({ project }: ProjectContentProps) {
                 </ul>
               </Reveal>
             )}
-            {project.challengeImage && (
+            {project.challengeImage && !hideMedia && (
               <Reveal delayMs={270}>
                 <div className="relative aspect-[16/9] rounded-xl overflow-hidden bg-muted mt-8">
                   <Image
@@ -64,7 +66,12 @@ export function ProjectContent({ project }: ProjectContentProps) {
 
       {/* Dynamic Sections */}
       {project.sections.map((section, index) => (
-        <ContentSection key={section.title} section={section} index={index} />
+        <ContentSection
+          key={section.title}
+          section={section}
+          index={index}
+          hideMedia={hideMedia}
+        />
       ))}
 
       {/* In-Progress Banner */}
@@ -98,9 +105,10 @@ export function ProjectContent({ project }: ProjectContentProps) {
 interface ContentSectionProps {
   section: ProjectSection;
   index: number;
+  hideMedia?: boolean;
 }
 
-function ContentSection({ section, index }: ContentSectionProps) {
+function ContentSection({ section, index, hideMedia }: ContentSectionProps) {
   // Design: even = default (plain), odd = alt (dots)
   const isOdd = index % 2 !== 0;
   const variant = isOdd ? "alt" : "default";
@@ -139,7 +147,7 @@ function ContentSection({ section, index }: ContentSectionProps) {
         )}
 
         {/* Section image (full-width) */}
-        {section.image && (
+        {section.image && !hideMedia && (
           <Reveal delayMs={180}>
             <div className="relative aspect-[16/9] rounded-xl overflow-hidden bg-muted mb-8">
               <Image
@@ -153,7 +161,7 @@ function ContentSection({ section, index }: ContentSectionProps) {
         )}
 
         {/* Carousel */}
-        {section.carousel && section.carousel.length > 0 && (
+        {!hideMedia && section.carousel && section.carousel.length > 0 && (
           <Reveal delayMs={180}>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
               {section.carousel.map((slide, i) => (
@@ -167,7 +175,11 @@ function ContentSection({ section, index }: ContentSectionProps) {
 
         {/* Sub-items */}
         {section.subItems && section.subItems.length > 0 && (
-          <Reveal delayMs={section.image || section.carousel ? 270 : 180}>
+          <Reveal
+            delayMs={
+              !hideMedia && (section.image || section.carousel) ? 270 : 180
+            }
+          >
             <ul className="space-y-8 mb-8">
               {section.subItems.map((item, i) => (
                 <li key={i} className="flex items-start gap-4">
@@ -177,7 +189,7 @@ function ContentSection({ section, index }: ContentSectionProps) {
                   <div className="flex-1 min-w-0">
                     <p className="font-semibold text-foreground mb-1">{item.title}</p>
                     <p className="text-muted-foreground leading-relaxed mb-4">{item.content}</p>
-                    {item.image && (
+                    {item.image && !hideMedia && (
                       <div className="relative aspect-[16/9] rounded-xl overflow-hidden bg-muted">
                         <Image
                           src={item.image}
