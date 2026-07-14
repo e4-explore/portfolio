@@ -18,9 +18,9 @@ export function ProjectContent({ project }: ProjectContentProps) {
   return (
     <>
       {/* Challenge Section */}
-      {!project.inProgress && (
+      {project.challenge && (
         <Section variant="alt">
-          <div className="relative z-10 max-w-4xl">
+          <div className="relative z-10">
             <Reveal delayMs={0}>
               <SectionHeading size="md" className="mb-2">
                 The Challenge
@@ -78,7 +78,7 @@ export function ProjectContent({ project }: ProjectContentProps) {
       {project.inProgress && (
         <Section variant="default">
           <Reveal delayMs={0}>
-            <div className="max-w-4xl">
+            <div>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 This case study is in-progress,{" "}
                 {project.designFilesUrl ? (
@@ -115,7 +115,7 @@ function ContentSection({ section, index, hideMedia }: ContentSectionProps) {
 
   return (
     <Section variant={variant}>
-      <div className="relative z-10 max-w-4xl">
+      <div className="relative z-10">
         <Reveal delayMs={0}>
           <SectionHeading size="md" className="mb-6">
             {section.title}

@@ -92,7 +92,7 @@ const DARK_ROLE_STYLES: Record<string, { accent: string; bg: string; bgHover: st
 const LIGHT_ROLES = [
   {
     id: "product-designer",
-    label: "product designer",
+    label: "sr. product designer",
     icon: Navigation,
     isDefault: true,
   },

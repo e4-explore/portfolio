@@ -80,7 +80,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
             src={project.heroImage || project.thumbnail || "/placeholder.svg"}
             alt={project.title}
             fill
-            className="object-cover"
+            className="object-cover object-center md:object-top"
             priority
           />
         </div>

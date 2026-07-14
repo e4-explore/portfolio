@@ -3,12 +3,14 @@
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { ProjectCard } from "@/components/projects/project-card";
-import { projects } from "@/data/projects";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { getVisibleProjects } from "@/data/projects";
+import { useMemo, useRef, useState } from "react";
 import { WaveInterferenceV5Background } from "@/components/home/wave-interference-v5";
-import { Bot, Navigation } from "lucide-react";
+import { ArrowLeftRight } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { useTheme } from "next-themes";
+
+const projects = getVisibleProjects();
 
 export function WorkSection() {
   const { resolvedTheme } = useTheme();
@@ -16,32 +18,6 @@ export function WorkSection() {
   const transitionTimeoutRef = useRef<number | null>(null);
   const glitchTimeoutRef = useRef<number | null>(null);
   const sunriseTimeoutRef = useRef<number | null>(null);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    // #region agent log (theme/work mode state)
-    fetch("http://127.0.0.1:7248/ingest/0a0b2c69-3acb-4c12-b656-5ee9a2a79423", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        sessionId: "debug-session",
-        runId: "pre-fix",
-        hypothesisId: "A",
-        location: "components/home/work-section.tsx:WorkSection.useEffect",
-        message: "WorkSection state snapshot",
-        data: {
-          resolvedTheme,
-          workMode,
-          sectionVariant: workMode === "vibe" ? "default" : "alt",
-          backgroundRendersWave: workMode === "vibe",
-          htmlHasDark: window.document.documentElement.classList.contains("dark"),
-          htmlClass: window.document.documentElement.className,
-        },
-        timestamp: Date.now(),
-      }),
-    }).catch(() => {});
-    // #endregion agent log (theme/work mode state)
-  }, [resolvedTheme, workMode]);
 
   const enableUiTransition = (durationMs: number) => {
     if (typeof window === "undefined") return;
@@ -119,28 +95,6 @@ export function WorkSection() {
               type="button"
               onClick={() => {
                 const nextMode = workMode === "product" ? "vibe" : "product";
-                // #region agent log (work mode toggle click)
-                fetch("http://127.0.0.1:7248/ingest/0a0b2c69-3acb-4c12-b656-5ee9a2a79423", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({
-                    sessionId: "debug-session",
-                    runId: "pre-fix",
-                    hypothesisId: "A",
-                    location: "components/home/work-section.tsx:WorkSection.onClick",
-                    message: "Work mode toggle clicked",
-                    data: {
-                      prevWorkMode: workMode,
-                      nextMode,
-                      resolvedTheme,
-                      htmlHasDark:
-                        typeof window !== "undefined" &&
-                        window.document.documentElement.classList.contains("dark"),
-                    },
-                    timestamp: Date.now(),
-                  }),
-                }).catch(() => {});
-                // #endregion agent log (work mode toggle click)
                 if (nextMode === "vibe") {
                   enableUiTransition(300);
                   triggerUiGlitch();
@@ -151,18 +105,18 @@ export function WorkSection() {
                 setWorkMode(nextMode);
               }}
               style={toggleStyle}
-              className="inline-flex items-center gap-2 md:gap-3 h-10 md:h-14 px-4 md:px-5 rounded-full border border-[var(--work-accent)] bg-[var(--work-accent-bg)] hover:bg-[var(--work-accent-bg-hover)] transition-colors align-middle"
+              className="group inline-flex items-center gap-2 md:gap-3 h-10 md:h-14 px-4 md:px-5 rounded-full border border-[var(--work-accent)] bg-[var(--work-accent-bg)] hover:bg-[var(--work-accent-bg-hover)] hover:shadow-md hover:scale-[1.03] active:scale-[0.98] transition-all align-middle"
               aria-pressed={workMode !== "product"}
               aria-label="Toggle between Product Design and Vibe Coding"
+              title="Click to switch between Product Design and Vibe Coding"
             >
-              {workMode === "product" ? (
-                <Navigation className="w-4 h-4 md:w-6 md:h-6" style={{ color: "var(--work-accent)" }} />
-              ) : (
-                <Bot className="w-4 h-4 md:w-6 md:h-6" style={{ color: "var(--work-accent)" }} />
-              )}
               <span className="text-lg md:text-2xl font-bold leading-none" style={{ color: "var(--work-accent)" }}>
                 {workMode === "product" ? "Product Design" : "Vibe Coding"}
               </span>
+              <ArrowLeftRight
+                className="w-3.5 h-3.5 md:w-4 md:h-4 opacity-60 transition-transform duration-300 group-hover:rotate-180"
+                style={{ color: "var(--work-accent)" }}
+              />
             </button>
           </span>
         </SectionHeading>

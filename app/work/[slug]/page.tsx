@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/footer";
 import { ProjectHero } from "@/components/projects/project-hero";
 import { ProjectContent } from "@/components/projects/project-content";
 import { ProjectNavigation } from "@/components/projects/project-navigation";
-import { getProjectBySlug, getAllProjectSlugs, projects } from "@/data/projects";
+import { getProjectBySlug, getAllProjectSlugs, getVisibleProjects } from "@/data/projects";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -40,6 +40,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   // Get adjacent projects for navigation
+  const projects = getVisibleProjects();
   const currentIndex = projects.findIndex((p) => p.slug === slug);
   const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : null;
   const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;

@@ -18,6 +18,8 @@ export interface ProjectDetails extends Project {
   projectType?: "design" | "vibe";
   /** When true, only the hero image shows; challenge + section images/carousels are omitted. */
   hideCaseStudyMedia?: boolean;
+  /** When true, excluded from listings, navigation, and static generation (404s if visited directly). */
+  hidden?: boolean;
 }
 
 export interface ProjectSubItem {
@@ -50,6 +52,238 @@ export interface ProjectSection {
 }
 
 export const projects: ProjectDetails[] = [
+  {
+    slug: "hudl-for-parents",
+    title: "Hudl for Parents",
+    subtitle: "Expanding Hudl's offering to a new market while consolidating and rebuilding the foundation",
+    description:
+      "Taking a new product to market for parents — Hudl's first entirely new user type — while consolidating two existing apps to cut cost and rebuilding platform navigation for every role.",
+    tags: ["UX Research", "0→1 Product Strategy", "UX/UI Design"],
+    thumbnail: "/projects/hudl-for-parents/hudl for parents - project cover.jpg",
+    company: "Hudl",
+    role: "Sr. Product Designer",
+    tools: ["Figma", "Miro", "Claude", "NotebookLM", ],
+    timeline: "6 months → Spring Alpha → Fall Beta",
+    inProgress: true,
+    challengeTitle: "A new user type, a mental model shift, and two apps becoming one",
+    challenge:
+      "Hudl had spent years building for coaches, athletes, and administrators — but never for the people cheering from the sidelines. This project set out to bring an entirely new product to market for parents ahead of a 2026 general-availability launch, while using the moment to fix two problems that had been building for years: two overlapping apps splitting the experience, and a navigation model that hadn't kept pace with what Hudl had become for any role.",
+    challengeBullets: [
+      "Define and validate an MVP for a completely new user type — parents — to lay the groundwork for an entirely new, currently untapped revenue line",
+      "Consolidate two existing apps into one, delisting the duplicate app and setting up the migration to eliminate its infrastructure and engineering overhead",
+      "Fix a platform-wide navigation and information architecture problem for every role, not just the new one — a year-old issue that had gone unaddressed",
+    ],
+    overview:
+      "Hudl is a sports performance platform used by coaches, athletes, and administrators for video, analytics, and team communication. Parents and fans had always been adjacent to that experience — watching games, tracking highlights — but never a first-class user type with a product built for them.\n\nThis project set out to change that: research and design a new product for parents from scratch, with the long-term goal of a monetizable subscription for this audience. Rather than treat it as an isolated 0→1 build, the project became the forcing function for two other long-standing problems — consolidating two existing apps into one, and rebuilding Hudl's navigation and mental model for every role, not just this new one.",
+    sections: [
+      {
+        title: "At a Glance",
+        content:
+          "The rest of this case study walks through how the project unfolded — but a few things are worth surfacing up front: a mid-pilot data reframe that reset the roadmap, leadership that extended past this one workstream, and hands-on contribution beyond design files.",
+        bullets: [
+          "Reframed the core assumption using pilot data, not instinct — this was an activation problem, not a retention one, and that distinction reset the roadmap heading into GA",
+          "Led a platform-wide navigation and IA fix that shipped for every role, not just parents, and advised other designers to keep it consistent outside this workstream",
+          "Went beyond design files: wrote and merged real pull requests, and built Claude Skills tooling to help the wider team move faster",
+        ],
+      },
+      {
+        title: "Kickoff — Starting with a user type that didn't exist yet",
+        content:
+          "There was no backlog of parent research to pull from — Hudl had never designed for this audience as a first-class user. The starting point wasn't a feature list, it was a question: what job is a parent actually trying to get done, and how much of that could realistically ship as an MVP versus live on a longer roadmap toward a paid offering?\n\nRather than design toward a fully-formed vision, the approach was deliberately staged: figure out the smallest version of the experience that would be genuinely useful, ship it as an alpha, and let real usage tell us what to build next.\n\nWhat did already exist was a list of known usability problems in the legacy Fan app more broadly — missing or empty content when video, schedules, or rosters hadn't been published yet, reliability issues around the handoff between livestreams and replays, difficulty finding relevant teams and content, trust in whether schedules and data were current, and friction around purchases and refunds. Knowing that list going in shaped what could realistically be folded into this project versus tackled separately.",
+      },
+      {
+        title: "Early Insights",
+        content: "",
+        subItems: [
+          {
+            title: "A new user, but a familiar navigation problem",
+            content:
+              "Early discovery kept surfacing an information architecture and mental-model problem that predated this project by about a year — one flagged in the legacy app but never prioritized. Designing a coherent experience for a brand-new user type made that gap impossible to ignore, and it turned out to be the right forcing function to finally fix it — for every role, not just parents.",
+          },
+          {
+            title: "Two apps, one job",
+            content:
+              "Parents (and plenty of existing users) were regularly bouncing between two separate apps to get a complete picture of what was happening with their athlete. That splintering pointed toward consolidation being just as important to the new experience as any new screen.",
+          },
+          {
+            title: "MVP first, subscription second",
+            content:
+              "The long-term goal was a monetizable subscription for this new audience, but committing to what's monetizable before anyone had used the product would have been guessing. The early strategy was to set a foundation — ship an MVP, learn fast, and let real usage tell us what's actually worth paying for.",
+          },
+        ],
+      },
+      {
+        title: "Discovery — Scoping the MVP without the roadmap in hand",
+        content: "",
+        subItems: [
+          {
+            title: "Defining the smallest useful version",
+            content:
+              "With no existing product to iterate on, the challenge was ruthlessly scoping what belonged in an initial alpha versus what could wait. The goal wasn't feature completeness — it was validating that parents would find enough value to keep coming back, without over-investing in directions that hadn't been tested.",
+          },
+          {
+            title: "A navigation audit across every role",
+            content:
+              "Revisiting the year-old navigation pitch meant going back through the feedback pattern that had been accumulating from coaches, athletes, and admins — not just parents — to make the case that this was a platform-wide fix, not a one-off for the new experience.",
+          },
+          {
+            title: "Setting up for rapid iteration",
+            content:
+              "Because so much about this user type was unproven, the emphasis was on building the muscle for fast testing and iteration — instrumenting the alpha to learn quickly rather than trying to get everything right on the first attempt.",
+          },
+          {
+            title: "Turning feedback into signal, not guesswork",
+            content:
+              "To make sure the right problems were being prioritized rather than working off anecdotes, a feedback pipeline was set up on top of in-app comments, using AI-assisted text analysis to sort raw feedback into recurring categories and themes automatically. Paired with a fan feedback dashboard tracking sentiment trends over time and segmentable by cohort, it gave the team a repeatable way to check that new work was actually addressing what fans and parents cared about most, and a step toward spotting emerging issues early rather than only reacting once they'd become widespread complaints.",
+          },
+          {
+            title: "Not breaking it for everyone else already there",
+            content:
+              "The legacy app wasn't used exclusively by parents — coaches used it to analyze games, recruiters browsed player profiles, and plenty of traffic came from roles the redesign wasn't primarily built for. Any changes had to serve the new parent experience without quietly breaking value for the mix of other people already relying on the app for very different jobs.",
+          },
+          {
+            title: "Mapping the problem space in detail",
+            content:
+              "Once the feedback pipeline was running, a clearer picture came into focus: parents expected far more live and on-demand video to already be available than the app actually had. Teams were hard to find and search, pushing people into workarounds just to follow their own kid. The handoff between a livestream and its replay was unreliable, with no good way to communicate delays or early endings. Things the app already knew about a person — their location, their favorited teams — weren't being used to shape what they saw first. And every team or org profile looked nearly identical, creating what the team started calling \"profile blindness.\" Underneath all of it was a quieter signal: parents already sensed there was more content available inside Hudl's main app than in the dedicated fan experience — reinforcing that consolidation, not just a fresh coat of UI, was the right move.",
+          },
+        ],
+      },
+      {
+        title: "Reframing the Problem",
+        quote:
+          "...how might we bring an entirely new user type into Hudl for the first time, without asking every existing user to live with a fragmented, outdated foundation while we do it?",
+        content:
+          "The project could have shipped narrowly — a new app, for a new user, sitting alongside everything else Hudl already had. Instead, it became clear the bigger opportunity — and the harder problem — was doing this in a way that made the whole platform better: one consolidated experience instead of two, and a navigation model that made sense for everyone using Hudl, not just the newest audience.",
+      },
+      {
+        title: "Design Strategy",
+        content: "",
+        subItems: [
+          {
+            title: "Ship the alpha, then let it teach you",
+            content:
+              "Rather than design a fully-scoped product up front, the strategy was to get a real, usable version of the parent experience in front of real users as early as possible, treating the alpha period as the primary research tool for what to build next.",
+          },
+          {
+            title: "Getting hands-on: design engineering with AI tooling",
+            content:
+              "Part of the contribution went beyond design files. This work included writing and merging real pull requests, and building tooling around Claude Skills to help the broader team move faster without cutting corners on quality — automating repetitive parts of the workflow so more time could go toward the harder design and product problems.",
+          },
+          {
+            title: "Fix the foundation once",
+            content:
+              "Rebuilding navigation and information architecture is disruptive, so it needed to happen deliberately and once — designed to hold up for the new parent experience and for every existing role, rather than patched around the new addition.",
+          },
+          {
+            title: "Design the seams for monetization, don't build it yet",
+            content:
+              "Knowing a subscription was the eventual goal shaped how flows and permissions were structured, without committing to specific paywalls or pricing before there was evidence of what parents would actually value enough to pay for.",
+          },
+          {
+            title: "Advising beyond this workstream",
+            content:
+              "Because the navigation changes touched surfaces well outside this one workstream, part of the role involved advising other designers working in similar areas — providing insight and direction so the fix stayed consistent across the parts of the product this project didn't directly own. The same was true of the underlying app consolidation: the technical migration was engineering-led, but the strategy for how the two experiences should actually come together was shaped heavily through cross-functional working sessions this role helped push forward.",
+          },
+          {
+            title: "Working across product, UX, marketing, and engineering",
+            content:
+              "None of this happened in a single-discipline lane. Getting a new user type, a platform-wide navigation fix, and an app consolidation all moving together took tight, continuous collaboration across product, UX, marketing, and engineering — aligning on scope, sequencing the consolidation around the parent rollout, and making sure outreach and messaging matched what the product could actually deliver at each stage.",
+          },
+        ],
+      },
+      {
+        title: "The MVP — Consolidation, navigation, and a new experience",
+        content: "",
+        subItems: [
+          {
+            title: "Merging two strong products, not rescuing one",
+            content:
+              "The consolidation wasn't a case of quietly folding a struggling app into a stronger one. Over the year leading into this project, the standalone Fan app had turned around dramatically — NPS climbing from -5 to 30 — and the app climbing into the top ranks of free sports apps on the App Store, at times outperforming Hudl's own flagship app in the charts. Consolidating it wasn't damage control; it was combining two products that had each already proven their value into one experience instead of splitting user attention across both.",
+          },
+          {
+            title: "One experience instead of two",
+            content:
+              "Two existing apps were consolidated into a single experience during this project — a decision that removed a real source of user confusion and, as a byproduct, cleared the way to delist one app from app stores, with the migration now underway to fully sunset it and eliminate the duplicate infrastructure and engineering overhead split across two codebases.",
+            image: "/projects/hudl-for-parents/hudl for parents - multiple apps.jpg",
+            imageAlt: "Hudl and Hudl Fan as two separate App Store listings before consolidation",
+          },
+          {
+            title: "A navigation model built for every role",
+            content:
+              "The information architecture and navigation rebuild shipped broadly, not just within the new parent experience — resolving a pattern of feedback that had been building for a year and giving every existing user type a clearer mental model of the product.",
+          },
+          {
+            title: "The cornerstone: rethinking around the event, not just the video",
+            content:
+              "One idea became the foundation the rest of the new experience was built on: design around the event itself, not around whether video happened to exist for it. That reframing matched how parents actually think about a season — planning week to week around this week's events — rather than a video-first model that left a dead end any time a stream fell through or hadn't posted yet. It gave every game a reliable page to land on regardless of what content was available, and created a foundation other ideas — schedules, live data, comparisons — could be layered onto later. That event-first page became the anchor the rest of the parent experience was designed around.",
+          },
+          {
+            title: "A closed pilot, built to be tested",
+            content:
+              "Before any broader rollout, the parent experience shipped as a closed pilot to a small group of real teams and families — an athlete-centric way to follow a season through video, schedules, messaging, athlete and team profiles, and livestreams, without needing a coach or admin role. Features rolled out progressively over the pilot rather than all at once, so each addition could be watched in isolation: messaging and calendar first as the foundation, then video and highlight moments, athlete and team profiles, livestreams, search, sharing, and ticketing.",
+          },
+        ],
+      },
+      {
+        title: "Pilot Learnings — Turning Data Into a New Point of View",
+        quote:
+          "...the data wasn't telling us retention was broken — it was telling us most parents never found the experience in the first place. We weren't fighting a retention problem. We were fighting an activation problem.",
+        content:
+          "Running a closed pilot only matters if it changes what you believe. Overall engagement across the cohort landed around 40% — enough real signal, for an unmarketed alpha, to draw conclusions from. A handful of patterns came out of this one clearly enough to reshape the point of view heading into a wider rollout.",
+        subItems: [
+          {
+            title: "Reframing the problem: activation, not retention",
+            content:
+              "90% of parents who reached an event profile went on to watch video — proof the experience itself worked once people found it. But only around 6% of the pilot cohort activated to that point in the first place. The real gap was upstream: most parents simply never discovered the experience existed. That reframed the challenge for the next phase — less about polishing what already existed, more about building activation into the product itself rather than depending on outside prompts to bring people back.",
+          },
+          {
+            title: "The post-game moment is the hook",
+            content:
+              "Email opens across the pilot ran 42–50%, comfortably ahead of the 36.9% benchmark, but clicks told the sharper story: click-through on post-game sends ran about 4.5x the benchmark rate, while reminders sent at other times barely moved anyone. That pattern became the organizing principle for how the experience, and the prompts back into it, should be structured going forward.",
+          },
+          {
+            title: "Parents want to create, not just consume",
+            content:
+              "Interview feedback was consistent: parents didn't just want to watch their athlete's highlights, they wanted to clip, share, and export them — and some were already doing it manually through desktop workarounds before any mobile tooling existed. Highlight creation and shareability turned out to be central to why the experience felt worth returning to, not a nice-to-have layered on top.",
+          },
+          {
+            title: "Trust has to come before automation",
+            content:
+              "Automated highlight generation was in high demand, but when it missed a moment or mis-tagged an athlete, it quietly undercut confidence in the feature as a whole — a reminder that for something this personal, reliability has to clear a high bar before it can become a core part of the experience.",
+          },
+          {
+            title: "\"Parent\" isn't one audience",
+            content:
+              "The pilot also surfaced that the adults around a team don't all play the same role — coaches, team directors/admins, and volunteer team managers each touched adoption differently, with different levels of trust and different reasons to engage. That distinction shaped how outreach and onboarding were thought about heading into a larger rollout, rather than treating every adult around a team the same way.",
+          },
+        ],
+      },
+      {
+        title: "The Launch",
+        content:
+          "The parent experience ran as a closed pilot with real teams and families through spring 2026 before rolling out more broadly. General availability for all users follows in July 2026, with final legal and compliance review underway given the sensitivities that come with a brand-new audience segment. The app consolidation and navigation rebuild were already completed as part of getting that pilot experience ready.",
+      },
+      {
+        title: "The Impact",
+        content:
+          "Design decisions on this project mapped directly onto business outcomes, not just user experience. A new, currently untapped revenue line got a validated MVP and real usage data instead of a guess. Consolidating two apps into one got the duplicate app delisted and its migration underway, on track to eliminate duplicate infrastructure and free up engineering capacity that had been split across two codebases. And a navigation fix that had been pitched — and shelved — a year earlier finally shipped, resolving a platform-wide problem for every role, not just the newest one.\n\nWith a validated point of view — that this is as much an activation challenge as a retention one — and general availability underway, the next phase is rapid testing and iteration to figure out what, specifically, is monetizable for this new user type ahead of a future subscription offering.",
+        bullets: [
+          "New revenue line: validated MVP and real usage data for a previously untapped user type, ahead of a future subscription offering",
+          "Cost efficiency: delisted a duplicate app and kicked off the migration to eliminate its infrastructure, freeing engineering capacity that had been split across two codebases",
+          "De-risked investment: proved genuine demand with a closed pilot before committing further engineering spend, rather than guessing at scale",
+          "Platform health: resolved a year-old, platform-wide navigation problem affecting every role, not only the new one",
+        ],
+        metrics: [
+          { value: "2 → 1", label: "Apps consolidated into a single experience" },
+          { value: "1", label: "App delisted, migration underway to fully sunset & cut ongoing cost" },
+          { value: "-5 → 30", label: "NPS swing for the Fan app in the year leading into this project" },
+          { value: "90%", label: "Of pilot parents who reached an event profile went on to watch video" },
+          { value: "4.5x", label: "Post-game email CTR vs. benchmark" },
+          { value: "42–50%", label: "Email open rate across the pilot (vs. 36.9% benchmark)" },
+        ],
+      },
+    ],
+  },
   {
     slug: "content-production",
     title: "Content Production & Management",
@@ -351,13 +585,11 @@ export const projects: ProjectDetails[] = [
           "Moving in a rapid iterative process, the team pushed updates in the smallest chunks possible — page by page, feature by feature, or flow by flow depending on the complexity and usage of what was being redesigned. Visual design was polished and functional details were improved as it was being developed. This process allowed users to notice updates in an iterative way, decreasing the chance of being overwhelmed.",
       },
       {
-        title: "The Impact — Positive results, but products are never finished",
+        title: "The Impact — Validated beyond the engagement",
         content:
-          "The redesign of the Pillar platform had a positive impact on purchasers and the interview experience as a whole. Due to the agency-like environment, the team was not able to stick around long enough to see or compare data after a reasonable amount of time.\n\nEven though data was not collected, Pillar's updates have caused customers to leave amazing reviews about the improvements and the simplification of a very mundane and biased process. Pillar continues to climb in popularity and win more tech awards.",
+          "The redesign of the Pillar platform had a positive impact on purchasers and the interview experience as a whole. Due to the agency-like environment, the team wasn't able to stick around long enough to instrument and compare usage data directly.\n\nThe clearest long-term validation came three years later: in 2025, Pillar was acquired by Employ, carrying this 2022 redesign and rebrand forward into Employ's hiring suite rather than starting over. Work that was still the foundation worth acquiring three years on is its own kind of proof.",
         metrics: [
-          { value: "X%", label: "Increase in DAU/MAU" },
-          { value: "↓X days", label: "Time from first contact to hire" },
-          { value: "↑X%", label: "New hire retention" },
+          { value: "Acquired", label: "Pillar was acquired by Employ following this engagement" },
         ],
       },
     ],
@@ -532,7 +764,7 @@ export const projects: ProjectDetails[] = [
       {
         title: "The Launch",
         content:
-          "Unfortunately, Ethan was not able to be around during the finish of development and the official launch of the platform due to being placed at another company that needed a full-time product designer. From what is known, the project was a success and they were able to start onboarding beta customers and generating leads for new customers to sign on.\n\nThe early discovery for anticipating user needs was also something that has now been implemented into the current product. Even though it might not be exactly the same as the exploration designs, it is similar conceptually.",
+          "This engagement wrapped as designed: the MVP scope — sign-up flow, reporting dashboard, and a foundational design system — was fully defined and handed off for development as the High Alpha placement concluded. From there, Colaboratory took the platform to launch, onboarding beta customers and generating new leads on top of the foundation built here.\n\nThe anticipatory exploration from discovery — dashboard iterations, brand profiles, a discover page — has continued to inform the product since, even where the specific designs shifted from what was originally proposed.",
         carousel: [
           {
             image: "/placeholder.svg",
@@ -563,6 +795,7 @@ export const projects: ProjectDetails[] = [
     tools: ["Figma", "FigJam"],
     timeline: "~3 months",
     inProgress: true,
+    hidden: true,
     designFilesUrl: "https://www.figma.com/design/0gg3OohniFqZpS4mEz3i5H/KWR-Step-2?node-id=1-57&p=f",
     challenge:
       "Design and build an MVP product that enables brand collaboration partnerships and go-to-market strategies.",
@@ -681,10 +914,15 @@ export const projects: ProjectDetails[] = [
   },
 ];
 
+export function getVisibleProjects(): ProjectDetails[] {
+  return projects.filter((project) => !project.hidden);
+}
+
 export function getProjectBySlug(slug: string): ProjectDetails | undefined {
-  return projects.find((project) => project.slug === slug);
+  const project = projects.find((project) => project.slug === slug);
+  return project?.hidden ? undefined : project;
 }
 
 export function getAllProjectSlugs(): string[] {
-  return projects.map((project) => project.slug);
+  return getVisibleProjects().map((project) => project.slug);
 }

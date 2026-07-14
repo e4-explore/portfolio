@@ -32,10 +32,7 @@ export const companies: Record<CompanyKey, CompanyMeta> = {
     bannerImage: "/clients/Demandwell-Cover.jpg",
     tagline: "B2B SEO platform helping teams grow organic revenue.",
     focus: ["UX/UI", "Product strategy", "Prototyping"],
-    caseStudies: [
-      { label: "SEO Keyword Research", href: "/work/seo-keyword-research" },
-      { label: "Content Production", href: "/work/content-production" },
-    ],
+    caseStudies: [{ label: "Content Production", href: "/work/content-production" }],
     logo: {
       lightSrc: "/clients/demandwell - light mode.svg",
       darkSrc: "/clients/demandwell - dark mode.svg",
@@ -104,7 +101,6 @@ export const companies: Record<CompanyKey, CompanyMeta> = {
     focus: ["Product design", "Iteration", "0→1 support"],
     caseStudies: [
       { label: "Interview Intelligence", href: "/work/interview-intelligence" },
-      { label: "SEO Keyword Research", href: "/work/seo-keyword-research" },
       { label: "Content Production", href: "/work/content-production" },
       { label: "Brand x Brand Collaboration", href: "/work/brand-x-brand" },
     ],
@@ -121,6 +117,7 @@ export const companies: Record<CompanyKey, CompanyMeta> = {
     bannerImage: "/clients/Hudl-Cover.jpg",
     tagline: "Sports performance platform for video, insights, and team workflows.",
     focus: ["Product design", "Strategy", "Delivery"],
+    caseStudies: [{ label: "Hudl for Parents", href: "/work/hudl-for-parents" }],
     highlights: [
       { label: "Role", value: "Sr. Product Designer" },
       { label: "Work", value: "Parent & Fan Experience" },
