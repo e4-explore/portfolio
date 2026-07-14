@@ -58,7 +58,7 @@ export const projects: ProjectDetails[] = [
     subtitle: "Expanding Hudl's offering to a new market while consolidating and rebuilding the foundation",
     description:
       "Taking a new product to market for parents — Hudl's first entirely new user type — while consolidating two existing apps to cut cost and rebuilding platform navigation for every role.",
-    tags: ["UX Research", "0→1 Product Strategy", "UX/UI Design"],
+    tags: ["UX Research", "Product Strategy", "UX/UI Design"],
     thumbnail: "/projects/hudl-for-parents/hudl for parents - project cover.jpg",
     company: "Hudl",
     role: "Sr. Product Designer",
