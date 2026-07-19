@@ -71,7 +71,7 @@ export const companies: Record<CompanyKey, CompanyMeta> = {
     name: "Apex",
     website: "https://apps.apple.com/us/app/upper-hand-apex/id1054510298",
     bannerImage: "/clients/Apex-Cover.jpg",
-    tagline: "Video analysis tools for coaches & athletes (APEX).",
+    tagline: "Video analysis tools for coaches & athletes.",
     focus: ["UX/UI", "Prototyping", "Collaboration"],
     logo: {
       lightSrc: "/clients/apex - light mode.svg",
@@ -83,7 +83,7 @@ export const companies: Record<CompanyKey, CompanyMeta> = {
   Colaboratory: {
     name: "Colaboratory",
     bannerImage: "/clients/Colaboratory-Cover.jpg",
-    tagline: "Partnered on product design and UI polish for launch readiness.",
+    tagline: "Brand collaboration match platform.",
     focus: ["UI design", "Interaction details", "Design QA"],
     caseStudies: [{ label: "Brand x Brand Collaboration", href: "/work/brand-x-brand" }],
     logo: {

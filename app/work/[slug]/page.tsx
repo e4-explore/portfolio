@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/footer";
 import { ProjectHero } from "@/components/projects/project-hero";
 import { ProjectContent } from "@/components/projects/project-content";
 import { ProjectNavigation } from "@/components/projects/project-navigation";
+import { FloatingMemoji } from "@/components/projects/floating-memoji";
 import { getProjectBySlug, getAllProjectSlugs, getVisibleProjects } from "@/data/projects";
 
 interface ProjectPageProps {
@@ -60,6 +61,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         />
       </main>
       <Footer />
+      {project.memoji && <FloatingMemoji audio={project.memoji.audio} caption={project.memoji.caption} />}
     </>
   );
 }

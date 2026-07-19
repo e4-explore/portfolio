@@ -28,3 +28,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw source recordings (not shipped, too large for the repo)
+/data/memoji-source/
