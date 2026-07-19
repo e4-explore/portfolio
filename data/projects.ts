@@ -20,15 +20,6 @@ export interface ProjectDetails extends Project {
   hideCaseStudyMedia?: boolean;
   /** When true, excluded from listings, navigation, and static generation (404s if visited directly). */
   hidden?: boolean;
-  /** Floating talking-memoji widget on the project page. Omit to leave the widget off this project. */
-  memoji?: ProjectMemoji;
-}
-
-export interface ProjectMemoji {
-  /** Path to the narration audio file, e.g. "/projects/<slug>/narration.mp3". */
-  audio: string;
-  /** Short line shown in the speech bubble while the narration plays. */
-  caption?: string;
 }
 
 export interface ProjectSubItem {
