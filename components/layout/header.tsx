@@ -13,7 +13,7 @@ export function Header() {
   const pathname = usePathname();
   const router = useRouter();
   const isHome = pathname === "/";
-  const isProjectPage = pathname.startsWith("/work/");
+  const isProjectPage = pathname.startsWith("/work/") || pathname.startsWith("/approach/");
 
   useEffect(() => {
     if (isHome) return;

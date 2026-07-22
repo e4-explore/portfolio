@@ -32,6 +32,8 @@ export interface ProjectSubItem {
 export interface ProjectMetric {
   value: string;
   label: string;
+  /** Optional smaller explanatory line rendered below the label — the "why"/logic behind the number. */
+  subtext?: string;
 }
 
 export interface ProjectCarouselSlide {
@@ -49,6 +51,10 @@ export interface ProjectSection {
   metrics?: ProjectMetric[];
   quote?: string;
   carousel?: ProjectCarouselSlide[];
+  /** Small uppercase kicker above the title, used to group sections into phases (e.g. "Discovery"). */
+  eyebrow?: string;
+  /** Short label for the side navigation / table of contents. Defaults to the title's lead phrase. */
+  navLabel?: string;
 }
 
 export const projects: ProjectDetails[] = [
@@ -64,7 +70,7 @@ export const projects: ProjectDetails[] = [
     role: "Sr. Product Designer",
     tools: ["Figma", "Miro", "Claude", "NotebookLM", ],
     timeline: "6 months → Spring Alpha → Fall Beta",
-    inProgress: true,
+    inProgress: false,
     challengeTitle: "A new user type, a mental model shift, and two apps becoming one",
     challenge:
       "Hudl had spent years building for coaches, athletes, and administrators — but never for the people cheering from the sidelines. This project set out to bring an entirely new product to market for parents ahead of a 2026 general-availability launch, while using the moment to fix two problems that had been building for years: two overlapping apps splitting the experience, and a navigation model that hadn't kept pace with what Hudl had become for any role.",
@@ -78,6 +84,7 @@ export const projects: ProjectDetails[] = [
     sections: [
       {
         title: "At a Glance",
+        eyebrow: "Summary",
         content:
           "The rest of this case study walks through how the project unfolded — but a few things are worth surfacing up front: a mid-pilot data reframe that reset the roadmap, leadership that extended past this one workstream, and hands-on contribution beyond design files.",
         bullets: [
@@ -88,11 +95,14 @@ export const projects: ProjectDetails[] = [
       },
       {
         title: "Kickoff — Starting with a user type that didn't exist yet",
+        eyebrow: "Discovery",
+        navLabel: "Kickoff",
         content:
           "There was no backlog of parent research to pull from — Hudl had never designed for this audience as a first-class user. The starting point wasn't a feature list, it was a question: what job is a parent actually trying to get done, and how much of that could realistically ship as an MVP versus live on a longer roadmap toward a paid offering?\n\nRather than design toward a fully-formed vision, the approach was deliberately staged: figure out the smallest version of the experience that would be genuinely useful, ship it as an alpha, and let real usage tell us what to build next.\n\nWhat did already exist was a list of known usability problems in the legacy Fan app more broadly — missing or empty content when video, schedules, or rosters hadn't been published yet, reliability issues around the handoff between livestreams and replays, difficulty finding relevant teams and content, trust in whether schedules and data were current, and friction around purchases and refunds. Knowing that list going in shaped what could realistically be folded into this project versus tackled separately.",
       },
       {
         title: "Early Insights",
+        eyebrow: "Discovery",
         content: "",
         subItems: [
           {
@@ -114,6 +124,8 @@ export const projects: ProjectDetails[] = [
       },
       {
         title: "Discovery — Scoping the MVP without the roadmap in hand",
+        eyebrow: "Discovery",
+        navLabel: "Discovery",
         content: "",
         subItems: [
           {
@@ -129,7 +141,7 @@ export const projects: ProjectDetails[] = [
           {
             title: "Setting up for rapid iteration",
             content:
-              "Because so much about this user type was unproven, the emphasis was on building the muscle for fast testing and iteration — instrumenting the alpha to learn quickly rather than trying to get everything right on the first attempt.",
+              "Because so much about this user type was unproven, the emphasis was on building the muscle for fast testing and iteration — instrumenting the alpha to learn quickly rather than trying to get everything right on the first attempt. On features aimed squarely at parents, that meant [[ai-forward|experimenting AI-forward right inside discovery]] — putting production-fidelity prototypes in front of families and iterating live.",
           },
           {
             title: "Turning feedback into signal, not guesswork",
@@ -150,6 +162,7 @@ export const projects: ProjectDetails[] = [
       },
       {
         title: "Reframing the Problem",
+        eyebrow: "Strategy",
         quote:
           "...how might we bring an entirely new user type into Hudl for the first time, without asking every existing user to live with a fragmented, outdated foundation while we do it?",
         content:
@@ -157,6 +170,7 @@ export const projects: ProjectDetails[] = [
       },
       {
         title: "Design Strategy",
+        eyebrow: "Strategy",
         content: "",
         subItems: [
           {
@@ -165,9 +179,9 @@ export const projects: ProjectDetails[] = [
               "Rather than design a fully-scoped product up front, the strategy was to get a real, usable version of the parent experience in front of real users as early as possible, treating the alpha period as the primary research tool for what to build next.",
           },
           {
-            title: "Getting hands-on: design engineering with AI tooling",
+            title: "An AI-forward, hands-on way of working",
             content:
-              "Part of the contribution went beyond design files. This work included writing and merging real pull requests, and building tooling around Claude Skills to help the broader team move faster without cutting corners on quality — automating repetitive parts of the workflow so more time could go toward the harder design and product problems.",
+              "Part of this ran on an [[ai-forward|AI-forward discovery loop]] — prototyping in production fidelity and iterating with parents in real time — paired with hands-on [[design-engineering|design engineering]] that carried polish straight into the codebase instead of a written handoff.",
           },
           {
             title: "Fix the foundation once",
@@ -193,12 +207,14 @@ export const projects: ProjectDetails[] = [
       },
       {
         title: "The MVP — Consolidation, navigation, and a new experience",
+        eyebrow: "Build",
+        navLabel: "The MVP",
         content: "",
         subItems: [
           {
             title: "Merging two strong products, not rescuing one",
             content:
-              "The consolidation wasn't a case of quietly folding a struggling app into a stronger one. Over the year leading into this project, the standalone Fan app had turned around dramatically — NPS climbing from -5 to 30 — and the app climbing into the top ranks of free sports apps on the App Store, at times outperforming Hudl's own flagship app in the charts. Consolidating it wasn't damage control; it was combining two products that had each already proven their value into one experience instead of splitting user attention across both.",
+              "The consolidation wasn't a case of quietly folding a struggling app into a stronger one. Over the year leading into this project, the standalone Fan app had turned around dramatically — NPS climbing from -5 to 30, and the app climbing to #12 among free sports apps on the App Store, ahead of Hudl's own flagship app at #30. Consolidating it wasn't damage control; it was combining two products that had each already proven their value into one experience instead of splitting user attention across both.",
           },
           {
             title: "One experience instead of two",
@@ -225,11 +241,13 @@ export const projects: ProjectDetails[] = [
         ],
       },
       {
-        title: "Pilot Learnings — Turning Data Into a New Point of View",
+        title: "Alpha Learnings — Turning Data Into a New Point of View",
+        eyebrow: "Learnings",
+        navLabel: "Alpha Learnings",
         quote:
           "...the data wasn't telling us retention was broken — it was telling us most parents never found the experience in the first place. We weren't fighting a retention problem. We were fighting an activation problem.",
         content:
-          "Running a closed pilot only matters if it changes what you believe. Overall engagement across the cohort landed around 40% — enough real signal, for an unmarketed alpha, to draw conclusions from. A handful of patterns came out of this one clearly enough to reshape the point of view heading into a wider rollout.",
+          "Running a closed alpha only matters if it changes what you believe. Overall engagement across the cohort landed around 40% — enough real signal, for an unmarketed alpha, to draw conclusions from. A handful of patterns came out of this one clearly enough to reshape the point of view heading into a wider rollout. These are alpha learnings and alpha metrics — a separate chapter from the full-launch impact at the end of this study, which is only now being measured.",
         subItems: [
           {
             title: "Reframing the problem: activation, not retention",
@@ -254,32 +272,88 @@ export const projects: ProjectDetails[] = [
           {
             title: "\"Parent\" isn't one audience",
             content:
-              "The pilot also surfaced that the adults around a team don't all play the same role — coaches, team directors/admins, and volunteer team managers each touched adoption differently, with different levels of trust and different reasons to engage. That distinction shaped how outreach and onboarding were thought about heading into a larger rollout, rather than treating every adult around a team the same way.",
+              "The alpha also surfaced that the adults around a team don't all play the same role — coaches, team directors/admins, and volunteer team managers each touched adoption differently, with different levels of trust and different reasons to engage. That distinction shaped how outreach and onboarding were thought about heading into a larger rollout, rather than treating every adult around a team the same way.",
+          },
+        ],
+        metrics: [
+          {
+            value: "~40%",
+            label: "Overall alpha engagement",
+            subtext: "Of the full cohort engaged at all during the pilot — logged in or opened the experience at least once, with zero paid marketing behind it.",
+          },
+          {
+            value: "90%",
+            label: "Event profile → video watch rate",
+            subtext: "Of the parents who made it to an event profile went on to watch video — proof the experience converts once someone actually gets there.",
+          },
+          {
+            value: "~6%",
+            label: "Deep activation rate",
+            subtext: "Of the full cohort reached that event profile in the first place — the real bottleneck was discovery, not the product itself.",
+          },
+          {
+            value: "4.5x",
+            label: "Post-game email CTR vs. benchmark",
+            subtext: "Sent right after a game, against the Braze platform benchmark — pre-game sends, by contrast, drove almost no clicks at all.",
+          },
+          {
+            value: "42–50%",
+            label: "Email open rate vs. benchmark",
+            subtext: "Held well above the 36.9% platform benchmark across every parent send during the alpha.",
           },
         ],
       },
       {
-        title: "The Launch",
+        title: "From Alpha to Full Launch",
+        eyebrow: "Transition",
         content:
-          "The parent experience ran as a closed pilot with real teams and families through spring 2026 before rolling out more broadly. General availability for all users follows in July 2026, with final legal and compliance review underway given the sensitivities that come with a brand-new audience segment. The app consolidation and navigation rebuild were already completed as part of getting that pilot experience ready.",
+          "The alpha was never meant to be the finish line — it was the instrument. Everything up to this point happened in service of learning fast from a small, real group before committing to a wider audience, and what it taught reset the point of view heading into the full launch: less polishing of what already worked, more building activation into the product itself.\n\nIt's worth being clear about what the two sets of numbers on this page do and don't say. The alpha metrics above measure whether the idea held up under real usage — and, for an unmarketed pilot, they did. The full-launch impact is a separate, still-open question: general availability is rolling out this week, so the outcomes that matter most for the business are only just beginning to be measured.",
       },
       {
-        title: "The Impact",
+        title: "The Launch",
+        eyebrow: "Launch",
         content:
-          "Design decisions on this project mapped directly onto business outcomes, not just user experience. A new, currently untapped revenue line got a validated MVP and real usage data instead of a guess. Consolidating two apps into one got the duplicate app delisted and its migration underway, on track to eliminate duplicate infrastructure and free up engineering capacity that had been split across two codebases. And a navigation fix that had been pitched — and shelved — a year earlier finally shipped, resolving a platform-wide problem for every role, not just the newest one.\n\nWith a validated point of view — that this is as much an activation challenge as a retention one — and general availability underway, the next phase is rapid testing and iteration to figure out what, specifically, is monetizable for this new user type ahead of a future subscription offering.",
+          "The parent experience ran as a closed alpha with real teams and families through spring 2026 before rolling out more broadly. General availability for all users is rolling out this week (July 2026), with final legal and compliance review wrapping up given the sensitivities that come with a brand-new audience segment. The app consolidation and navigation rebuild were already completed as part of getting that alpha experience ready.",
+      },
+      {
+        title: "The Impact — Full Launch",
+        eyebrow: "Impact",
+        navLabel: "The Impact",
+        content:
+          "This is the impact of the full launch — distinct from the alpha learnings above, and deliberately left partly open. General availability is rolling out this week, so the numbers that will ultimately define whether this becomes a durable new business — activation, retention, and eventual willingness to pay — are only now starting to come in. What's below are the outcomes already locked in structurally; the rest will be documented as the launch data lands.\n\nEven at this stage, the design decisions on this project mapped directly onto business outcomes, not just user experience. A new, currently untapped revenue line got a validated MVP and real usage data instead of a guess. Consolidating two apps into one got the duplicate app delisted and its migration underway, on track to eliminate duplicate infrastructure and free up engineering capacity that had been split across two codebases. And a navigation fix that had been pitched — and shelved — a year earlier finally shipped, resolving a platform-wide problem for every role, not just the newest one.\n\nWith a validated point of view — that this is as much an activation challenge as a retention one — and general availability now underway, the next phase is rapid testing and iteration to figure out what, specifically, is monetizable for this new user type ahead of a future subscription offering.",
         bullets: [
           "New revenue line: validated MVP and real usage data for a previously untapped user type, ahead of a future subscription offering",
           "Cost efficiency: delisted a duplicate app and kicked off the migration to eliminate its infrastructure, freeing engineering capacity that had been split across two codebases",
-          "De-risked investment: proved genuine demand with a closed pilot before committing further engineering spend, rather than guessing at scale",
+          "De-risked investment: proved genuine demand with a closed alpha before committing further engineering spend, rather than guessing at scale",
           "Platform health: resolved a year-old, platform-wide navigation problem affecting every role, not only the new one",
+          "Full-launch outcomes still landing: activation, retention, and monetization signal are being measured now that general availability is rolling out",
         ],
         metrics: [
-          { value: "2 → 1", label: "Apps consolidated into a single experience" },
-          { value: "1", label: "App delisted, migration underway to fully sunset & cut ongoing cost" },
-          { value: "-5 → 30", label: "NPS swing for the Fan app in the year leading into this project" },
-          { value: "90%", label: "Of pilot parents who reached an event profile went on to watch video" },
-          { value: "4.5x", label: "Post-game email CTR vs. benchmark" },
-          { value: "42–50%", label: "Email open rate across the pilot (vs. 36.9% benchmark)" },
+          {
+            value: "2 → 1",
+            label: "Apps consolidated into one",
+            subtext: "Hudl and the standalone Fan app collapsed into a single experience — no more choosing which app to open.",
+          },
+          {
+            value: "1",
+            label: "App delisted, sunset underway",
+            subtext: "Pulled from app stores already; full infrastructure teardown and cost savings are still in progress.",
+          },
+          {
+            value: "-5 → 30",
+            label: "NPS swing pre-project",
+            subtext: "The Fan app's sentiment turnaround over the year before this project — evidence it was worth merging in, not shutting down.",
+          },
+          {
+            value: "#12",
+            label: "Peak App Store rank",
+            subtext: "Free sports apps, ahead of Hudl's own flagship app at #30 — public App Store data, independent of any internal estimate.",
+          },
+          {
+            value: "#23 → TBD",
+            label: "Current rank → post-project",
+            subtext: "Where the Hudl app sits among free sports apps as of July 2026, at general-availability launch. I'll update the second number with the app's rank once this project has been live in the wild for a month to a year.",
+          },
         ],
       },
     ],

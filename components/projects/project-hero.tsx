@@ -121,7 +121,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
 
         {/* Overview */}
         <Reveal delayMs={240}>
-          <div className="space-y-4 mb-8">
+          <div className="space-y-4 mb-8 max-w-3xl">
             {project.overview.split("\n\n").map((para, i) => (
               <p key={i} className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                 {overviewRichText(para)}

@@ -44,7 +44,8 @@
   /* Link Colors */
   --link: #1a1a1a;
   --link-hover: #666666;
-  --link-underline: #1a1a1a;
+  /* Underline adopts the current role accent (RoleDropdown overrides per-role). */
+  --link-underline: var(--role-accent);
 
   /* Role accent (driven by RoleDropdown) */
   --role-accent: #e85d2d;
@@ -214,7 +215,8 @@
   /* Link Colors */
   --link: #f5f7fa;
   --link-hover: rgba(245, 247, 250, 0.78);
-  --link-underline: rgba(245, 247, 250, 0.70);
+  /* Underline adopts the current role accent (RoleDropdown overrides per-role). */
+  --link-underline: var(--role-accent);
 
   /* Role accent (driven by RoleDropdown) */
   --role-accent: #39ff14;
@@ -720,10 +722,13 @@
     text-decoration: underline;
     text-underline-offset: 4px;
     text-decoration-color: var(--link-underline);
+    /* Text adopts the same accent as the underline. */
+    color: var(--link-underline);
   }
-  
+
   .link-underline:hover {
     text-decoration-color: var(--link-hover);
+    color: var(--link-hover);
   }
 
   /* Scroll reveal animation */

@@ -1,10 +1,10 @@
-import Link from "next/link";
 import { ClientLogos } from "./client-logos";
 import { RoleDropdown } from "./role-dropdown";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { MapPin } from "lucide-react";
 import { CompanyHoverLink } from "./company-hover-link";
 import { Reveal } from "@/components/ui/reveal";
+import { TextLink, textLinkClassName } from "@/components/ui/text-link";
 
 export function HeroSection() {
   return (
@@ -46,7 +46,7 @@ export function HeroSection() {
                 <p className="text-lg md:text-xl text-muted-foreground leading-relaxed px-0">
                   I'm a versatile designer who clears ambiguity and helps teams ship products.
                   Currently, I am helping{" "}
-                  <CompanyHoverLink company="Hudl" className="text-foreground font-medium link-underline">
+                  <CompanyHoverLink company="Hudl" className={textLinkClassName}>
                     Hudl
                   </CompanyHoverLink>{" "}
                   develop
@@ -82,9 +82,7 @@ export function HeroSection() {
             <p className="text-base md:text-lg text-muted-foreground mt-4">
               If there is something specific that you would like to see, but it is not listed
               below, please do not hesitate to{" "}
-              <Link href="#contact" className="text-foreground font-medium link-underline">
-                reach out to me
-              </Link>
+              <TextLink href="#contact">reach out to me</TextLink>
               !
             </p>
           </Reveal>
