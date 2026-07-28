@@ -26,6 +26,13 @@ export function ProjectTOC({ items }: { items: TocItem[] }) {
     []
   );
 
+  // The dot rail replaces the native scrollbar as the scroll indicator while
+  // this page is mounted; restore it on unmount.
+  React.useEffect(() => {
+    document.documentElement.classList.add("dot-rail-scroll");
+    return () => document.documentElement.classList.remove("dot-rail-scroll");
+  }, []);
+
   const revealLabel = (id: string) => {
     if (revealTimer.current) clearTimeout(revealTimer.current);
     setRevealedId(id);

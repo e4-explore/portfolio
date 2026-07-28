@@ -462,6 +462,17 @@
     overflow-x: clip;
   }
 
+  /* On project case studies the dot rail is the scroll indicator, so the
+     native scrollbar is hidden (toggled by ProjectTOC). Scrolling via
+     wheel/trackpad/touch is unaffected. */
+  html.dot-rail-scroll {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* legacy Edge/IE */
+  }
+  html.dot-rail-scroll::-webkit-scrollbar {
+    display: none; /* Chromium, Safari */
+  }
+
   /* Constant animated noise in dark mode */
   html.dark::before {
     content: "";
