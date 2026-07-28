@@ -74,10 +74,11 @@ export function ProjectTOC({ items }: { items: TocItem[] }) {
         />
       </div>
 
-      {/* Right-edge section rail (desktop only, lives in the page margin) */}
+      {/* Right-edge section rail (lives in the page margin on desktop,
+          hugs the edge on mobile) */}
       <nav
         aria-label="Section navigation"
-        className="fixed right-5 top-1/2 z-40 hidden -translate-y-1/2 flex-col gap-3 xl:flex"
+        className="fixed right-2.5 top-1/2 z-40 flex -translate-y-1/2 flex-col gap-3 xl:right-5"
       >
         {items.map((item) => {
           const active = item.id === activeId;
@@ -91,8 +92,10 @@ export function ProjectTOC({ items }: { items: TocItem[] }) {
             >
               <span
                 className={cn(
-                  "pointer-events-none whitespace-nowrap rounded-md bg-background/90 px-2 py-1 text-xs font-medium opacity-0 shadow-sm ring-1 ring-border backdrop-blur transition-opacity group-hover:opacity-100",
-                  active ? "text-foreground" : "text-muted-foreground"
+                  "pointer-events-none whitespace-nowrap rounded-md bg-background/90 px-2 py-1 text-xs font-medium shadow-sm ring-1 ring-border backdrop-blur transition-opacity group-hover:opacity-100",
+                  active
+                    ? "text-foreground opacity-100 xl:opacity-0"
+                    : "text-muted-foreground opacity-0"
                 )}
               >
                 {item.label}
