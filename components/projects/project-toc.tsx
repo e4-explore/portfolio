@@ -14,6 +14,23 @@ const HEADER_OFFSET = 96;
 export function ProjectTOC({ items }: { items: TocItem[] }) {
   const [progress, setProgress] = React.useState(0);
   const [activeId, setActiveId] = React.useState(items[0]?.id ?? "");
+  // On touch (no hover), the label pill is revealed briefly after a dot tap,
+  // then fades out — rather than persisting and overlapping content.
+  const [revealedId, setRevealedId] = React.useState<string | null>(null);
+  const revealTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  React.useEffect(
+    () => () => {
+      if (revealTimer.current) clearTimeout(revealTimer.current);
+    },
+    []
+  );
+
+  const revealLabel = (id: string) => {
+    if (revealTimer.current) clearTimeout(revealTimer.current);
+    setRevealedId(id);
+    revealTimer.current = setTimeout(() => setRevealedId(null), 1500);
+  };
 
   React.useEffect(() => {
     let raf = 0;
@@ -55,6 +72,7 @@ export function ProjectTOC({ items }: { items: TocItem[] }) {
 
   const handleJump = (e: React.MouseEvent, id: string) => {
     e.preventDefault();
+    revealLabel(id);
     const el = document.getElementById(id);
     if (!el) return;
     const prefersReduced = window.matchMedia(
@@ -92,10 +110,9 @@ export function ProjectTOC({ items }: { items: TocItem[] }) {
             >
               <span
                 className={cn(
-                  "pointer-events-none whitespace-nowrap rounded-md bg-background/90 px-2 py-1 text-xs font-medium shadow-sm ring-1 ring-border backdrop-blur transition-opacity group-hover:opacity-100",
-                  active
-                    ? "text-foreground opacity-100 xl:opacity-0"
-                    : "text-muted-foreground opacity-0"
+                  "pointer-events-none whitespace-nowrap rounded-md bg-background/90 px-2 py-1 text-xs font-medium opacity-0 shadow-sm ring-1 ring-border backdrop-blur transition-opacity duration-300 group-hover:opacity-100",
+                  item.id === revealedId && "opacity-100",
+                  active ? "text-foreground" : "text-muted-foreground"
                 )}
               >
                 {item.label}
