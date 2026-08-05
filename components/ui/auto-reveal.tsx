@@ -15,15 +15,20 @@ function prefersReducedMotion() {
 
 function shouldSkip(el: Element) {
   if (!(el instanceof HTMLElement)) return true;
-  if (el.dataset.reveal === "off") return true;
+  // Opt-out marker, on the element or any ancestor (e.g. the hero section,
+  // which handles its own above-the-fold entrance and must never be gated
+  // behind the IntersectionObserver).
+  if (el.closest('[data-reveal="off"]')) return true;
   if (el.classList.contains("reveal")) return true; // already handled (manual Reveal wrapper)
   return false;
 }
 
-function markReveal(el: HTMLElement, delayMs: number) {
+function markReveal(el: HTMLElement) {
   el.classList.add("reveal");
-  el.style.setProperty("--reveal-delay", `${delayMs}ms`);
 }
+
+/** Cap on how many items in a single entering batch get a stagger step. */
+const MAX_STAGGER_STEPS = 5;
 
 export function AutoReveal({ staggerMs = 80 }: Options) {
   const pathname = usePathname();
@@ -69,21 +74,40 @@ export function AutoReveal({ staggerMs = 80 }: Options) {
       ?.querySelectorAll(".container-default, .container-wide, .container-narrow")
       .forEach((c) => addTargetsFromContainer(c));
 
-    // Apply reveal class + stagger (stable order)
+    // Apply reveal class (initial hidden state). Stagger is computed at
+    // reveal time, not baked in as a global cumulative delay — otherwise
+    // elements deep in the page inherit a huge transition-delay and sit
+    // blank when a fast scroll brings them into view.
     const uniqueTargets = Array.from(new Set(targets));
-    uniqueTargets.forEach((el, idx) => markReveal(el, idx * staggerMs));
+    uniqueTargets.forEach((el) => markReveal(el));
+
+    const revealBatch = (els: HTMLElement[]) => {
+      // Stagger relative only to what is entering together, and cap it so a
+      // fast scroll that reveals a whole chunk never leaves the last item
+      // waiting seconds. Order by vertical position for a top-down cascade.
+      els
+        .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top)
+        .forEach((el, i) => {
+          const step = Math.min(i, MAX_STAGGER_STEPS);
+          el.style.setProperty("--reveal-delay", `${step * staggerMs}ms`);
+          el.classList.add("reveal--in");
+          observer.unobserve(el);
+        });
+    };
 
     const observer = new IntersectionObserver(
       (entries) => {
+        const entering: HTMLElement[] = [];
         for (const entry of entries) {
           if (!(entry.target instanceof HTMLElement)) continue;
-          if (entry.isIntersecting) {
-            entry.target.classList.add("reveal--in");
-            observer.unobserve(entry.target);
-          }
+          if (entry.isIntersecting) entering.push(entry.target);
         }
+        if (entering.length) revealBatch(entering);
       },
-      { threshold: 0.12, rootMargin: "0px 0px -10% 0px" }
+      // threshold 0 + a positive bottom rootMargin starts the fade ~120px
+      // before the element reaches the fold, so it's already visible by the
+      // time it scrolls in — even at high scroll speed.
+      { threshold: 0, rootMargin: "0px 0px 120px 0px" }
     );
 
     uniqueTargets.forEach((el) => observer.observe(el));
@@ -99,9 +123,8 @@ export function AutoReveal({ staggerMs = 80 }: Options) {
         });
       }
       if (!added.length) return;
-      const start = uniqueTargets.length;
-      added.forEach((el, i) => {
-        markReveal(el, (start + i) * staggerMs);
+      added.forEach((el) => {
+        markReveal(el);
         observer.observe(el);
         uniqueTargets.push(el);
       });

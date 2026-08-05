@@ -8,11 +8,11 @@ import { TextLink, textLinkClassName } from "@/components/ui/text-link";
 
 export function HeroSection() {
   return (
-    <section className="relative pt-0 pb-16 md:pb-24">
+    <section className="relative pt-0 pb-16 md:pb-24" data-reveal="off">
       <div className="container-default">
         <div className="mx-auto">
           {/* Greeting */}
-          <Reveal delayMs={0}>
+          <Reveal immediate delayMs={0}>
             <div className="flex items-center gap-4 mb-5 md:mb-8">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
                 👋 Hi, I'm Ethan
@@ -23,7 +23,7 @@ export function HeroSection() {
           {/* Title & Description */}
           <div className="mb-12">
             <div className="flex flex-col gap-0">
-              <Reveal delayMs={80} className="relative z-[200]">
+              <Reveal immediate delayMs={80} className="relative z-[200]">
                 <div className="flex flex-wrap items-center gap-x-2 gap-y-1 md:gap-x-4 md:gap-y-4 text-muted-foreground">
                   <RoleDropdown />
                   <span className="text-muted-foreground text-2xl md:text-4xl">by</span>
@@ -31,7 +31,7 @@ export function HeroSection() {
                 </div>
               </Reveal>
 
-              <Reveal delayMs={160}>
+              <Reveal immediate delayMs={160}>
                 <div className="flex items-center gap-3 mt-4 mb-10 md:mt-6 md:mb-16 ml-1">
                   <MapPin className="w-6 h-6 md:w-9 md:h-9 text-foreground" aria-hidden="true" />
                   <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
@@ -42,7 +42,7 @@ export function HeroSection() {
             </div>
 
             <div className="space-y-6">
-              <Reveal delayMs={240}>
+              <Reveal immediate delayMs={240}>
                 <p className="text-lg md:text-xl text-muted-foreground leading-relaxed px-0">
                   I'm a versatile designer who clears ambiguity and helps teams ship products.
                   Currently, I am helping{" "}
@@ -55,7 +55,7 @@ export function HeroSection() {
                 </p>
               </Reveal>
 
-              <Reveal delayMs={320}>
+              <Reveal immediate delayMs={320}>
                 <p className="text-lg md:text-xl text-muted-foreground leading-relaxed px-0">
                   In the past, I have teamed up with many amazing individuals to create engaging
                   digital solutions that not only solve problems but also delight users.
@@ -65,12 +65,12 @@ export function HeroSection() {
           </div>
 
           {/* Client Logos */}
-          <Reveal delayMs={400}>
+          <Reveal immediate delayMs={400}>
             <ClientLogos className="mt-16 mb-20 md:mt-20 md:mb-20" />
           </Reveal>
 
           {/* Industries */}
-          <Reveal delayMs={480}>
+          <Reveal immediate delayMs={480}>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
               I have worked in a variety of industries, ranging from marketing to HR to sports
               and fitness, where I have helped solve user problems related to scheduling,
@@ -78,7 +78,7 @@ export function HeroSection() {
             </p>
           </Reveal>
 
-          <Reveal delayMs={560}>
+          <Reveal immediate delayMs={560}>
             <p className="text-base md:text-lg text-muted-foreground mt-4">
               If there is something specific that you would like to see, but it is not listed
               below, please do not hesitate to{" "}
