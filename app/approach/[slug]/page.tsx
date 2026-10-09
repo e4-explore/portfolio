@@ -9,6 +9,9 @@ import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Reveal } from "@/components/ui/reveal";
 import { getConceptBySlug, getAllConceptSlugs } from "@/data/concepts";
+import { PrototypeEmbed } from "@/components/approach/prototype-embed";
+import { ContributionGrid } from "@/components/approach/contribution-grid";
+import { SkillsShowcase } from "@/components/approach/skills-showcase";
 
 interface ApproachPageProps {
   params: Promise<{ slug: string }>;
@@ -101,21 +104,44 @@ export default async function ApproachPage({ params }: ApproachPageProps) {
           const variant = index % 2 === 0 ? "alt" : "default";
           return (
             <Section key={s.title} variant={variant}>
-              <div className="relative z-10 max-w-3xl">
-                <Reveal delayMs={0}>
-                  <SectionHeading size="md" className="mb-6">
-                    {s.title}
-                  </SectionHeading>
-                </Reveal>
-                <Reveal delayMs={90}>
-                  <div className="space-y-4">
-                    {s.body.split("\n\n").map((para, i) => (
-                      <p key={i} className="text-lg text-muted-foreground leading-relaxed">
-                        {para}
-                      </p>
-                    ))}
-                  </div>
-                </Reveal>
+              <div className="relative z-10">
+                <div className="max-w-3xl">
+                  <Reveal delayMs={0}>
+                    <SectionHeading size="md" className="mb-6">
+                      {s.title}
+                    </SectionHeading>
+                  </Reveal>
+                  <Reveal delayMs={90}>
+                    <div className="space-y-4">
+                      {s.body.split("\n\n").map((para, i) => (
+                        <p key={i} className="text-lg text-muted-foreground leading-relaxed">
+                          {para}
+                        </p>
+                      ))}
+                    </div>
+                  </Reveal>
+                </div>
+                {s.prototype && (
+                  <Reveal delayMs={180}>
+                    <div className="mt-8">
+                      <PrototypeEmbed prototype={s.prototype} />
+                    </div>
+                  </Reveal>
+                )}
+                {s.githubUser && (
+                  <Reveal delayMs={180}>
+                    <div className="mt-8">
+                      <ContributionGrid username={s.githubUser} />
+                    </div>
+                  </Reveal>
+                )}
+                {s.skills && s.skills.length > 0 && (
+                  <Reveal delayMs={180}>
+                    <div className="mt-8">
+                      <SkillsShowcase skills={s.skills} />
+                    </div>
+                  </Reveal>
+                )}
                 {s.image && (
                   <Reveal delayMs={180}>
                     <div className="relative aspect-[16/9] rounded-xl overflow-hidden bg-muted mt-8">
