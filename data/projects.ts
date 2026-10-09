@@ -100,6 +100,8 @@ export const projects: ProjectDetails[] = [
     challengeTitle: "A new user type, a mental model shift, and two apps becoming one",
     challenge:
       "Hudl had spent years building for coaches, athletes, and administrators — but never for the people cheering from the sidelines. This project set out to bring an entirely new product to market for parents ahead of a summer 2026 general-availability launch, while using the moment to fix two problems that had been building for years: two overlapping apps splitting the experience, and a navigation model that hadn't kept pace with what Hudl had become for any role.",
+    challengeImage: "/projects/hudl-for-parents/diagrams/challenge.svg",
+    challengeImageAlt: "Diagram of the three problems: a new parent user type, two apps consolidating into one, and one navigation model for every role",
     challengeBullets: [
       "Define and validate an MVP for a completely new user type — parents — to lay the groundwork for an entirely new, currently untapped revenue line",
       "Consolidate two existing apps into one, delisting the duplicate app and setting up the migration to eliminate its infrastructure and engineering overhead",
@@ -174,6 +176,8 @@ export const projects: ProjectDetails[] = [
             title: "Turning feedback into signal, not guesswork",
             content:
               "To make sure the right problems were being prioritized rather than working off anecdotes, a feedback pipeline was set up on top of in-app comments, using AI-assisted text analysis to sort raw feedback into recurring categories and themes automatically. Paired with a fan feedback dashboard tracking sentiment trends over time and segmentable by cohort, it gave the team a repeatable way to check that new work was actually addressing what fans and parents cared about most, and a step toward spotting emerging issues early rather than only reacting once they'd become widespread complaints.",
+            image: "/projects/hudl-for-parents/diagrams/feedback-pipeline.svg",
+            imageAlt: "Diagram of in-app comments sorted by AI into themes, feeding a sentiment-over-time dashboard",
           },
           {
             title: "Not breaking it for everyone else already there",
@@ -254,16 +258,22 @@ export const projects: ProjectDetails[] = [
             title: "A navigation model built for every role",
             content:
               "The information architecture and navigation rebuild shipped broadly, not just within the new parent experience — resolving a pattern of feedback that had been building for a year and giving every existing user type a clearer mental model of the product.",
+            image: "/projects/hudl-for-parents/diagrams/navigation-every-role.svg",
+            imageAlt: "Diagram of coach, athlete, admin, and parent roles all sharing one navigation bar",
           },
           {
             title: "The cornerstone: rethinking around the event, not just the video",
             content:
               "One idea became the foundation the rest of the new experience was built on: design around the event itself, not around whether video happened to exist for it. That reframing matched how parents actually think about a season — planning week to week around this week's events — rather than a video-first model that left a dead end any time a stream fell through or hadn't posted yet. It gave every game a reliable page to land on regardless of what content was available, and created a foundation other ideas — schedules, live data, comparisons — could be layered onto later. That event-first page became the anchor the rest of the parent experience was designed around.",
+            image: "/projects/hudl-for-parents/diagrams/event-first.svg",
+            imageAlt: "Comparison of a video-first model that dead-ends without video versus an event-first page that always has content",
           },
           {
             title: "A closed pilot, built to be tested",
             content:
               "Before any broader rollout, the parent experience shipped as a closed pilot to a small group of real teams and families — an athlete-centric way to follow a season through video, schedules, messaging, athlete and team profiles, and livestreams, without needing a coach or admin role. Features rolled out progressively over the pilot rather than all at once, so each addition could be watched in isolation: messaging and calendar first as the foundation, then video and highlight moments, athlete and team profiles, livestreams, search, sharing, and ticketing.",
+            image: "/projects/hudl-for-parents/diagrams/pilot-rollout.svg",
+            imageAlt: "Staircase of features added one at a time during the closed pilot",
           },
         ],
       },
@@ -275,6 +285,8 @@ export const projects: ProjectDetails[] = [
           "...the data wasn't telling us retention was broken — it was telling us most parents never found the experience in the first place. We weren't fighting a retention problem. We were fighting an activation problem.",
         content:
           "Running a closed alpha only matters if it changes what you believe. Across a cohort of 150 parents, about 40% engaged — and half of those who engaged watched video, validating video as the wedge into this market. That was enough real signal, for an unmarketed alpha, to draw conclusions from. A handful of patterns came out of it clearly enough to reshape the point of view heading into launch.",
+        image: "/projects/hudl-for-parents/diagrams/activation-funnel.svg",
+        imageAlt: "Funnel from 150 alpha parents to about 40% engaged to about 6% reaching an event page, highlighting the discovery gap",
         subItems: [
           {
             title: "Reframing the problem: activation, not retention",

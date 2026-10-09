@@ -101,6 +101,8 @@ export const concepts: Record<ConceptKey, ConceptMeta> = {
         {
           title: "Updating the prototype live, on the call",
           body: "On calls with parents, the prototype wasn't just shown — it was changed while they watched. When a parent said something was confusing or missing, Claude was used to update the prototype then and there, personalized to that family's own teams and context, and the new version went straight back in front of them for a reaction.\n\nThat turned feedback into validation within the same conversation. Instead of noting a comment, redesigning afterward, and scheduling another session to find out if the change worked, the answer came back in minutes. A cycle that normally takes days of async back-and-forth happened several times inside a single call — which is what made the validation loop so much faster.",
+          image: "/approach/live-prototype-loop.svg",
+          imageAlt: "Comparison of a days-long research loop versus a live loop where the prototype is updated during the call and the parent reacts immediately",
         },
         {
           title: "Discovery and validation in the same loop",
