@@ -130,6 +130,28 @@ export function ProjectHero({ project }: ProjectHeroProps) {
           </div>
         </Reveal>
 
+        {/* Headline results */}
+        {project.heroMetrics && project.heroMetrics.length > 0 && (
+          <Reveal delayMs={280}>
+            <div className="mb-10 rounded-2xl border border-border bg-card p-6 md:p-8">
+              {project.heroMetricsLabel && (
+                <p className="mb-5 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                  {project.heroMetricsLabel}
+                </p>
+              )}
+              <dl className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {project.heroMetrics.map((metric) => (
+                  <div key={metric.label}>
+                    <dt className="sr-only">{metric.label}</dt>
+                    <dd className="text-3xl md:text-4xl font-bold text-foreground tabular-nums">{metric.value}</dd>
+                    <dd className="mt-1 text-sm text-muted-foreground">{metric.label}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </Reveal>
+        )}
+
         {/* Tags */}
         <Reveal delayMs={320}>
           <TagList tags={project.tags} className="mb-14" />

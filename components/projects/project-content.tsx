@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import { Section } from "@/components/ui/section";
 import { SectionHeading } from "@/components/ui/section-heading";
-import type { ProjectDetails, ProjectSection } from "@/data/projects";
+import type { ProjectDetails, ProjectGrowth, ProjectSection } from "@/data/projects";
 import { Reveal } from "@/components/ui/reveal";
 import { ProjectTOC, type TocItem } from "@/components/projects/project-toc";
 import { ConceptHoverLink } from "@/components/projects/concept-hover-link";
@@ -278,6 +278,13 @@ function ContentSection({ section, index, hideMedia }: ContentSectionProps) {
           </Reveal>
         )}
 
+        {/* Growth chart */}
+        {section.growth && section.growth.points.length > 0 && (
+          <Reveal delayMs={240}>
+            <GrowthChart growth={section.growth} />
+          </Reveal>
+        )}
+
         {/* Metrics */}
         {section.metrics && section.metrics.length > 0 && (
           <Reveal delayMs={270}>
@@ -296,5 +303,42 @@ function ContentSection({ section, index, hideMedia }: ContentSectionProps) {
         )}
       </div>
     </Section>
+  );
+}
+
+function GrowthChart({ growth }: { growth: ProjectGrowth }) {
+  const max = Math.max(...growth.points.map((p) => p.value));
+
+  return (
+    <figure className="mt-8 mb-8 max-w-3xl">
+      <figcaption className="mb-4 text-sm font-semibold text-foreground">{growth.title}</figcaption>
+      <ul className="space-y-3">
+        {growth.points.map((point) => {
+          const display = point.display ?? point.value.toLocaleString("en-US");
+          return (
+            <li
+              key={point.label}
+              className="grid grid-cols-[5.5rem_1fr] sm:grid-cols-[7rem_1fr] items-center gap-3"
+              title={`${point.label}: ${display}`}
+            >
+              <span className="text-sm text-muted-foreground">{point.label}</span>
+              <span className="flex items-center gap-3 min-w-0">
+                <span
+                  className="h-7 rounded-r-[4px] bg-foreground"
+                  style={{ width: `max(4px, ${(point.value / max) * 82}%)` }}
+                  aria-hidden="true"
+                />
+                <span className="text-sm font-semibold text-foreground tabular-nums whitespace-nowrap">
+                  {display}
+                </span>
+              </span>
+            </li>
+          );
+        })}
+      </ul>
+      {growth.caption && (
+        <p className="mt-4 text-xs text-muted-foreground/70">{growth.caption}</p>
+      )}
+    </figure>
   );
 }
