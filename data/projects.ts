@@ -659,7 +659,7 @@ export const projects: ProjectDetails[] = [
         content:
           "The redesign improved the experience for purchasers and the interview process as a whole, though the agency-style engagement ended before usage could be instrumented and compared.\n\nThe clearest validation came three years later: in 2025, Employ acquired Pillar and carried this 2022 redesign and rebrand into its hiring suite rather than starting over. Still being the foundation worth acquiring three years on is its own kind of proof.",
         metrics: [
-          { value: "Acquired", label: "By Employ in 2025" },
+          { value: "Acquired", label: "Pillar was acquired by Employ following this engagement" },
         ],
       },
     ],
