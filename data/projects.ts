@@ -111,8 +111,9 @@ export const projects: ProjectDetails[] = [
       "Hudl is a sports performance platform for coaches, athletes, and administrators — video, analytics, and team communication. This project designed its first product for parents, from scratch, with a paid subscription as the long-term goal — and used it as the forcing function to fix the platform underneath.",
     sections: [
       {
-        title: "At a Glance",
-        eyebrow: "Summary",
+        title: "Zero to 8,500+ parents, and a stronger platform for every role",
+        eyebrow: "At a Glance",
+        navLabel: "At a Glance",
         content: "",
         bullets: [
           "Took a brand-new user type from zero to 8,515 parents in three months",
@@ -122,7 +123,7 @@ export const projects: ProjectDetails[] = [
         ],
       },
       {
-        title: "Discovery — Designing for a user who didn't exist yet",
+        title: "Designing for a user who didn't exist yet",
         eyebrow: "Discovery",
         navLabel: "Discovery",
         content:
@@ -163,16 +164,18 @@ export const projects: ProjectDetails[] = [
         ],
       },
       {
-        title: "Reframing the Problem",
+        title: "Not just a new app — a better platform for everyone",
         eyebrow: "Strategy",
+        navLabel: "Reframing",
         quote:
           "...how might we bring an entirely new user type into Hudl for the first time, without asking every existing user to live with a fragmented, outdated foundation while we do it?",
         content:
           "The easy version was a new app beside everything else. The bigger opportunity was improving the whole platform in the process: one experience instead of two, and navigation that made sense for everyone.",
       },
       {
-        title: "Design Strategy",
+        title: "Learn from a live alpha, and fix the foundation once",
         eyebrow: "Strategy",
+        navLabel: "Design Strategy",
         content: "",
         subItems: [
           {
@@ -203,7 +206,7 @@ export const projects: ProjectDetails[] = [
         ],
       },
       {
-        title: "The MVP — Consolidation, navigation, and a new experience",
+        title: "Two apps into one, one navigation, and an event-first experience",
         eyebrow: "Build",
         navLabel: "The MVP",
         content: "",
@@ -239,7 +242,7 @@ export const projects: ProjectDetails[] = [
         ],
       },
       {
-        title: "Alpha Learnings — Turning Data Into a New Point of View",
+        title: "The real problem was activation, not retention",
         eyebrow: "Learnings",
         navLabel: "Alpha Learnings",
         quote:
@@ -294,7 +297,7 @@ export const projects: ProjectDetails[] = [
         ],
       },
       {
-        title: "The Launch — From 150 parents to thousands",
+        title: "From 150 parents to thousands",
         eyebrow: "Launch",
         navLabel: "The Launch",
         content:
@@ -310,7 +313,7 @@ export const projects: ProjectDetails[] = [
         },
       },
       {
-        title: "The Impact — Three months in",
+        title: "Three months in, parents keep coming back",
         eyebrow: "Impact",
         navLabel: "The Impact",
         content:
@@ -368,14 +371,18 @@ export const projects: ProjectDetails[] = [
     challengeImageAlt: "Diagram of the three problems: consultants as a bottleneck, no order visibility, and disorganized writers",
     sections: [
       {
-        title: "Kickoff — Evaluating & understanding current flows",
+        title: "Mapping the existing flow to find the gap",
+        eyebrow: "Kickoff",
+        navLabel: "Kickoff",
         content:
           "Production has three steps — selecting keywords, building outlines, and writing — each self-service or purchasable. Keywords and writing were already add-ons; the gap was outlines, which content+ would fill for premium customers.\n\nThe new offering had to slot into the existing flows so customers could do everything themselves or choose which steps to hand off, with automation absorbing the work.",
         image: "/projects/content production and management/placeholders/current-flow.svg",
         imageAlt: "The existing content flow — keywords, outlines, writing — showing self-serve vs. purchasable steps",
       },
       {
-        title: "Early Insights",
+        title: "Add the new service without disrupting anyone",
+        eyebrow: "Insights",
+        navLabel: "Early Insights",
         content: "",
         subItems: [
           {
@@ -396,7 +403,9 @@ export const projects: ProjectDetails[] = [
         ],
       },
       {
-        title: "Discovery — All users and edge cases",
+        title: "One UI for customers and the staff fulfilling orders",
+        eyebrow: "Discovery",
+        navLabel: "Discovery",
         content:
           "Customers and Demandwell staff fulfilling orders would share these flows. With many roles, permissions, and edge cases, the UI had to stay consistent across users while surfacing each one's essential information and actions.",
         image: "/projects/content production and management/placeholders/user-permissions.svg",
@@ -417,14 +426,18 @@ export const projects: ProjectDetails[] = [
         ],
       },
       {
-        title: "Reframing the Problem",
+        title: "Improve the existing experience while adding the new one",
+        eyebrow: "Strategy",
+        navLabel: "Reframing",
         quote:
           "...how might we serve the new customer base within the platform and make UX improvements for existing customers without disruption?",
         content:
           "Discovery surfaced more to improve alongside the new offering. The aim became every non-disruptive improvement possible while fitting the new service in efficiently — resulting in a light redesign of the Content Planner list page and new headers throughout the flow, with key actions based on user permissions.",
       },
       {
-        title: "Design Strategy",
+        title: "Clearer statuses, and key actions in customers' hands",
+        eyebrow: "Strategy",
+        navLabel: "Design Strategy",
         content: "",
         subItems: [
           {
@@ -445,7 +458,9 @@ export const projects: ProjectDetails[] = [
         ],
       },
       {
-        title: "UX Improvements & The New Offering",
+        title: "A reorganized planner, status alerts, and self-serve ordering",
+        eyebrow: "Build",
+        navLabel: "UX Improvements",
         content: "",
         subItems: [
           {
@@ -472,12 +487,16 @@ export const projects: ProjectDetails[] = [
         ],
       },
       {
-        title: "The Launch",
+        title: "Shipped despite a late start",
+        eyebrow: "Launch",
+        navLabel: "The Launch",
         content:
           "The new offering shipped, visibility improved, and UX got better for every user, with positive feedback from customers and internal teams.\n\nThere were speed bumps: the project started two weeks late due to bleed-over from an earlier project, and gaps in FE/BE communication caused some misses. The team triaged what was vital for launch and backlogged the rest.",
       },
       {
-        title: "The Impact",
+        title: "More in-app orders, less internal work",
+        eyebrow: "Impact",
+        navLabel: "The Impact",
         content:
           "Customers became more organized and took ownership of ordering. Shifting that responsibility and adding progress notifications raised daily active usage and saved time for customers and internal teams. Results were measured 45 days after launch, followed by two weeks of fast-follow improvements.",
         metrics: [
@@ -521,7 +540,9 @@ export const projects: ProjectDetails[] = [
     challengeImageAlt: "Luma — existing product before rebrand",
     sections: [
       {
-        title: "Kickoff — Starting with the user personas",
+        title: "Starting with the new user personas",
+        eyebrow: "Kickoff",
+        navLabel: "Kickoff",
         content:
           "Before designing, the team paired with the CEO — and sometimes the Head of Customer Service — to learn what each new customer segment needed.",
         image: "/projects/interview intelligence/placeholders/board-3.svg",
@@ -535,7 +556,9 @@ export const projects: ProjectDetails[] = [
         ],
       },
       {
-        title: "Early Insights",
+        title: "Core features worked; the flows around them didn't",
+        eyebrow: "Insights",
+        navLabel: "Early Insights",
         content: "",
         subItems: [
           {
@@ -556,7 +579,9 @@ export const projects: ProjectDetails[] = [
         ],
       },
       {
-        title: "Discovery — What is most important to the new user personas",
+        title: "Three personas, each with different goals",
+        eyebrow: "Discovery",
+        navLabel: "Discovery",
         content: "",
         image: "/projects/interview intelligence/persona-flows.png",
         imageAlt: "User persona diagram — Hiring Managers, Interviewers, and Recruiters",
@@ -574,14 +599,18 @@ export const projects: ProjectDetails[] = [
         ],
       },
       {
-        title: "Reframing the Problem",
+        title: "The product was built for the wrong user",
+        eyebrow: "Strategy",
+        navLabel: "Reframing",
         content:
           "After Luma launched, it became clear it had been built for the wrong user. It assumed the hiring manager, as final decision-maker — but hiring managers juggle other duties and delegate most of this work when they can. The result was low usage and a poor perception of the product.\n\nThe redesign refocused existing functionality and flows on interviewers and recruiters, who give the decision-maker perspective.",
         quote:
           "...how might we help interviewers and recruiters provide unbiased opinions to assist hiring managers in making better decisions?",
       },
       {
-        title: "Design Strategy",
+        title: "Rebrand, simplify, and design for each persona",
+        eyebrow: "Strategy",
+        navLabel: "Design Strategy",
         content: "",
         carousel: [
           {
@@ -616,7 +645,9 @@ export const projects: ProjectDetails[] = [
         ],
       },
       {
-        title: "The Redesign",
+        title: "Easier feedback, clearer candidates, and new analytics",
+        eyebrow: "Build",
+        navLabel: "The Redesign",
         content: "",
         subItems: [
           {
@@ -650,12 +681,16 @@ export const projects: ProjectDetails[] = [
         ],
       },
       {
-        title: "The Launch — Piece by piece for less disruption",
+        title: "Shipped piece by piece to avoid disruption",
+        eyebrow: "Launch",
+        navLabel: "The Launch",
         content:
           "The team shipped in the smallest chunks possible — page by page, feature by feature, or flow by flow, depending on complexity and usage — polishing visuals and details during development. Users saw gradual updates instead of one overwhelming change.",
       },
       {
-        title: "The Impact — Validated beyond the engagement",
+        title: "Validated by an acquisition three years later",
+        eyebrow: "Impact",
+        navLabel: "The Impact",
         content:
           "The redesign improved the experience for purchasers and the interview process as a whole, though the agency-style engagement ended before usage could be instrumented and compared.\n\nThe clearest validation came three years later: in 2025, Employ acquired Pillar and carried this 2022 redesign and rebrand into its hiring suite rather than starting over. Still being the foundation worth acquiring three years on is its own kind of proof.",
         metrics: [
@@ -692,7 +727,9 @@ export const projects: ProjectDetails[] = [
     challengeImageAlt: "CoLab Report — core value prop mockup",
     sections: [
       {
-        title: "Kickoff — Learning the problem, personas, and vision",
+        title: "Learning the problem, audience, and vision",
+        eyebrow: "Kickoff",
+        navLabel: "Kickoff",
         content:
           "Before designing, the team met repeatedly with the CEO, CTO, and Head of Customer Success to understand the industry problem, the vision for solving it, and the audience.",
         image: "/projects/brand-x-brand-collaboration/placeholders/colab-board.svg",
@@ -706,7 +743,9 @@ export const projects: ProjectDetails[] = [
         ],
       },
       {
-        title: "Early Insights",
+        title: "Deliver value as a service before automating it",
+        eyebrow: "Insights",
+        navLabel: "Early Insights",
         content: "",
         subItems: [
           {
@@ -732,7 +771,9 @@ export const projects: ProjectDetails[] = [
         ],
       },
       {
-        title: "Discovery — Defining user needs and fast follows",
+        title: "Defining the minimum, and what follows",
+        eyebrow: "Discovery",
+        navLabel: "Discovery",
         content: "",
         image: "/projects/brand-x-brand-collaboration/placeholders/reports-colab-2.svg",
         imageAlt: "CoLab report and dashboard scoping mockup",
@@ -750,14 +791,18 @@ export const projects: ProjectDetails[] = [
         ],
       },
       {
-        title: "Reframing the Problem",
+        title: "Look like software, run as a service",
+        eyebrow: "Strategy",
+        navLabel: "Reframing",
         content:
           "The goal was always to help customers grow through brand collaboration; discovery clarified how to get there fastest without sacrificing experience — launch, learn, and iterate.\n\nThe resulting flow looked like software to customers, while a Colaboratory team member did the work manually until automation became the priority.",
         quote:
           "...how might we provide the user an MVP version of insights on strategic collaborations for their brand?",
       },
       {
-        title: "Design Strategy",
+        title: "A flexible foundation built to pivot",
+        eyebrow: "Strategy",
+        navLabel: "Design Strategy",
         content: "",
         carousel: [
           {
@@ -792,7 +837,9 @@ export const projects: ProjectDetails[] = [
         ],
       },
       {
-        title: "The MVP",
+        title: "Sign-up, a reports dashboard, and a branded login",
+        eyebrow: "Build",
+        navLabel: "The MVP",
         content: "",
         image: "/projects/brand-x-brand-collaboration/placeholders/mvp.svg",
         imageAlt: "Full MVP scope overview diagram",
@@ -826,7 +873,9 @@ export const projects: ProjectDetails[] = [
         ],
       },
       {
-        title: "The Launch",
+        title: "Handed off and taken to market",
+        eyebrow: "Launch",
+        navLabel: "The Launch",
         content:
           "The engagement wrapped as planned: the MVP scope — sign-up flow, reporting dashboard, and foundational design system — was defined and handed off for development as the High Alpha placement ended. Colaboratory took it to launch, onboarding beta customers and generating new leads on that foundation.\n\nThe exploration beyond the MVP has continued to inform the product, even where specific designs changed.",
         carousel: [
