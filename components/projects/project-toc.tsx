@@ -113,11 +113,13 @@ export function ProjectTOC({ items }: { items: TocItem[] }) {
               href={`#${item.id}`}
               onClick={(e) => handleJump(e, item.id)}
               aria-current={active ? "true" : undefined}
-              className="group relative flex items-center justify-end gap-3 py-0.5"
+              // Hit area is only a small box around the dot; the label is
+              // absolutely positioned so it never widens the tappable region.
+              className="group relative flex h-7 w-7 items-center justify-end"
             >
               <span
                 className={cn(
-                  "pointer-events-none whitespace-nowrap rounded-md bg-background/90 px-2 py-1 text-xs font-medium opacity-0 shadow-sm ring-1 ring-border backdrop-blur transition-opacity duration-300 group-hover:opacity-100",
+                  "pointer-events-none absolute right-full top-1/2 mr-1 -translate-y-1/2 whitespace-nowrap rounded-md bg-background/90 px-2 py-1 text-xs font-medium opacity-0 shadow-sm ring-1 ring-border backdrop-blur transition-opacity duration-300 group-hover:opacity-100",
                   item.id === revealedId && "opacity-100",
                   active ? "text-foreground" : "text-muted-foreground"
                 )}
