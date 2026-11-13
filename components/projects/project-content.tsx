@@ -69,13 +69,19 @@ export function ProjectContent({ project }: ProjectContentProps) {
       {project.challenge && (
         <Section variant="alt" id="sec-challenge" className="scroll-mt-24">
           <div className="relative z-10">
+            {/* Same header treatment as the other sections: "Challenge" as the
+                eyebrow, the challenge itself as the heading. */}
             <Reveal delayMs={0}>
-              <SectionHeading size="md" className="mb-2">
-                The Challenge
-              </SectionHeading>
-              {project.challengeTitle && (
-                <p className="text-xl font-semibold text-foreground mb-6">{project.challengeTitle}</p>
-              )}
+              <div className="mb-6">
+                {project.challengeTitle && (
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                    Challenge
+                  </p>
+                )}
+                <SectionHeading size="md">
+                  {project.challengeTitle || "The Challenge"}
+                </SectionHeading>
+              </div>
             </Reveal>
             <Reveal delayMs={90}>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl">
