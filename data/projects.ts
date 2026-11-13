@@ -319,7 +319,7 @@ export const projects: ProjectDetails[] = [
           {
             value: "#23 → #13",
             label: "App Store rank, launch → Nov 2026",
-            subtext: "Top free sports apps — with little to no marketing and a narrow parent audience.",
+            subtext: "Top free sports apps, peaking at #7 in Oct 2026 — with little to no marketing and a narrow parent audience.",
           },
           {
             value: "2 → 1",
