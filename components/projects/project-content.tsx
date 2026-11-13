@@ -45,7 +45,7 @@ function renderRichText(text: string): ReactNode {
 }
 
 const navLabelFor = (section: ProjectSection) =>
-  section.navLabel ?? section.title.split(" — ")[0];
+  section.navLabel ?? section.eyebrow ?? section.title.split(" — ")[0];
 
 export function ProjectContent({ project }: ProjectContentProps) {
   if (isVibe(project)) return null;
@@ -53,7 +53,7 @@ export function ProjectContent({ project }: ProjectContentProps) {
   const hideMedia = project.hideCaseStudyMedia === true;
 
   const tocItems: TocItem[] = [
-    ...(project.challenge ? [{ id: "sec-challenge", label: "The Challenge" }] : []),
+    ...(project.challenge ? [{ id: "sec-challenge", label: "Challenge" }] : []),
     ...project.sections.map((section, index) => ({
       id: `sec-${index}`,
       label: navLabelFor(section),

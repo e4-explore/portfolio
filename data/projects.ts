@@ -72,7 +72,7 @@ export interface ProjectSection {
   carousel?: ProjectCarouselSlide[];
   /** Small uppercase kicker above the title, used to group sections into phases (e.g. "Discovery"). */
   eyebrow?: string;
-  /** Short label for the side navigation / table of contents. Defaults to the title's lead phrase. */
+  /** Override for the side-rail label. Defaults to the eyebrow, so the two always match. */
   navLabel?: string;
 }
 
@@ -113,7 +113,6 @@ export const projects: ProjectDetails[] = [
       {
         title: "Zero to 8,500+ parents, and a stronger platform for every role",
         eyebrow: "At a Glance",
-        navLabel: "At a Glance",
         content: "",
         bullets: [
           "Took a brand-new user type from zero to 8,515 parents in three months",
@@ -125,7 +124,6 @@ export const projects: ProjectDetails[] = [
       {
         title: "Designing for a user who didn't exist yet",
         eyebrow: "Discovery",
-        navLabel: "Discovery",
         content:
           "There was no parent research to start from. The first question was what job a parent is trying to get done — and how little of it could ship as a genuinely useful alpha. What did exist was a list of known Fan app problems: empty schedules and rosters, unreliable livestream-to-replay handoffs, and friction around purchases and refunds.",
         subItems: [
@@ -165,8 +163,7 @@ export const projects: ProjectDetails[] = [
       },
       {
         title: "Not just a new app — a better platform for everyone",
-        eyebrow: "Strategy",
-        navLabel: "Reframing",
+        eyebrow: "Reframe",
         quote:
           "...how might we bring an entirely new user type into Hudl for the first time, without asking every existing user to live with a fragmented, outdated foundation while we do it?",
         content:
@@ -175,7 +172,6 @@ export const projects: ProjectDetails[] = [
       {
         title: "Learn from a live alpha, and fix the foundation once",
         eyebrow: "Strategy",
-        navLabel: "Design Strategy",
         content: "",
         subItems: [
           {
@@ -207,8 +203,7 @@ export const projects: ProjectDetails[] = [
       },
       {
         title: "Two apps into one, one navigation, and an event-first experience",
-        eyebrow: "Build",
-        navLabel: "The MVP",
+        eyebrow: "MVP",
         content: "",
         subItems: [
           {
@@ -244,7 +239,6 @@ export const projects: ProjectDetails[] = [
       {
         title: "The real problem was activation, not retention",
         eyebrow: "Learnings",
-        navLabel: "Alpha Learnings",
         quote:
           "...the data wasn't telling us retention was broken — it was telling us most parents never found the experience in the first place. We weren't fighting a retention problem. We were fighting an activation problem.",
         content:
@@ -299,7 +293,6 @@ export const projects: ProjectDetails[] = [
       {
         title: "From 150 parents to thousands",
         eyebrow: "Launch",
-        navLabel: "The Launch",
         content:
           "General availability shipped in July 2026 on the new foundation, with consolidation and navigation already complete. After a quiet first week, sign-ups climbed steadily.\n\nA related feature shipped a month into the project opened a second door: an age gate requiring under-18 athletes to request parent consent brought in about 600 parents its first week, each connected directly to their athlete.",
         growth: {
@@ -315,7 +308,6 @@ export const projects: ProjectDetails[] = [
       {
         title: "Three months in, parents keep coming back",
         eyebrow: "Impact",
-        navLabel: "The Impact",
         content:
           "The alpha left one question open: would parents come, and keep coming back? They do — six sessions and 25 videos a month on average, the video wedge now holding at scale.\n\nNext is rapid testing on what this audience will pay for, with an engaged base to test it with.",
         metrics: [
@@ -373,7 +365,6 @@ export const projects: ProjectDetails[] = [
       {
         title: "Mapping the existing flow to find the gap",
         eyebrow: "Kickoff",
-        navLabel: "Kickoff",
         content:
           "Production has three steps — selecting keywords, building outlines, and writing — each self-service or purchasable. Keywords and writing were already add-ons; the gap was outlines, which content+ would fill for premium customers.\n\nThe new offering had to slot into the existing flows so customers could do everything themselves or choose which steps to hand off, with automation absorbing the work.",
         image: "/projects/content production and management/placeholders/current-flow.svg",
@@ -382,7 +373,6 @@ export const projects: ProjectDetails[] = [
       {
         title: "Add the new service without disrupting anyone",
         eyebrow: "Insights",
-        navLabel: "Early Insights",
         content: "",
         subItems: [
           {
@@ -405,7 +395,6 @@ export const projects: ProjectDetails[] = [
       {
         title: "One UI for customers and the staff fulfilling orders",
         eyebrow: "Discovery",
-        navLabel: "Discovery",
         content:
           "Customers and Demandwell staff fulfilling orders would share these flows. With many roles, permissions, and edge cases, the UI had to stay consistent across users while surfacing each one's essential information and actions.",
         image: "/projects/content production and management/placeholders/user-permissions.svg",
@@ -427,8 +416,7 @@ export const projects: ProjectDetails[] = [
       },
       {
         title: "Improve the existing experience while adding the new one",
-        eyebrow: "Strategy",
-        navLabel: "Reframing",
+        eyebrow: "Reframe",
         quote:
           "...how might we serve the new customer base within the platform and make UX improvements for existing customers without disruption?",
         content:
@@ -437,7 +425,6 @@ export const projects: ProjectDetails[] = [
       {
         title: "Clearer statuses, and key actions in customers' hands",
         eyebrow: "Strategy",
-        navLabel: "Design Strategy",
         content: "",
         subItems: [
           {
@@ -460,7 +447,6 @@ export const projects: ProjectDetails[] = [
       {
         title: "A reorganized planner, status alerts, and self-serve ordering",
         eyebrow: "Build",
-        navLabel: "UX Improvements",
         content: "",
         subItems: [
           {
@@ -489,14 +475,12 @@ export const projects: ProjectDetails[] = [
       {
         title: "Shipped despite a late start",
         eyebrow: "Launch",
-        navLabel: "The Launch",
         content:
           "The new offering shipped, visibility improved, and UX got better for every user, with positive feedback from customers and internal teams.\n\nThere were speed bumps: the project started two weeks late due to bleed-over from an earlier project, and gaps in FE/BE communication caused some misses. The team triaged what was vital for launch and backlogged the rest.",
       },
       {
         title: "More in-app orders, less internal work",
         eyebrow: "Impact",
-        navLabel: "The Impact",
         content:
           "Customers became more organized and took ownership of ordering. Shifting that responsibility and adding progress notifications raised daily active usage and saved time for customers and internal teams. Results were measured 45 days after launch, followed by two weeks of fast-follow improvements.",
         metrics: [
@@ -542,7 +526,6 @@ export const projects: ProjectDetails[] = [
       {
         title: "Starting with the new user personas",
         eyebrow: "Kickoff",
-        navLabel: "Kickoff",
         content:
           "Before designing, the team paired with the CEO — and sometimes the Head of Customer Service — to learn what each new customer segment needed.",
         image: "/projects/interview intelligence/placeholders/board-3.svg",
@@ -558,7 +541,6 @@ export const projects: ProjectDetails[] = [
       {
         title: "Core features worked; the flows around them didn't",
         eyebrow: "Insights",
-        navLabel: "Early Insights",
         content: "",
         subItems: [
           {
@@ -581,7 +563,6 @@ export const projects: ProjectDetails[] = [
       {
         title: "Three personas, each with different goals",
         eyebrow: "Discovery",
-        navLabel: "Discovery",
         content: "",
         image: "/projects/interview intelligence/persona-flows.png",
         imageAlt: "User persona diagram — Hiring Managers, Interviewers, and Recruiters",
@@ -600,8 +581,7 @@ export const projects: ProjectDetails[] = [
       },
       {
         title: "The product was built for the wrong user",
-        eyebrow: "Strategy",
-        navLabel: "Reframing",
+        eyebrow: "Reframe",
         content:
           "After Luma launched, it became clear it had been built for the wrong user. It assumed the hiring manager, as final decision-maker — but hiring managers juggle other duties and delegate most of this work when they can. The result was low usage and a poor perception of the product.\n\nThe redesign refocused existing functionality and flows on interviewers and recruiters, who give the decision-maker perspective.",
         quote:
@@ -610,7 +590,6 @@ export const projects: ProjectDetails[] = [
       {
         title: "Rebrand, simplify, and design for each persona",
         eyebrow: "Strategy",
-        navLabel: "Design Strategy",
         content: "",
         carousel: [
           {
@@ -646,8 +625,7 @@ export const projects: ProjectDetails[] = [
       },
       {
         title: "Easier feedback, clearer candidates, and new analytics",
-        eyebrow: "Build",
-        navLabel: "The Redesign",
+        eyebrow: "Redesign",
         content: "",
         subItems: [
           {
@@ -683,14 +661,12 @@ export const projects: ProjectDetails[] = [
       {
         title: "Shipped piece by piece to avoid disruption",
         eyebrow: "Launch",
-        navLabel: "The Launch",
         content:
           "The team shipped in the smallest chunks possible — page by page, feature by feature, or flow by flow, depending on complexity and usage — polishing visuals and details during development. Users saw gradual updates instead of one overwhelming change.",
       },
       {
         title: "Validated by an acquisition three years later",
         eyebrow: "Impact",
-        navLabel: "The Impact",
         content:
           "The redesign improved the experience for purchasers and the interview process as a whole, though the agency-style engagement ended before usage could be instrumented and compared.\n\nThe clearest validation came three years later: in 2025, Employ acquired Pillar and carried this 2022 redesign and rebrand into its hiring suite rather than starting over. Still being the foundation worth acquiring three years on is its own kind of proof.",
         metrics: [
@@ -729,7 +705,6 @@ export const projects: ProjectDetails[] = [
       {
         title: "Learning the problem, audience, and vision",
         eyebrow: "Kickoff",
-        navLabel: "Kickoff",
         content:
           "Before designing, the team met repeatedly with the CEO, CTO, and Head of Customer Success to understand the industry problem, the vision for solving it, and the audience.",
         image: "/projects/brand-x-brand-collaboration/placeholders/colab-board.svg",
@@ -745,7 +720,6 @@ export const projects: ProjectDetails[] = [
       {
         title: "Deliver value as a service before automating it",
         eyebrow: "Insights",
-        navLabel: "Early Insights",
         content: "",
         subItems: [
           {
@@ -773,7 +747,6 @@ export const projects: ProjectDetails[] = [
       {
         title: "Defining the minimum, and what follows",
         eyebrow: "Discovery",
-        navLabel: "Discovery",
         content: "",
         image: "/projects/brand-x-brand-collaboration/placeholders/reports-colab-2.svg",
         imageAlt: "CoLab report and dashboard scoping mockup",
@@ -792,8 +765,7 @@ export const projects: ProjectDetails[] = [
       },
       {
         title: "Look like software, run as a service",
-        eyebrow: "Strategy",
-        navLabel: "Reframing",
+        eyebrow: "Reframe",
         content:
           "The goal was always to help customers grow through brand collaboration; discovery clarified how to get there fastest without sacrificing experience — launch, learn, and iterate.\n\nThe resulting flow looked like software to customers, while a Colaboratory team member did the work manually until automation became the priority.",
         quote:
@@ -802,7 +774,6 @@ export const projects: ProjectDetails[] = [
       {
         title: "A flexible foundation built to pivot",
         eyebrow: "Strategy",
-        navLabel: "Design Strategy",
         content: "",
         carousel: [
           {
@@ -838,8 +809,7 @@ export const projects: ProjectDetails[] = [
       },
       {
         title: "Sign-up, a reports dashboard, and a branded login",
-        eyebrow: "Build",
-        navLabel: "The MVP",
+        eyebrow: "MVP",
         content: "",
         image: "/projects/brand-x-brand-collaboration/placeholders/mvp.svg",
         imageAlt: "Full MVP scope overview diagram",
@@ -875,7 +845,6 @@ export const projects: ProjectDetails[] = [
       {
         title: "Handed off and taken to market",
         eyebrow: "Launch",
-        navLabel: "The Launch",
         content:
           "The engagement wrapped as planned: the MVP scope — sign-up flow, reporting dashboard, and foundational design system — was defined and handed off for development as the High Alpha placement ended. Colaboratory took it to launch, onboarding beta customers and generating new leads on that foundation.\n\nThe exploration beyond the MVP has continued to inform the product, even where specific designs changed.",
         carousel: [
