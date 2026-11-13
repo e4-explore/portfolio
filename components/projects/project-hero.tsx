@@ -139,9 +139,18 @@ export function ProjectHero({ project }: ProjectHeroProps) {
                   {project.heroMetricsLabel}
                 </p>
               )}
-              <dl className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {project.heroMetrics.map((metric) => (
-                  <div key={metric.label}>
+              <dl
+                className={cn(
+                  "grid grid-cols-2 gap-6",
+                  project.heroMetrics.length === 5 ? "md:grid-cols-5" : "md:grid-cols-4"
+                )}
+              >
+                {project.heroMetrics.map((metric, i, all) => (
+                  <div
+                    key={metric.label}
+                    // Odd count on the 2-column mobile grid: let the last one span the row.
+                    className={cn(all.length % 2 === 1 && i === all.length - 1 && "col-span-2 md:col-span-1")}
+                  >
                     <dt className="sr-only">{metric.label}</dt>
                     <dd className="text-3xl md:text-4xl font-bold text-foreground tabular-nums">{metric.value}</dd>
                     <dd className="mt-1 text-sm text-muted-foreground">{metric.label}</dd>
