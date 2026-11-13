@@ -12,7 +12,6 @@ export interface TocItem {
 const HEADER_OFFSET = 96;
 
 export function ProjectTOC({ items }: { items: TocItem[] }) {
-  const [progress, setProgress] = React.useState(0);
   const [activeId, setActiveId] = React.useState(items[0]?.id ?? "");
   // On touch (no hover), the label pill is revealed briefly after a dot tap,
   // then fades out — rather than persisting and overlapping content.
@@ -44,10 +43,6 @@ export function ProjectTOC({ items }: { items: TocItem[] }) {
 
     const compute = () => {
       raf = 0;
-      const doc = document.documentElement;
-      const max = doc.scrollHeight - window.innerHeight;
-      setProgress(max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0);
-
       // Scrollspy: the active section is the last one whose top has
       // scrolled above the header offset line.
       let current = items[0]?.id ?? "";
@@ -91,14 +86,6 @@ export function ProjectTOC({ items }: { items: TocItem[] }) {
 
   return (
     <>
-      {/* Top scroll-progress bar */}
-      <div className="fixed top-0 left-0 right-0 z-[60] h-[3px] bg-transparent pointer-events-none">
-        <div
-          className="h-full w-full origin-left bg-foreground/80 transition-transform duration-75 ease-out"
-          style={{ transform: `scaleX(${progress})` }}
-        />
-      </div>
-
       {/* Right-edge section rail (lives in the page margin on desktop,
           hugs the edge on mobile) */}
       <nav
