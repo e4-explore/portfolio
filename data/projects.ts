@@ -82,7 +82,7 @@ export const projects: ProjectDetails[] = [
     title: "Hudl for Parents",
     subtitle: "Bringing parents into Hudl for the first time — and rebuilding the foundation underneath them",
     description:
-      "Taking a new product to market for parents — Hudl's first entirely new user type — growing to 8,500+ parents in three months, while consolidating two apps and rebuilding navigation for every role.",
+      "Hudl's first product for parents — 8,500+ in three months — built while consolidating two apps and rebuilding navigation for every role.",
     tags: ["UX Research", "Product Strategy", "UX/UI Design"],
     thumbnail: "/projects/hudl-for-parents/hudl for parents - project cover.jpg",
     company: "Hudl",
@@ -99,25 +99,25 @@ export const projects: ProjectDetails[] = [
     ],
     challengeTitle: "A new user type, a mental model shift, and two apps becoming one",
     challenge:
-      "Parents had always been adjacent to Hudl — watching games, chasing highlights — but never had a product built for them. Launching one was also the moment to fix two problems that had been building for years.",
+      "Parents had always watched games and chased highlights on Hudl, but never had a product of their own. Building one was also the moment to fix two long-standing problems.",
     challengeImage: "/projects/hudl-for-parents/diagrams/challenge.svg",
     challengeImageAlt: "Diagram of the three problems: a new parent user type, two apps consolidating into one, and one navigation model for every role",
     challengeBullets: [
-      "Define and validate an MVP for parents — groundwork for an untapped revenue line",
-      "Consolidate two overlapping apps into one, delisting the duplicate and cutting its engineering overhead",
-      "Fix a year-old navigation and information architecture problem across the whole platform",
+      "Define and validate a parent MVP — groundwork for an untapped revenue line",
+      "Merge two overlapping apps into one, delisting the duplicate and its engineering overhead",
+      "Fix a year-old navigation and information architecture problem platform-wide",
     ],
     overview:
-      "Hudl is a sports performance platform coaches, athletes, and administrators use for video, analytics, and team communication. This project designed Hudl's first product for parents, from scratch, with a paid subscription as the long-term goal.\n\nRather than ship it as a standalone 0→1 build, the project became the forcing function for consolidating two apps and rebuilding navigation for every role.",
+      "Hudl is a sports performance platform for coaches, athletes, and administrators — video, analytics, and team communication. This project designed its first product for parents, from scratch, with a paid subscription as the long-term goal — and used it as the forcing function to fix the platform underneath.",
     sections: [
       {
         title: "At a Glance",
         eyebrow: "Summary",
         content: "",
         bullets: [
-          "Took a brand-new user type from zero to 8,515 parents in three months, averaging 6 sessions and 25 videos per parent each month",
-          "Used pilot data to reframe the core problem as activation, not retention — and reset the roadmap heading into launch",
-          "Led a navigation and IA fix that shipped for every role, and advised other designers to keep it consistent beyond this workstream",
+          "Took a brand-new user type from zero to 8,515 parents in three months",
+          "Used pilot data to reframe the core problem as activation, not retention — resetting the roadmap into launch",
+          "Led a navigation and IA fix that shipped for every role, advising other designers to keep it consistent",
           "Went past design files: merged real pull requests and built Claude Skills tooling for the wider team",
         ],
       },
@@ -126,39 +126,39 @@ export const projects: ProjectDetails[] = [
         eyebrow: "Discovery",
         navLabel: "Discovery",
         content:
-          "There was no parent research to start from. The first question wasn't what to build, but what job a parent is actually trying to get done — and how little of that could ship as a genuinely useful alpha. What did exist was a list of known problems in the legacy Fan app: empty schedules and rosters, unreliable livestream-to-replay handoffs, hard-to-find teams, and friction around purchases and refunds.",
+          "There was no parent research to start from. The first question was what job a parent is trying to get done — and how little of it could ship as a genuinely useful alpha. What did exist was a list of known Fan app problems: empty schedules and rosters, unreliable livestream-to-replay handoffs, and friction around purchases and refunds.",
         subItems: [
           {
             title: "Two apps, one job",
             content:
-              "Parents bounced between two apps to get the full picture of their athlete's season — and sensed there was more content in Hudl's main app than in the fan app built for them. Consolidation mattered as much as any new screen.",
+              "Parents bounced between two apps for the full picture of their athlete's season, and sensed Hudl's main app had more content than the fan app built for them. Consolidation mattered as much as any new screen.",
           },
           {
             title: "A navigation problem a year in the making",
             content:
-              "Discovery kept surfacing a mental-model problem that had been flagged a year earlier and never prioritized. Going back through feedback from coaches, athletes, and admins made the case that this was a platform-wide fix, not a parent one-off.",
+              "Discovery resurfaced a mental-model problem flagged a year earlier and never prioritized. Feedback from coaches, athletes, and admins made the case for a platform-wide fix, not a parent one-off.",
           },
           {
             title: "Turning feedback into signal",
             content:
-              "A pipeline on top of in-app comments used AI-assisted text analysis to sort raw feedback into recurring themes, feeding a sentiment dashboard segmentable by cohort. It replaced anecdotes with a repeatable check on whether new work addressed what parents cared about most.",
+              "AI-assisted text analysis sorted in-app comments into recurring themes, feeding a sentiment dashboard segmentable by cohort — a repeatable check, instead of anecdotes, on whether new work addressed what parents cared about most.",
             image: "/projects/hudl-for-parents/diagrams/feedback-pipeline.svg",
             imageAlt: "Diagram of in-app comments sorted by AI into themes, feeding a sentiment-over-time dashboard",
           },
           {
             title: "What parents were running into",
             content:
-              "Parents expected far more video than existed. Teams were hard to find, pushing people into workarounds just to follow their own kid. Location and favorite teams weren't shaping what anyone saw first. And every team profile looked the same — what the team started calling \"profile blindness.\"",
+              "Parents expected far more video than existed. Teams were hard to find, forcing workarounds just to follow their own kid. Location and favorite teams didn't shape what anyone saw first. And every team profile looked the same — what the team called \"profile blindness.\"",
           },
           {
             title: "Not breaking it for everyone else",
             content:
-              "The legacy app wasn't only for parents: coaches analyzed games there and recruiters browsed player profiles. Every change had to serve parents without quietly breaking those other jobs.",
+              "Coaches analyzed games in the legacy app and recruiters browsed player profiles there. Every change had to serve parents without quietly breaking those jobs.",
           },
           {
             title: "Built to learn fast",
             content:
-              "With so much unproven, the alpha was instrumented to learn quickly. For parent-facing features, that meant [[ai-forward|an AI-forward discovery loop]] — production-fidelity prototypes, updated live on calls with families.",
+              "The alpha was instrumented to learn quickly, and parent-facing features were shaped through [[ai-forward|an AI-forward discovery loop]] — production-fidelity prototypes, updated live on calls with families.",
           },
         ],
       },
@@ -168,7 +168,7 @@ export const projects: ProjectDetails[] = [
         quote:
           "...how might we bring an entirely new user type into Hudl for the first time, without asking every existing user to live with a fragmented, outdated foundation while we do it?",
         content:
-          "The easy version was a new app for a new user, sitting beside everything else. The bigger opportunity was making the whole platform better in the process: one experience instead of two, and a navigation model that made sense for everyone.",
+          "The easy version was a new app beside everything else. The bigger opportunity was improving the whole platform in the process: one experience instead of two, and navigation that made sense for everyone.",
       },
       {
         title: "Design Strategy",
@@ -178,27 +178,27 @@ export const projects: ProjectDetails[] = [
           {
             title: "Ship the alpha, then let it teach you",
             content:
-              "Instead of fully scoping the product up front, get a real version in front of real families early and treat the alpha as the primary research tool.",
+              "Rather than scope everything up front, get a real version in front of families early and treat the alpha as the main research tool.",
           },
           {
             title: "Fix the foundation once",
             content:
-              "Rebuilding navigation is disruptive, so it had to happen deliberately and once — designed to hold for parents and every existing role, not patched around the new addition.",
+              "Rebuilding navigation is disruptive, so it happened once and deliberately — designed for parents and every existing role, not patched around the newcomer.",
           },
           {
             title: "Design the seams for monetization, don't build it yet",
             content:
-              "A future subscription shaped how flows and permissions were structured, without committing to paywalls or pricing before there was evidence of what parents would pay for.",
+              "A future subscription shaped flows and permissions, without committing to paywalls or pricing before parents showed what they'd pay for.",
           },
           {
             title: "Prototype in code, polish in code",
             content:
-              "[[ai-forward|AI-forward discovery]] put production-fidelity prototypes in front of parents, and hands-on [[design-engineering|design engineering]] carried polish straight into the codebase instead of a written handoff.",
+              "Prototypes were built at production fidelity, and hands-on [[design-engineering|design engineering]] carried polish straight into the codebase instead of a written handoff.",
           },
           {
             title: "Leading beyond this workstream",
             content:
-              "The navigation changes reached surfaces this project didn't own, so part of the role was advising other designers to keep the fix consistent. The consolidation strategy was shaped through cross-functional sessions with product, marketing, and engineering — sequencing it around the parent rollout and keeping messaging honest about what shipped when.",
+              "The navigation changes reached surfaces this project didn't own, so part of the role was advising other designers to keep them consistent. Consolidation was sequenced with product, marketing, and engineering around the parent rollout, keeping messaging honest about what shipped when.",
           },
         ],
       },
@@ -211,28 +211,28 @@ export const projects: ProjectDetails[] = [
           {
             title: "Merging two strong products into one",
             content:
-              "This wasn't folding a failing app into a stronger one. In the year before, the Fan app's NPS climbed from -5 to 30 and it reached #12 among free sports apps — ahead of Hudl's flagship at #30. Combining them ended the split attention, delisted the duplicate, and started the migration off its separate codebase.",
+              "This wasn't folding a failing app into a stronger one: in the prior year the Fan app's NPS rose from -5 to 30 and it reached #12 among free sports apps, ahead of Hudl's flagship at #30. Merging them ended the split attention, delisted the duplicate, and began retiring its separate codebase.",
             image: "/projects/hudl-for-parents/hudl for parents - multiple apps.jpg",
             imageAlt: "Hudl and Hudl Fan as two separate App Store listings before consolidation",
           },
           {
             title: "One navigation model for every role",
             content:
-              "The navigation and IA rebuild shipped platform-wide, resolving a year of accumulated feedback and giving every user type a clearer mental model of the product.",
+              "Shipped platform-wide, resolving a year of accumulated feedback and giving every user type a clearer mental model of the product.",
             image: "/projects/hudl-for-parents/diagrams/navigation-every-role.svg",
             imageAlt: "Diagram of coach, athlete, admin, and parent roles all sharing one navigation bar",
           },
           {
             title: "The cornerstone: design around the event, not the video",
             content:
-              "Parents plan their week around games, not around whether video exists. A video-first model dead-ended whenever a stream fell through or hadn't posted. An event-first page gave every game somewhere reliable to land — and a foundation for schedules, live data, and video to layer onto.",
+              "Parents plan around games, not around whether video exists. A video-first model dead-ended whenever a stream failed or hadn't posted; an event-first page always gave a game somewhere to land — a base for schedules, live data, and video to layer onto.",
             image: "/projects/hudl-for-parents/diagrams/event-first.svg",
             imageAlt: "Comparison of a video-first model that dead-ends without video versus an event-first page that always has content",
           },
           {
             title: "A closed pilot, built to be tested",
             content:
-              "The experience shipped first to a small group of real teams and families, with features added one at a time so each could be watched in isolation: messaging and calendar, then video and highlights, profiles, livestreams, and finally search, sharing, and ticketing.",
+              "It shipped first to a few real teams and families, adding features one at a time so each could be watched in isolation: messaging and calendar, then video and highlights, profiles, livestreams, and finally search, sharing, and ticketing.",
             image: "/projects/hudl-for-parents/diagrams/pilot-rollout.svg",
             imageAlt: "Staircase of features added one at a time during the closed pilot",
           },
@@ -245,46 +245,46 @@ export const projects: ProjectDetails[] = [
         quote:
           "...the data wasn't telling us retention was broken — it was telling us most parents never found the experience in the first place. We weren't fighting a retention problem. We were fighting an activation problem.",
         content:
-          "Across 150 parents and no marketing, about 40% engaged — and half of those watched video, validating video as the wedge into this market. Five patterns reshaped the point of view heading into launch.",
+          "Across 150 parents with no marketing, about 40% engaged — half of them watching video, validating video as the wedge into this market. Five patterns reshaped the point of view heading into launch.",
         image: "/projects/hudl-for-parents/diagrams/activation-funnel.svg",
         imageAlt: "Funnel from 150 alpha parents to about 40% engaged to about 6% reaching an event page, highlighting the discovery gap",
         subItems: [
           {
             title: "Activation, not retention",
             content:
-              "90% of parents who reached an event page went on to watch video, but only about 6% got there. The product worked; discovery didn't. The next phase became about building activation into the product rather than relying on outside prompts.",
+              "Nearly every parent who reached an event page watched video, but few got there. The product worked; discovery didn't. The next phase built activation into the product instead of relying on outside prompts.",
           },
           {
             title: "The post-game moment is the hook",
             content:
-              "Email opens ran 42–50% against a 36.9% benchmark, but post-game sends drove about 4.5x the benchmark click-through while other reminders barely moved. That timing became the organizing principle for prompts back into the experience.",
+              "Email opens ran 42–50% against a 36.9% benchmark, but only post-game sends drove meaningful clicks. That timing became the organizing principle for prompts back into the experience.",
           },
           {
             title: "Parents want to create, not just consume",
             content:
-              "Parents wanted to clip, share, and export their athlete's highlights — some were already doing it through desktop workarounds. Creation turned out to be a core reason to come back, not a nice-to-have.",
+              "Parents wanted to clip, share, and export their athlete's highlights — some already did through desktop workarounds. Creation was a core reason to return, not a nice-to-have.",
           },
           {
             title: "Trust before automation",
             content:
-              "Automated highlights were in high demand, but a missed moment or mis-tagged athlete undercut confidence in the whole feature. For something this personal, reliability has to clear a high bar first.",
+              "Demand for automated highlights was high, but one missed moment or mis-tagged athlete undercut trust in the whole feature. For something this personal, reliability has to clear a high bar first.",
           },
           {
             title: "\"Parent\" isn't one audience",
             content:
-              "Coaches, team admins, and volunteer team managers each shaped adoption differently, with different levels of trust. Outreach and onboarding were rethought around those roles rather than treating every adult around a team the same.",
+              "Coaches, team admins, and volunteer team managers each shaped adoption differently, with different levels of trust — so outreach and onboarding were rebuilt around those roles instead of treating every adult around a team the same.",
           },
         ],
         metrics: [
           {
             value: "90%",
             label: "Event page → video watch rate",
-            subtext: "Parents who reached an event page and went on to watch video — the experience converted once found.",
+            subtext: "Once parents found the experience, it converted.",
           },
           {
             value: "~6%",
             label: "Reached an event page",
-            subtext: "Share of the full cohort that got that far — the bottleneck was discovery, not the product.",
+            subtext: "Share of the full cohort — the bottleneck was discovery, not the product.",
           },
           {
             value: "4.5x",
@@ -298,7 +298,7 @@ export const projects: ProjectDetails[] = [
         eyebrow: "Launch",
         navLabel: "The Launch",
         content:
-          "General availability shipped in July 2026 on the new foundation — consolidation and navigation were already complete. The first week was quiet, with 78 parents. By the end of month one, about 4,400 had registered; by month three, 8,515.\n\nA related feature released a month into the project opened a second door: an age gate requiring under-18 athletes to request parent consent brought about 600 parents through in its first week, connected directly to their athlete.",
+          "General availability shipped in July 2026 on the new foundation, with consolidation and navigation already complete. After a quiet first week, sign-ups climbed steadily.\n\nA related feature shipped a month into the project opened a second door: an age gate requiring under-18 athletes to request parent consent brought in about 600 parents its first week, each connected directly to their athlete.",
         growth: {
           title: "Unique parents since general availability",
           points: [
@@ -306,7 +306,7 @@ export const projects: ProjectDetails[] = [
             { label: "Month 1", value: 4400, display: "~4,400" },
             { label: "Month 3", value: 8515 },
           ],
-          caption: "Milestones are unevenly spaced — bars show the cumulative total at each point, not equal time intervals.",
+          caption: "Milestones are unevenly spaced — bars show cumulative totals, not equal time intervals.",
         },
       },
       {
@@ -314,23 +314,8 @@ export const projects: ProjectDetails[] = [
         eyebrow: "Impact",
         navLabel: "The Impact",
         content:
-          "The alpha left one question open: would parents come, and keep coming back? They do. The average parent returns six times a month and watches 25 videos — the video wedge the alpha pointed to, now holding at scale.\n\nNext is rapid testing on what, specifically, this audience will pay for, with an engaged base of parents to test it with.",
+          "The alpha left one question open: would parents come, and keep coming back? They do — six sessions and 25 videos a month on average, the video wedge now holding at scale.\n\nNext is rapid testing on what this audience will pay for, with an engaged base to test it with.",
         metrics: [
-          {
-            value: "8,515",
-            label: "Unique parents in 3 months",
-            subtext: "For a user type Hudl had never designed for.",
-          },
-          {
-            value: "25",
-            label: "Videos per parent, monthly",
-            subtext: "The alpha's video wedge, confirmed at scale.",
-          },
-          {
-            value: "6",
-            label: "Sessions per parent, monthly",
-            subtext: "Repeat use, not a one-time look after signup.",
-          },
           {
             value: "~6% → TBD",
             label: "Reached an event page, alpha → today",
@@ -339,7 +324,7 @@ export const projects: ProjectDetails[] = [
           {
             value: "#23 → TBD",
             label: "App Store rank, launch → today",
-            subtext: "Among free sports apps at launch in July 2026, against where it sits with parents live.",
+            subtext: "Among free sports apps, from the July 2026 launch to now.",
           },
           {
             value: "2 → 1",
@@ -349,8 +334,8 @@ export const projects: ProjectDetails[] = [
         ],
         bullets: [
           "New revenue line: 8,500+ engaged parents and real usage data for a previously untapped user type",
-          "Cost efficiency: one app delisted and its separate codebase on the way out, freeing engineering capacity",
-          "De-risked investment: demand proven with a 150-parent alpha before committing engineering spend at scale",
+          "Cost efficiency: one app delisted and its codebase being retired, freeing engineering capacity",
+          "De-risked investment: demand proven with a 150-parent alpha before scaling engineering spend",
           "Platform health: a year-old navigation problem resolved for every role",
         ],
       },
@@ -361,7 +346,7 @@ export const projects: ProjectDetails[] = [
     title: "Content Production & Management",
     subtitle: "Meeting business needs & iterating on user experience",
     description:
-      "Streamlining the content creation workflow from ideation to publication with an intuitive management system.",
+      "Streamlining Demandwell's content workflow from ordering to publication.",
     tags: ["UX Research", "UX/UI Design", "Prototyping"],
     thumbnail: "/projects/content production and management/content production and management.png",
     company: "Demandwell",
@@ -370,13 +355,13 @@ export const projects: ProjectDetails[] = [
     tools: ["Figma"],
     timeline: "4 weeks planning, 6 weeks development",
     overview:
-      "Demandwell is a startup focused on helping customers grow their SEO organically. Their approach combines SEO expert consultation with platform automation, allowing the user flexibility depending on their own experience level. Mainly based in Indianapolis with around 50 employees.\n\nDemandwell's approach to product provides the customer with a holistic software to improve SEO — supplying users with tools for keyword generation, content production, performance tracking, and site monitoring.",
+      "Demandwell is an Indianapolis SEO startup of about 50 people. It pairs expert consultation with platform automation, so customers can do as much or as little themselves as they like, with tools for keyword generation, content production, performance tracking, and site monitoring.",
     challengeTitle: "Ordering automation, visibility & better UX",
     challenge:
-      "This project stemmed from the high usage of their content product, the number of content+ customers, and the human-intensive need to service customers. The goal was to immediately impact cost-to-serve for existing customers and add assurances for customers interested in purchasing content production. The three main problems aimed to solve:",
+      "Heavy use of the content product and a growing base of content+ customers made servicing them labor-intensive. The goal was to cut cost-to-serve immediately and give prospects confidence in buying content production. Three problems to solve:",
     challengeBullets: [
       "Consultants were a bottleneck for communication & delivery",
-      "Customers had no visibility on content progress after ordering",
+      "Customers had no visibility into progress after ordering",
       "Writers with lots of content struggled to stay organized",
     ],
     challengeImage: "/projects/content production and management/placeholders/challenge.svg",
@@ -385,7 +370,7 @@ export const projects: ProjectDetails[] = [
       {
         title: "Kickoff — Evaluating & understanding current flows",
         content:
-          "It was key to understand existing flows to improve them and seamlessly add in the new offering. The end product would allow the user to manually produce everything or pick and choose what parts of the production process they'd like to participate in. By automating this within the product, the goal was to reduce cost-to-serve for this particular segment of customers.\n\nWithin the Demandwell content production flow there are 3 main components — selecting keywords, building outlines, and writing content. These were self-service or purchasable through Demandwell. Selecting keywords and writing content were already add-ons, so the job was to fill the gap and allow premium customers to purchase content+.",
+          "Production has three steps — selecting keywords, building outlines, and writing — each self-service or purchasable. Keywords and writing were already add-ons; the gap was outlines, which content+ would fill for premium customers.\n\nThe new offering had to slot into the existing flows so customers could do everything themselves or choose which steps to hand off, with automation absorbing the work.",
         image: "/projects/content production and management/placeholders/current-flow.svg",
         imageAlt: "The existing content flow — keywords, outlines, writing — showing self-serve vs. purchasable steps",
       },
@@ -396,38 +381,38 @@ export const projects: ProjectDetails[] = [
           {
             title: "Increase visibility and improve content quality",
             content:
-              "The new flow would provide another service through the product, and supply more defined statuses and approval steps to ensure the best output, eliminating complaints and possible rework.",
+              "A new in-product service with clearer statuses and approval steps would improve output and cut complaints and rework.",
           },
           {
             title: "Improvements must not disrupt current flows",
             content:
-              "With many users currently using the software, any changes needed to avoid disrupting their current content production process, and had to fit or improve the current backend structure.",
+              "Many customers relied on the existing process, so changes had to fit — or improve — the current flow and backend.",
           },
           {
             title: "Automation to improve scalability",
             content:
-              "Many manual tasks were performed by different teams to deliver services to the customer. By automating these tedious tasks (sometimes a bottleneck in the process), the goal was to reduce cost-to-serve each new content+ customer.",
+              "Several teams performed manual, often bottlenecking tasks to deliver the service. Automating them would cut the cost of serving each new content+ customer.",
           },
         ],
       },
       {
         title: "Discovery — All users and edge cases",
         content:
-          "The flows would be used by both customers and Demandwell employees fulfilling orders. With many users with different permissions and edge cases, the design needed to be simple yet complex — offering similar UI for each user with essential information and actions to complete various tasks.",
+          "Customers and Demandwell staff fulfilling orders would share these flows. With many roles, permissions, and edge cases, the UI had to stay consistent across users while surfacing each one's essential information and actions.",
         image: "/projects/content production and management/placeholders/user-permissions.svg",
         imageAlt: "Customers, CPMs, and writers mapped to what each can see and do at each stage",
         subItems: [
           {
             title: "Statuses & sections were unclear",
             content:
-              "With only three sections and limited statuses there was a lot of grey area that customer content could fall into during fulfillment. More in-depth sections and statuses would provide better insight into what part of the process an order was in without customers needing to reach out.",
+              "Three sections and few statuses left grey areas for orders mid-fulfillment. Finer sections and statuses would show where an order stood without customers having to ask.",
             image: "/projects/content production and management/placeholders/status-map.svg",
             imageAlt: "The old three-section model compared to the new granular stages and statuses",
           },
           {
             title: "Improving existing internal processes",
             content:
-              "This project gave the company time to evaluate and improve existing internal processes at the same time.",
+              "The project was also a chance to evaluate and improve internal processes.",
           },
         ],
       },
@@ -436,7 +421,7 @@ export const projects: ProjectDetails[] = [
         quote:
           "...how might we serve the new customer base within the platform and make UX improvements for existing customers without disruption?",
         content:
-          "After discovery it was identified that there were more areas for improvement while adding the new service offering. As lead designer, the goal was to explore all ways to improve the current offering in a non-disruptive way while fitting in the new offering with efficiency. This resulted in a slight redesign of the content planner list page and headers throughout the flow that contained key actions dependent on user permissions.",
+          "Discovery surfaced more to improve alongside the new offering. The aim became every non-disruptive improvement possible while fitting the new service in efficiently — resulting in a light redesign of the Content Planner list page and new headers throughout the flow, with key actions based on user permissions.",
       },
       {
         title: "Design Strategy",
@@ -445,17 +430,17 @@ export const projects: ProjectDetails[] = [
           {
             title: "Improvement of UX overall",
             content:
-              "Identifying key areas to make UX improvements for the existing and new customer base; now was a key time to iterate on the MVP product released years ago.",
+              "With the MVP years old, this was the moment to improve UX for existing and new customers alike.",
           },
           {
             title: "Increased ordering visibility",
             content:
-              "Statuses not being clear had to be addressed. Adding UX verbiage to clearly identify stages and more granular statuses would help visibility.",
+              "Clearer stage names and more granular statuses would fix unclear progress.",
           },
           {
             title: "Eliminate internal work",
             content:
-              "With a lot of time being spent with a consultant communicating, more key actions needed to be put into the customer's hands to shift ownership.",
+              "Consultants spent a lot of time relaying information, so key actions moved into customers' hands.",
           },
         ],
       },
@@ -466,21 +451,21 @@ export const projects: ProjectDetails[] = [
           {
             title: "Clearer sections & less scrolling",
             content:
-              "Writers with lots of content struggled to stay organized within the Content Planner due to accordion sections containing various statuses. After release, the Content Planner was redesigned with new tabs, stages, icons, and tooltips for better organization and tracking.",
+              "Accordion sections mixing statuses made large content libraries hard to manage. The redesigned Content Planner uses tabs, stages, icons, and tooltips for organization and tracking.",
             image: "/projects/content production and management/placeholders/content-planner-before-after.svg",
             imageAlt: "Content Planner before and after — accordion sections replaced by tabs and stages",
           },
           {
             title: "New statuses & notifications",
             content:
-              "A lot of feedback indicated customers didn't have a clear way to understand the progress of their order. Along with clearer sections and statuses, Demandwell would now send email alerts to the user who ordered content as it progresses through writing phases.",
+              "Customers couldn't tell how their order was progressing. Alongside clearer statuses, Demandwell now emails whoever placed the order as content moves through each writing phase.",
             image: "/projects/content production and management/placeholders/status-notifications.svg",
             imageAlt: "New status badges and an order-progress email notification",
           },
           {
             title: "Automating ordering & outline approval",
             content:
-              "New outline orders and approval were previously all via email. CPMs would create an outline, get it approved, and submit the order for the user. After launch, customers submit their own orders and approve outlines through the platform, eliminating unnecessary emails and time spent.",
+              "Outline orders and approvals used to run over email: CPMs created an outline, got it approved, and submitted the order for the customer. Now customers order and approve outlines in the platform.",
             image: "/projects/content production and management/placeholders/outline-approval.svg",
             imageAlt: "Customer submitting an order and approving an outline in the platform",
           },
@@ -489,12 +474,12 @@ export const projects: ProjectDetails[] = [
       {
         title: "The Launch",
         content:
-          "Overall the project was a success. The new offering was delivered, visibility was increased, and UX was improved for all users. Positive feedback was received from customers and internal teams.\n\nThere were some speed bumps: the project started 2 weeks later than anticipated due to bleed-over from an earlier project, and a lack of communication between FE & BE engineers caused a few things to be missed. The team came together to determine what was vital to launch vs. what could go to a backlog for later.",
+          "The new offering shipped, visibility improved, and UX got better for every user, with positive feedback from customers and internal teams.\n\nThere were speed bumps: the project started two weeks late due to bleed-over from an earlier project, and gaps in FE/BE communication caused some misses. The team triaged what was vital for launch and backlogged the rest.",
       },
       {
         title: "The Impact",
         content:
-          "Positive results, keeping customers more organized and responsible for the ordering process.\n\nThe project had a positive impact on overall user experience and saved time for customers and internal members (at the time of writing, 3 months since launch). Daily active users rose due to the shift of order responsibility and progress notifications. Results were recorded 45 days after launch. After launch there were 2 additional weeks of continued work on fast-follows to continue improving user experience.",
+          "Customers became more organized and took ownership of ordering. Shifting that responsibility and adding progress notifications raised daily active usage and saved time for customers and internal teams. Results were measured 45 days after launch, followed by two weeks of fast-follow improvements.",
         metrics: [
           { value: "8%", label: "Increase in DAU/MAU" },
           { value: "70%", label: "Increase of in-app orders" },
@@ -523,14 +508,14 @@ export const projects: ProjectDetails[] = [
     tools: ["Figma", "FigJam"],
     timeline: "~3 months",
     overview:
-      "High Alpha (HA) is a venture capital company that provides product leadership and other needs to start-up companies to speed up scalability. HA partners with a company — usually 3–6 months — providing thought leadership and design around product.\n\nPillar is a start-up focused on improving the interviewing process with unbiased decision making. Mainly based in Indianapolis — CEO on the east coast and other employees all over the United States — with under 50 employees. On this project the team worked with the CEO and about 10 other employees on a consistent basis.",
+      "High Alpha is a venture studio that embeds with startups for 3–6 months to lead product and design.\n\nPillar builds interview software for unbiased hiring decisions. Based in Indianapolis with a distributed team of under 50, it worked closely with us through its CEO and about 10 other employees.",
     challengeTitle: "UX/UI overhaul including rebrand",
     challenge:
-      "Our goal for this project was to enhance the Luma product offering as a whole for the new user personas, while working through a rebrand — without constraining new ideas or innovations from being suggested or implemented. The ambition was to create a more user-friendly product with a strong foundation that embraced a rapidly evolving business.",
+      "Improve the Luma product for new user personas during a rebrand — without constraining new ideas. The aim was a friendlier product with a foundation strong enough for a fast-changing business.",
     challengeBullets: [
-      "Update the platform to better reflect the new brand and user personas",
-      "Create a platform that is easy to use & understand to encourage engagement",
-      "Make improvements & innovations to existing UI and UX flows",
+      "Reflect the new brand and user personas across the platform",
+      "Make the platform easy to use and understand to drive engagement",
+      "Improve and innovate on existing UI and UX flows",
     ],
     challengeImage: "/projects/interview intelligence/placeholders/luma2.svg",
     challengeImageAlt: "Luma — existing product before rebrand",
@@ -538,14 +523,14 @@ export const projects: ProjectDetails[] = [
       {
         title: "Kickoff — Starting with the user personas",
         content:
-          "Before designing, the team needed to gain more insights about the new user personas. To learn more, they paired with the CEO, and occasionally the Head of Customer Service, to get a better picture of what each customer segment needed.",
+          "Before designing, the team paired with the CEO — and sometimes the Head of Customer Service — to learn what each new customer segment needed.",
         image: "/projects/interview intelligence/placeholders/board-3.svg",
         imageAlt: "FigJam planning and discovery whiteboard",
         subItems: [
           {
             title: "Defining what is first to work on",
             content:
-              "With a fully fleshed-out platform there were a lot of options for what to work on first. The team organized product offerings in a way that grouped them together logically, exposing gaps in the information architecture that needed to be filled or anticipated to be needed soon.",
+              "A fully built platform offered plenty to start on. Grouping product offerings logically exposed information architecture gaps — some to fill now, some to anticipate.",
           },
         ],
       },
@@ -556,17 +541,17 @@ export const projects: ProjectDetails[] = [
           {
             title: "Design system needed updating",
             content:
-              "The design system in place was limited, but core functionality was there. Each component needed revamping due to the new brand. The team experimented with more intuitive UI components and flows while mixing in various brand elements to see what worked.",
+              "The design system was limited but functional; the rebrand meant revamping every component. The team experimented with more intuitive components and flows, mixing in brand elements to see what worked.",
           },
           {
             title: "Functionality mostly there, but flows were not",
             content:
-              "Core functions of recording interviews and leaving basic highlights were available, but flows to bring that information forward to the user afterwards were difficult. There were also gaps within the Information Architecture that were skipped due to GTM reasons.",
+              "Recording interviews and leaving basic highlights worked, but surfacing that information afterward was hard, and IA gaps skipped for go-to-market reasons remained.",
           },
           {
             title: "Most used vs. most important pages",
             content:
-              "Users spent most of their time on the interview page watching highlights, but finding specific interviews or highlights was a chore. Comparing candidates or interviews required having multiple tabs open. There were lots of opportunities to replace workarounds that current users had developed on their own.",
+              "Users spent most of their time watching highlights on the interview page, but finding a specific interview or highlight was a chore and comparing candidates meant juggling tabs — leaving many user-built workarounds to replace.",
           },
         ],
       },
@@ -579,19 +564,19 @@ export const projects: ProjectDetails[] = [
           {
             title: "Most used vs. most important actions",
             content:
-              "With new user personas in mind it was important to think through the key actions to get the user to their \"aha moment\" — letting the user naturally find value in the platform to create a helpful and sticky product.",
+              "The team mapped the key actions that lead each persona to their \"aha moment\" — so users find value naturally and the product sticks.",
           },
           {
             title: "What can a user do vs. what can a user see",
             content:
-              "Early on it was identified that there were three different customer personas to account for: Hiring Managers, Interviewers, and Recruiters. Within each role there are different goals each is trying to achieve. The team worked with the CEO and other stakeholders to identify high-level permissions and the key actions each user needed to complete their goals.",
+              "Hiring Managers, Interviewers, and Recruiters each have different goals. With the CEO and stakeholders, the team defined high-level permissions and the key actions each needed.",
           },
         ],
       },
       {
         title: "Reframing the Problem",
         content:
-          "After the launch of Luma, it was discovered that the \"user\" the product was built for was incorrect.\n\nThe intended user was assumed to be the hiring manager, since they were in charge of making the final decision. In reality, the hiring manager has a handful of other duties and delegates their responsibilities a majority of the time if they have the resources. This resulted in low platform usage and negative mental perception of the product.\n\nThis begged the question: how might we help the hiring manager's resources provide unbiased data to help them make a better decision? This resulted in a redesign of current functionality and user flows tailored for interviewers and recruiters to provide perspective for the decision maker.",
+          "After Luma launched, it became clear it had been built for the wrong user. It assumed the hiring manager, as final decision-maker — but hiring managers juggle other duties and delegate most of this work when they can. The result was low usage and a poor perception of the product.\n\nThe redesign refocused existing functionality and flows on interviewers and recruiters, who give the decision-maker perspective.",
         quote:
           "...how might we help interviewers and recruiters provide unbiased opinions to assist hiring managers in making better decisions?",
       },
@@ -616,17 +601,17 @@ export const projects: ProjectDetails[] = [
           {
             title: "Updating to the new brand",
             content:
-              "Updating the style guide and creating new components while also finding the best ways to implement brand voice and tone into the UX copy and UI elements.",
+              "Updated the style guide and built new components, carrying brand voice and tone into UX copy and UI.",
           },
           {
             title: "Simplifying flows",
             content:
-              "The software needed to be intuitive, but also simple for the user. Eliminating unnecessary actions so the user could focus on the important tasks at hand.",
+              "Cut unnecessary actions so users could focus on what mattered.",
           },
           {
             title: "Designing with empathy",
             content:
-              "All information on each screen had to be thoughtfully designed to the user persona that would be using it. Thinking through all edge cases that could happen.",
+              "Every screen was designed for the persona using it, with edge cases thought through.",
           },
         ],
       },
@@ -637,28 +622,28 @@ export const projects: ProjectDetails[] = [
           {
             title: "Highlighting key moments with ease",
             content:
-              "Being one of the most important tools, it was essential that gathering feedback during the interview process should be as easy as possible. Utilizing the existing Zoom integration, the team redesigned the user interactions of creating highlights, grading questions, and taking notes mid-interview.",
+              "Gathering feedback during interviews had to be effortless. Building on the existing Zoom integration, the team redesigned creating highlights, grading questions, and taking notes mid-interview.",
             image: "/projects/interview intelligence/placeholders/zoom-app.svg",
             imageAlt: "Redesigned Zoom integration and in-interview UI",
           },
           {
             title: "Providing top candidates front and center",
             content:
-              "The roles page redesign included a candidate list with the top two candidates surfaced at the top based on the interview scoring system. This was intended to eliminate option paralysis for hiring managers who might only want to choose between the top two or three candidates.",
+              "The redesigned roles page surfaces the top two candidates by interview score, easing option paralysis for hiring managers choosing between a few finalists.",
             image: "/projects/interview intelligence/placeholders/hero-side-by-side.svg",
             imageAlt: "Old vs. new candidate list side-by-side comparison",
           },
           {
             title: "Reducing friction on creating & sharing highlights",
             content:
-              "The first implementation of creating & sharing highlights post-interview were possible, but needed an upgrade. Allowing the user to easily grab certain parts of transcription or even just apply simple timestamped feedback while rewatching.",
+              "Post-interview highlights worked but needed an upgrade: users can now grab parts of the transcript or leave timestamped feedback while rewatching.",
             image: "/projects/interview intelligence/placeholders/transcript.svg",
             imageAlt: "Redesigned transcript and highlight creation UI",
           },
           {
             title: "Analytics & innovation",
             content:
-              "After the core parts of the platform were redesigned and updated with the new brand, there was time to innovate within the interview decision space — working with analytics, dashboards, and any information considered useful to making better hires.",
+              "With the core platform redesigned and rebranded, the team turned to innovation — analytics, dashboards, and anything else that could lead to better hires.",
             image: "/projects/interview intelligence/placeholders/analytics-candidate.svg",
             imageAlt: "New analytics and candidate dashboard",
           },
@@ -667,14 +652,14 @@ export const projects: ProjectDetails[] = [
       {
         title: "The Launch — Piece by piece for less disruption",
         content:
-          "Moving in a rapid iterative process, the team pushed updates in the smallest chunks possible — page by page, feature by feature, or flow by flow depending on the complexity and usage of what was being redesigned. Visual design was polished and functional details were improved as it was being developed. This process allowed users to notice updates in an iterative way, decreasing the chance of being overwhelmed.",
+          "The team shipped in the smallest chunks possible — page by page, feature by feature, or flow by flow, depending on complexity and usage — polishing visuals and details during development. Users saw gradual updates instead of one overwhelming change.",
       },
       {
         title: "The Impact — Validated beyond the engagement",
         content:
-          "The redesign of the Pillar platform had a positive impact on purchasers and the interview experience as a whole. Due to the agency-like environment, the team wasn't able to stick around long enough to instrument and compare usage data directly.\n\nThe clearest long-term validation came three years later: in 2025, Pillar was acquired by Employ, carrying this 2022 redesign and rebrand forward into Employ's hiring suite rather than starting over. Work that was still the foundation worth acquiring three years on is its own kind of proof.",
+          "The redesign improved the experience for purchasers and the interview process as a whole, though the agency-style engagement ended before usage could be instrumented and compared.\n\nThe clearest validation came three years later: in 2025, Employ acquired Pillar and carried this 2022 redesign and rebrand into its hiring suite rather than starting over. Still being the foundation worth acquiring three years on is its own kind of proof.",
         metrics: [
-          { value: "Acquired", label: "Pillar was acquired by Employ following this engagement" },
+          { value: "Acquired", label: "By Employ in 2025" },
         ],
       },
     ],
@@ -694,14 +679,14 @@ export const projects: ProjectDetails[] = [
     tools: ["Figma"],
     timeline: "~3 months",
     overview:
-      "High Alpha (HA) is a venture capital company that provides product leadership and other needs to start-up companies to speed up scalability. HA partners with a company — usually 3–6 months — providing thought leadership and design around product.\n\nColaboratory is a start-up focused on creating brand collaboration opportunities for its members. Mainly based in Minneapolis — CEO, CTO, and head of customer success — with under 10 employees. On this project the team worked with all employees on a consistent basis.",
+      "High Alpha is a venture studio that embeds with startups for 3–6 months to lead product and design.\n\nColaboratory is a Minneapolis startup that creates brand collaboration opportunities for its members. Its whole team of under 10 — CEO, CTO, and Head of Customer Success — was involved throughout.",
     challengeTitle: "GTM with a brand collaboration platform",
     challenge:
-      "Our goal for this project was to take a problem identified by the CEO and expand on his vision for a product that would disrupt the marketing industry. The premise for the product would help brands collaborate with each other by suggesting strategic collabs based on science and data, recommending plans of action to utilize each other's audiences.",
+      "Expand the CEO's vision for a product to disrupt the marketing industry: helping brands collaborate by recommending strategic, data-backed partnerships and plans for tapping each other's audiences.",
     challengeBullets: [
-      "Collaborate with CEO and other stakeholders to solve the right problems",
-      "Create a style guide and a start to a scalable component library",
-      "Deliver an MVP version to be built and iterated on",
+      "Work with the CEO and stakeholders to solve the right problems",
+      "Create a style guide and the start of a scalable component library",
+      "Deliver an MVP to build and iterate on",
     ],
     challengeImage: "/projects/brand-x-brand-collaboration/placeholders/Colab-Report-ROQ.svg",
     challengeImageAlt: "CoLab Report — core value prop mockup",
@@ -709,14 +694,14 @@ export const projects: ProjectDetails[] = [
       {
         title: "Kickoff — Learning the problem, personas, and vision",
         content:
-          "Before jumping into design, the team needed to gain more insights about the problem they would be solving in the industry, the vision of a possible solution, and the audience they would be designing for. They held several meetings with Colaboratory's CEO, CTO, and Head of Customer Success to learn more about the current standing of things.",
+          "Before designing, the team met repeatedly with the CEO, CTO, and Head of Customer Success to understand the industry problem, the vision for solving it, and the audience.",
         image: "/projects/brand-x-brand-collaboration/placeholders/colab-board.svg",
         imageAlt: "FigJam kickoff and discovery planning board",
         subItems: [
           {
             title: "Finding the minimum needed for GTM",
             content:
-              "After learning as much as possible from the team, it was time to take that vision and figure out the most logical MVP that could go to market. This required working more closely with the CTO to figure out what was feasible within the timeframe.",
+              "Next came the most logical MVP to take to market — worked out closely with the CTO to fit the timeframe.",
           },
         ],
       },
@@ -727,22 +712,22 @@ export const projects: ProjectDetails[] = [
           {
             title: "Customer data needed to be collected over time",
             content:
-              "To fuel the CoLab report (the value prop), data from each company input within the CoLaboratory system was needed. Since an MVP approach was being taken, it was best to automate what could be automated from the start to make it look and act like software, while providing a lot of value by offering a service first.",
+              "The CoLab report — the core value prop — depends on data gathered from each company over time. The MVP automated what it could so it looked and acted like software, while delivering value as a service first.",
           },
           {
             title: "Value for customers was still iterating as a service",
             content:
-              "The initial CoLab recommendation report that had been designed was in early conception and not yet automated. With the report likely to be iterated on very quickly, it was decided it would be manual from the start. Receiving feedback on a daily basis, it was best to keep the report as a service.",
+              "The report was early in conception and changing daily based on feedback, so it stayed manual rather than automated.",
           },
           {
             title: "Simple to start, then time to learn and iterate",
             content:
-              "With rapid iteration of the service being provided, it was best that the design started simple and easy to implement with the selected tech stack. The top priority for the product was creating a platform to deliver the service to the customer until it was time to productize the service offering.",
+              "With the service evolving quickly, the design started simple and easy to build with the chosen stack. The priority was a platform to deliver the service until it was ready to productize.",
           },
           {
             title: "Setting the stage for future complexity",
             content:
-              "Even though the designs needed to be simple, they didn't have to prevent setting the stage for something more complex down the road. Finding unique and creative solutions that could evolve with the customer was just as important as delivering the product quickly to the marketing industry.",
+              "Simple didn't have to mean limiting: solutions had to ship quickly and still evolve with the customer.",
           },
         ],
       },
@@ -753,26 +738,21 @@ export const projects: ProjectDetails[] = [
         imageAlt: "CoLab report and dashboard scoping mockup",
         subItems: [
           {
-            title: "Defining user needs and fast follows",
+            title: "The minimum: getting reports to customers",
             content:
-              "At a minimum, users needed access to the quarterly CoLab reports created for them. To achieve this, the team needed to think through user flows to create an account, log in, and access quarterly reports delivered to them. Fast follows included notifications and other things to drive engagement.",
+              "At minimum, users needed to create an account, log in, and access the quarterly CoLab reports made for them. Fast follows included notifications and other engagement drivers.",
           },
           {
             title: "CoLab report to eventually be productized",
             content:
-              "The main report value prop being delivered was decided to be a keynote slide deck delivered via email by the Head of CS. The insights in the slide deck were eventually to be placed in the software in due time.",
-          },
-          {
-            title: "Besides recommendations, what else is there?",
-            content:
-              "After all the MVP tasks were finalized, it was time to think past the initial launch. Exploration included: brand profiles, discovery of new brands, user profiles, user management, and collaboration projects.",
+              "For now, the report would be a Keynote deck emailed by the Head of CS, with its insights moving into the software later.",
           },
         ],
       },
       {
         title: "Reframing the Problem",
         content:
-          "Developing the minimum, but still delivering the best user experience with the service provided.\n\nWith discovery and exploration conducted, the team could now accurately restate the original problem. The ultimate goal was always to help customers grow by utilizing brand collaboration — but how to do that in the most efficient way possible to get to market and start learning and iterating.\n\nThis begged the question: how might we create a product that delivers the CoLab reports to customers in an intuitive way while still meeting MVP standards? This resulted in a design flow that appeared to customers on the surface to be software, but in reality was manual work being done by a CoLaboratory team member until automation was top priority.",
+          "The goal was always to help customers grow through brand collaboration; discovery clarified how to get there fastest without sacrificing experience — launch, learn, and iterate.\n\nThe resulting flow looked like software to customers, while a Colaboratory team member did the work manually until automation became the priority.",
         quote:
           "...how might we provide the user an MVP version of insights on strategic collaborations for their brand?",
       },
@@ -797,17 +777,17 @@ export const projects: ProjectDetails[] = [
           {
             title: "Build a solid foundation",
             content:
-              "To keep things consistent, a base for all future designs needed to be built that could evolve. A style guide was created and a lot of thought behind layout and navigation was conducted to ensure room for growth.",
+              "A style guide and carefully considered layout and navigation gave every future design a consistent base with room to grow.",
           },
           {
             title: "Design with flexibility",
             content:
-              "Knowing an overall vision can be helpful, but a large majority of the time that vision will evolve or pivot ever so slightly. That is why it was best to design the product with room for growth so when things do change, the team could adapt.",
+              "Visions evolve and pivot, so the product was designed to adapt when this one did.",
           },
           {
             title: "When you can't automate, iterate",
             content:
-              "When moving quickly, the team needed to be conscious of what they spent time building. Getting to market cannot be slowed down by nice-to-haves. Choosing what to automate from the start was very important.",
+              "Moving fast meant being deliberate about what to build: nice-to-haves couldn't slow the launch, and choosing what to automate first mattered most.",
           },
         ],
       },
@@ -820,35 +800,35 @@ export const projects: ProjectDetails[] = [
           {
             title: "New member sign in flow",
             content:
-              "The business was open to anyone signing up, but there were some restrictions to fully automating the flow at first because it required an in-person meeting to gather insights about the company and close a sale. The MVP version involved a request of info that automated an email to schedule a meeting. After the closed sale, some manual work was done to create an account for the new customer.",
+              "Anyone could sign up, but closing a sale required an in-person meeting to learn about the company. So the MVP's request-info form automatically emailed to book that meeting, and accounts were set up manually after the sale.",
             image: "/projects/brand-x-brand-collaboration/placeholders/prod-landing.svg",
             imageAlt: "New member landing and sign-up page",
           },
           {
             title: "Dashboard to view all CoLab reports & Playbooks",
             content:
-              "The insights and recommendations had been decided to be hand-delivered for beta customers until the product was ready. For the MVP, an avenue was needed for the CS team to deliver the report and a way for the customer to view it — and to see all reports that were delivered. Initially it started as just a list, but it quickly evolved to also show other resources to assist in making a decision.",
+              "Beta customers received hand-delivered reports, so the MVP needed a way for CS to deliver each one and for customers to view them all. It started as a list and quickly grew to include resources that support decisions.",
             image: "/projects/brand-x-brand-collaboration/placeholders/prod-sign-in.svg",
             imageAlt: "Dashboard showing CoLab reports list view",
           },
           {
             title: "Login page for existing customers",
             content:
-              "With new members having access to the software after account creation, there needed to be a login screen to access what they just purchased. Combining elements from the brand team and utilizing an existing framework, they designed a login that conveyed the right brand voice to users.",
+              "New members needed a way back into what they'd bought. Built on an existing framework with elements from the brand team, the login carried the right brand voice.",
             image: "/projects/brand-x-brand-collaboration/placeholders/prod-discover-brand-2.svg",
             imageAlt: "Login page — brand-forward sign-in experience",
           },
           {
             title: "Further anticipating user needs + exploration",
             content:
-              "After the core parts of the MVP were discovered and completed, it was time to keep diving deeper into possible use cases to anticipate user needs. Exploration areas included: dashboard iterations, brand profiles, a discover page, ways to ease collaborating, managing collaborations, and other areas.",
+              "Beyond the core MVP, the team explored what came next: dashboard iterations, brand and user profiles, user management, a discover page, and tools for starting and managing collaborations.",
           },
         ],
       },
       {
         title: "The Launch",
         content:
-          "This engagement wrapped as designed: the MVP scope — sign-up flow, reporting dashboard, and a foundational design system — was fully defined and handed off for development as the High Alpha placement concluded. From there, Colaboratory took the platform to launch, onboarding beta customers and generating new leads on top of the foundation built here.\n\nThe anticipatory exploration from discovery — dashboard iterations, brand profiles, a discover page — has continued to inform the product since, even where the specific designs shifted from what was originally proposed.",
+          "The engagement wrapped as planned: the MVP scope — sign-up flow, reporting dashboard, and foundational design system — was defined and handed off for development as the High Alpha placement ended. Colaboratory took it to launch, onboarding beta customers and generating new leads on that foundation.\n\nThe exploration beyond the MVP has continued to inform the product, even where specific designs changed.",
         carousel: [
           {
             image: "/projects/brand-x-brand-collaboration/placeholders/clab.svg",
@@ -871,7 +851,7 @@ export const projects: ProjectDetails[] = [
     title: "SEO Keyword Research",
     subtitle: "Providing product vision & feature breakdown for implementation",
     description:
-      "Demandwell is a startup focused on helping customers grow their SEO organically. Their approach combines SEO expert consultation with platform automation.",
+      "Product vision and feature breakdown for Demandwell's keyword research tools.",
     tags: ["UX Research", "UX/UI Design", "Prototyping"],
     thumbnail: "/projects/seo-keyword-research/seo-keyword-research.png",
     company: "Demandwell",
@@ -884,7 +864,7 @@ export const projects: ProjectDetails[] = [
     challenge:
       "Design and build an MVP product that enables brand collaboration partnerships and go-to-market strategies.",
     overview:
-      "Demandwell is a startup focused on helping customers grow their SEO organically. Their approach combines SEO expert consultation with platform automation allowing the user flexibility depending on their own experience level. Mainly based in Indianapolis with around 50 employees.\n\nDemandwell's approach to product provides the customer with a holistic software to improve SEO. Supplying the user with tools for keyword generation, content production, performance tracking and site monitoring.",
+      "Demandwell is an Indianapolis SEO startup of about 50 people. It pairs expert consultation with platform automation, so customers can do as much or as little themselves as they like, with tools for keyword generation, content production, performance tracking, and site monitoring.",
     sections: [],
   },
   {
@@ -893,7 +873,7 @@ export const projects: ProjectDetails[] = [
     title: "mystack",
     subtitle: "Your personal curation page",
     description:
-      "mystack is a customizable personal page where anyone can curate and share the things they rely on — tools, gear, products, content, anything.\n\nEveryone has a stack. Now there's somewhere to put it.",
+      "A customizable page for curating and sharing the things you rely on.",
     tags: ["AI Experiment", "Cursor", "Claude"],
     thumbnail: "/projects/mystack/mystack.png",
     company: "Personal project",
@@ -902,19 +882,19 @@ export const projects: ProjectDetails[] = [
     timeline: "Ongoing",
     externalUrl: "https://mystack-theta.vercel.app/",
     challenge:
-      "Build a visually distinct, personal stack page that's more than a list — something that reflects taste and intention.",
+      "Build a personal stack page that's more than a list — something that reflects taste and intention.",
     overview:
-      "mystack is a beautiful, customizable personal page where anyone can curate and share the things they rely on — tools, gear, products, content, anything.\n\nEveryone has a stack. Now there's somewhere to put it.",
+      "mystack is a customizable personal page for curating and sharing what you rely on — tools, gear, products, content, anything.\n\nEveryone has a stack. Now there's somewhere to put it.",
     sections: [
       {
         title: "What it is",
         content:
-          "A curated, interactive display of my tech stack — designed to feel intentional and opinionated rather than exhaustive.",
+          "A curated, interactive display of my own stack — opinionated, not exhaustive.",
       },
       {
         title: "What I focused on",
         content:
-          "Layout, composition, and making something simple feel polished. The goal was clarity with character.",
+          "Layout and composition — making something simple feel polished, with clarity and character.",
         bullets: [
           "Clean visual hierarchy",
           "Subtle interactions and hover states",
@@ -939,19 +919,19 @@ export const projects: ProjectDetails[] = [
     timeline: "Ongoing",
     externalUrl: "https://windows-ep.vercel.app/",
     challenge:
-      "Create a fun, high-polish interactive web experience that feels like a tiny operating system—without taking itself too seriously.",
+      "Create a fun, high-polish web experience that feels like a tiny operating system — without taking itself too seriously.",
     overview:
-      "This project is a sandbox for playful UI: window management, interaction patterns, and a little bit of chaos. It’s meant to be explored, not explained. It’s also a space for me to explore AI experiments inspired by [@ryolu](https://x.com/ryolu_).",
+      "A sandbox for playful UI — window management, interaction patterns, and a little chaos — and for AI experiments inspired by [@ryolu](https://x.com/ryolu_). Meant to be explored, not explained.",
     sections: [
       {
         title: "What it is",
         content:
-          "A vibe-first build where the goal is delight: familiar OS patterns, quick interactions, and a bunch of small details that make it feel alive.",
+          "A vibe-first build aimed at delight: familiar OS patterns, quick interactions, and small details that make it feel alive.",
       },
       {
         title: "What I focused on",
         content:
-          "Interaction and motion: responsiveness, layering, micro-transitions, and keeping the whole thing snappy even as complexity grows.",
+          "Responsiveness, layering, and micro-transitions that stay snappy as complexity grows.",
         bullets: [
           "Window-like UI patterns",
           "Motion + feedback for interactions",
@@ -966,7 +946,7 @@ export const projects: ProjectDetails[] = [
     title: "this site you are on",
     subtitle: "Portfolio",
     description:
-      "A hand-coded portfolio: skipping the Webflow subscription and keeping full control over layout, motion, and experiments.",
+      "A hand-coded portfolio with full control over layout, motion, and experiments.",
     tags: ["AI Experiment", "Cursor", "Claude"],
     thumbnail: "/projects/this-site-you-are-on/thumbnail.png",
     heroImage: "/projects/this-site-you-are-on/thumbnail.png",
@@ -975,23 +955,23 @@ export const projects: ProjectDetails[] = [
     tools: ["Next.js", "React", "Tailwind"],
     timeline: "Ongoing",
     challenge:
-      "Replace a hosted-builder workflow with a codebase I own, without losing polish—or my budget.",
+      "Replace a hosted-builder workflow with a codebase I own, without losing polish — or my budget.",
     overview:
-      "I was tired of paying Webflow about $300 a year, so I vibe-coded this portfolio instead—and ended up able to do more than Webflow would have allowed.",
+      "I was tired of paying Webflow about $300 a year, so I vibe-coded this portfolio instead — and can now do more than Webflow allowed.",
     sections: [
       {
         title: "What it is",
         content:
-          "The site you’re browsing: case studies, vibe builds, and room to grow without fighting a template or a subscription.",
+          "The site you're browsing: case studies, vibe builds, and room to grow without fighting a template.",
       },
       {
         title: "What I focused on",
         content:
-          "Shipping something fast, keeping costs predictable, and leaning into custom interactions where a no-code tool would get in the way.",
+          "Shipping fast and building custom interactions where a no-code tool would get in the way.",
         bullets: [
           "Next.js + Tailwind for real layout control",
           "Motion and details I can iterate on freely",
-          "No annual lock-in on someone else’s platform",
+          "No annual lock-in on someone else's platform",
         ],
       },
     ],

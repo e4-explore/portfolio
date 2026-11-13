@@ -56,14 +56,14 @@ export function AboutSection() {
         <div className="space-y-6">
           <Reveal delayMs={180}>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              In 2016 after completing a double major in Graphic Design/Illustration, with a minor in Marketing, I moved to Indianapolis to pursue a career in design. Since then, I have navigated through various avenues of design to get to where I am today.
+              In 2016, after a double major in Graphic Design/Illustration and a minor in Marketing, I moved to Indianapolis to pursue design, and have worked across many corners of it since.
             </p>
           </Reveal>
 
           <Reveal delayMs={270}>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Currently, I live about 20 minutes south of Indy with my wife, Hanna, and our dog, Leo.
-              Besides faith, family and friends the most important thing to me is learning and growing every day.
+              I live about 20 minutes south of Indy with my wife, Hanna, and our dog, Leo. Beyond faith,
+              family, and friends, what matters most to me is learning and growing every day.
             </p>
           </Reveal>
 

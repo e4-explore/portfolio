@@ -82,21 +82,8 @@ export default async function ApproachPage({ params }: ApproachPageProps) {
             </Reveal>
           )}
 
-          {/* Key points */}
-          {concept.points && concept.points.length > 0 && (
-            <Reveal delayMs={230}>
-              <ul className="space-y-3 mt-8 max-w-3xl">
-                {concept.points.map((pt, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-foreground text-background flex items-center justify-center text-sm font-semibold mt-0.5">
-                      {i + 1}
-                    </span>
-                    <span className="text-lg text-muted-foreground">{pt}</span>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          )}
+          {/* Key points are a summary for the hover popover; the sections below
+              cover them in full, so they aren't repeated on this page. */}
         </Section>
 
         {/* Detail sections */}

@@ -44,21 +44,19 @@ export function HeroSection() {
             <div className="space-y-6">
               <Reveal immediate delayMs={240}>
                 <p className="text-lg md:text-xl text-muted-foreground leading-relaxed px-0">
-                  I'm a versatile designer who clears ambiguity and helps teams ship products.
-                  Currently, I am helping{" "}
+                  I'm a versatile designer who clears ambiguity and helps teams ship. Currently
+                  I'm helping{" "}
                   <CompanyHoverLink company="Hudl" className={textLinkClassName}>
                     Hudl
                   </CompanyHoverLink>{" "}
-                  develop
-                  strategy and deliver features to enhance the competitive sports experience for
-                  parents and fans.
+                  shape strategy and deliver features for parents and fans of competitive sports.
                 </p>
               </Reveal>
 
               <Reveal immediate delayMs={320}>
                 <p className="text-lg md:text-xl text-muted-foreground leading-relaxed px-0">
-                  In the past, I have teamed up with many amazing individuals to create engaging
-                  digital solutions that not only solve problems but also delight users.
+                  Before that, I teamed up with great people to build products that solve problems
+                  and delight users.
                 </p>
               </Reveal>
             </div>
@@ -72,18 +70,15 @@ export function HeroSection() {
           {/* Industries */}
           <Reveal immediate delayMs={480}>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              I have worked in a variety of industries, ranging from marketing to HR to sports
-              and fitness, where I have helped solve user problems related to scheduling,
-              payments, reporting, monitoring, video analysis, and more.
+              I've worked across marketing, HR, and sports and fitness, solving problems around
+              scheduling, payments, reporting, monitoring, video analysis, and more.
             </p>
           </Reveal>
 
           <Reveal immediate delayMs={560}>
             <p className="text-base md:text-lg text-muted-foreground mt-4">
-              If there is something specific that you would like to see, but it is not listed
-              below, please do not hesitate to{" "}
-              <TextLink href="#contact">reach out to me</TextLink>
-              !
+              Looking for something not listed below?{" "}
+              <TextLink href="#contact">Reach out</TextLink>.
             </p>
           </Reveal>
         </div>
