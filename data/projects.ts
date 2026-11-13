@@ -96,7 +96,6 @@ export const projects: ProjectDetails[] = [
       { value: "25", label: "Videos watched per parent, monthly" },
       { value: "6", label: "Sessions per parent, monthly" },
       { value: "95%", label: "Successful sessions" },
-      { value: "#7", label: "Peak App Store rank, top free sports" },
     ],
     challengeTitle: "A new user type, a mental model shift, and two apps becoming one",
     challenge:
