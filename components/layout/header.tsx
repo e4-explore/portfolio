@@ -89,8 +89,11 @@ export function Header() {
                 <NavLink href="/#work">WORK</NavLink>
                 <NavLink href="/#about">ME</NavLink>
               </div>
-              {/* Keep theme toggle accessible after scrolling */}
-              <ThemeToggle variant="nav" />
+              {/* Keep theme toggle accessible after scrolling (desktop only —
+                  on mobile the hero's inline toggle is enough) */}
+              <div className="hidden md:block">
+                <ThemeToggle variant="nav" />
+              </div>
             </div>
           ) : (
             // Other pages: desktop nav + mobile menu button
