@@ -317,9 +317,9 @@ export const projects: ProjectDetails[] = [
             subtext: "Will show whether building activation into the product closed the gap.",
           },
           {
-            value: "#23 → TBD",
-            label: "App Store rank, launch → today",
-            subtext: "Among free sports apps, from the July 2026 launch to now.",
+            value: "#23 → #13",
+            label: "App Store rank, launch → Nov 2026",
+            subtext: "Top free sports apps — with little to no marketing and a narrow parent audience.",
           },
           {
             value: "2 → 1",
