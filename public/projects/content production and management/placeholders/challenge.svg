@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900"><style>text{font-family:Inter,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif}</style>
+<rect width="1600" height="900" fill="#F2F2EF"/>
+<rect x="24" y="24" width="1552" height="852" rx="28" fill="none" stroke="#D6D6D1" stroke-width="3" stroke-dasharray="14 12"/>
+<g opacity="0.9"><rect x="520" y="130" width="150" height="90" rx="18" fill="#FFFFFF" stroke="#D6D6D1" stroke-width="3"/><rect x="545" y="166" width="100" height="18" rx="6" fill="#E6E6E1" opacity="1"/><rect x="725" y="130" width="150" height="90" rx="18" fill="#FFFFFF" stroke="#D6D6D1" stroke-width="3"/><rect x="750" y="166" width="100" height="18" rx="6" fill="#E6E6E1" opacity="1"/><rect x="930" y="130" width="150" height="90" rx="18" fill="#EED9CB" stroke="#C4825A" stroke-width="3"/><rect x="955" y="166" width="100" height="18" rx="6" fill="#C4825A" opacity="0.6"/><rect x="725" y="290" width="150" height="90" rx="18" fill="#FFFFFF" stroke="#D6D6D1" stroke-width="3"/><rect x="750" y="326" width="100" height="18" rx="6" fill="#E6E6E1" opacity="1"/>
+      <line x1="675" y1="175" x2="720" y2="175" stroke="#7C8088" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 10"/><line x1="880" y1="175" x2="925" y2="175" stroke="#7C8088" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 10"/><line x1="800" y1="225" x2="800" y2="285" stroke="#7C8088" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 10"/></g>
+<rect x="593.5" y="454" width="413" height="48" rx="24" fill="#EED9CB"/>
+<text x="800" y="487" font-size="24" fill="#C4825A" font-weight="700" letter-spacing="2" text-anchor="middle">PLACEHOLDER · DIAGRAM</text>
+<text x="800" y="570" font-size="54" fill="#2E3135" font-weight="700" text-anchor="middle">Three problems slowing content+</text>
+<text x="800" y="638" font-size="32" fill="#7C8088" text-anchor="middle">Consultants as the communication bottleneck, zero order visibility after</text>
+<text x="800" y="680" font-size="32" fill="#7C8088" text-anchor="middle">purchase, and writers drowning in disorganized content.</text>
+<text x="800" y="840" font-size="26" fill="#7C8088" font-family="ui-monospace,Menlo,monospace" text-anchor="middle">→ challenge.png</text></svg>

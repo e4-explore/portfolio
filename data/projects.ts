@@ -379,11 +379,15 @@ export const projects: ProjectDetails[] = [
       "Customers had no visibility on content progress after ordering",
       "Writers with lots of content struggled to stay organized",
     ],
+    challengeImage: "/projects/content production and management/placeholders/challenge.svg",
+    challengeImageAlt: "Diagram of the three problems: consultants as a bottleneck, no order visibility, and disorganized writers",
     sections: [
       {
         title: "Kickoff — Evaluating & understanding current flows",
         content:
           "It was key to understand existing flows to improve them and seamlessly add in the new offering. The end product would allow the user to manually produce everything or pick and choose what parts of the production process they'd like to participate in. By automating this within the product, the goal was to reduce cost-to-serve for this particular segment of customers.\n\nWithin the Demandwell content production flow there are 3 main components — selecting keywords, building outlines, and writing content. These were self-service or purchasable through Demandwell. Selecting keywords and writing content were already add-ons, so the job was to fill the gap and allow premium customers to purchase content+.",
+        image: "/projects/content production and management/placeholders/current-flow.svg",
+        imageAlt: "The existing content flow — keywords, outlines, writing — showing self-serve vs. purchasable steps",
       },
       {
         title: "Early Insights",
@@ -410,11 +414,15 @@ export const projects: ProjectDetails[] = [
         title: "Discovery — All users and edge cases",
         content:
           "The flows would be used by both customers and Demandwell employees fulfilling orders. With many users with different permissions and edge cases, the design needed to be simple yet complex — offering similar UI for each user with essential information and actions to complete various tasks.",
+        image: "/projects/content production and management/placeholders/user-permissions.svg",
+        imageAlt: "Customers, CPMs, and writers mapped to what each can see and do at each stage",
         subItems: [
           {
             title: "Statuses & sections were unclear",
             content:
               "With only three sections and limited statuses there was a lot of grey area that customer content could fall into during fulfillment. More in-depth sections and statuses would provide better insight into what part of the process an order was in without customers needing to reach out.",
+            image: "/projects/content production and management/placeholders/status-map.svg",
+            imageAlt: "The old three-section model compared to the new granular stages and statuses",
           },
           {
             title: "Improving existing internal processes",
@@ -459,16 +467,22 @@ export const projects: ProjectDetails[] = [
             title: "Clearer sections & less scrolling",
             content:
               "Writers with lots of content struggled to stay organized within the Content Planner due to accordion sections containing various statuses. After release, the Content Planner was redesigned with new tabs, stages, icons, and tooltips for better organization and tracking.",
+            image: "/projects/content production and management/placeholders/content-planner-before-after.svg",
+            imageAlt: "Content Planner before and after — accordion sections replaced by tabs and stages",
           },
           {
             title: "New statuses & notifications",
             content:
               "A lot of feedback indicated customers didn't have a clear way to understand the progress of their order. Along with clearer sections and statuses, Demandwell would now send email alerts to the user who ordered content as it progresses through writing phases.",
+            image: "/projects/content production and management/placeholders/status-notifications.svg",
+            imageAlt: "New status badges and an order-progress email notification",
           },
           {
             title: "Automating ordering & outline approval",
             content:
               "New outline orders and approval were previously all via email. CPMs would create an outline, get it approved, and submit the order for the user. After launch, customers submit their own orders and approve outlines through the platform, eliminating unnecessary emails and time spent.",
+            image: "/projects/content production and management/placeholders/outline-approval.svg",
+            imageAlt: "Customer submitting an order and approving an outline in the platform",
           },
         ],
       },
@@ -498,7 +512,6 @@ export const projects: ProjectDetails[] = [
     tags: ["UX Research", "UX/UI Design", "Design Systems"],
     thumbnail: "/projects/interview intelligence/interview intelligence.png",
     heroImage: "/projects/interview intelligence/interview intelligence.png",
-    hideCaseStudyMedia: true,
     acquisition: {
       acquirerName: "Employ",
       acquirerUrl: "https://www.employinc.com/",
@@ -519,15 +532,15 @@ export const projects: ProjectDetails[] = [
       "Create a platform that is easy to use & understand to encourage engagement",
       "Make improvements & innovations to existing UI and UX flows",
     ],
-    challengeImage: "/placeholder.svg",
-    challengeImageAlt: "Luma — existing product before rebrand (luma2.jpeg)",
+    challengeImage: "/projects/interview intelligence/placeholders/luma2.svg",
+    challengeImageAlt: "Luma — existing product before rebrand",
     sections: [
       {
         title: "Kickoff — Starting with the user personas",
         content:
           "Before designing, the team needed to gain more insights about the new user personas. To learn more, they paired with the CEO, and occasionally the Head of Customer Service, to get a better picture of what each customer segment needed.",
-        image: "/placeholder.svg",
-        imageAlt: "FigJam planning and discovery whiteboard (board-3.png)",
+        image: "/projects/interview intelligence/placeholders/board-3.svg",
+        imageAlt: "FigJam planning and discovery whiteboard",
         subItems: [
           {
             title: "Defining what is first to work on",
@@ -587,16 +600,16 @@ export const projects: ProjectDetails[] = [
         content: "",
         carousel: [
           {
-            image: "/placeholder.svg",
-            alt: "Updated Pillar design system and style guide (style-guide.png)",
+            image: "/projects/interview intelligence/placeholders/style-guide.svg",
+            alt: "Updated Pillar design system and style guide",
           },
           {
-            image: "/placeholder.svg",
-            alt: "Simplified user flow diagram (simplified-flows.png)",
+            image: "/projects/interview intelligence/placeholders/simplified-flows.svg",
+            alt: "Simplified user flow diagram",
           },
           {
-            image: "/placeholder.svg",
-            alt: "Before/after UI comparison (comparison.png)",
+            image: "/projects/interview intelligence/placeholders/comparison.svg",
+            alt: "Before/after UI comparison",
           },
         ],
         subItems: [
@@ -625,29 +638,29 @@ export const projects: ProjectDetails[] = [
             title: "Highlighting key moments with ease",
             content:
               "Being one of the most important tools, it was essential that gathering feedback during the interview process should be as easy as possible. Utilizing the existing Zoom integration, the team redesigned the user interactions of creating highlights, grading questions, and taking notes mid-interview.",
-            image: "/placeholder.svg",
-            imageAlt: "Redesigned Zoom integration and in-interview UI (zoom-app.png)",
+            image: "/projects/interview intelligence/placeholders/zoom-app.svg",
+            imageAlt: "Redesigned Zoom integration and in-interview UI",
           },
           {
             title: "Providing top candidates front and center",
             content:
               "The roles page redesign included a candidate list with the top two candidates surfaced at the top based on the interview scoring system. This was intended to eliminate option paralysis for hiring managers who might only want to choose between the top two or three candidates.",
-            image: "/placeholder.svg",
-            imageAlt: "Old vs. new candidate list side-by-side comparison (hero-side-by-side.png)",
+            image: "/projects/interview intelligence/placeholders/hero-side-by-side.svg",
+            imageAlt: "Old vs. new candidate list side-by-side comparison",
           },
           {
             title: "Reducing friction on creating & sharing highlights",
             content:
               "The first implementation of creating & sharing highlights post-interview were possible, but needed an upgrade. Allowing the user to easily grab certain parts of transcription or even just apply simple timestamped feedback while rewatching.",
-            image: "/placeholder.svg",
-            imageAlt: "Redesigned transcript and highlight creation UI (transcript.png)",
+            image: "/projects/interview intelligence/placeholders/transcript.svg",
+            imageAlt: "Redesigned transcript and highlight creation UI",
           },
           {
             title: "Analytics & innovation",
             content:
               "After the core parts of the platform were redesigned and updated with the new brand, there was time to innovate within the interview decision space — working with analytics, dashboards, and any information considered useful to making better hires.",
-            image: "/placeholder.svg",
-            imageAlt: "New analytics and candidate dashboard (analytics-candidate.png)",
+            image: "/projects/interview intelligence/placeholders/analytics-candidate.svg",
+            imageAlt: "New analytics and candidate dashboard",
           },
         ],
       },
@@ -675,7 +688,6 @@ export const projects: ProjectDetails[] = [
     tags: ["UX Research", "UX/UI Design", "Design Systems"],
     thumbnail: "/projects/brand-x-brand-collaboration/brand-x-brand-collaboration.png",
     heroImage: "/projects/brand-x-brand-collaboration/brand-x-brand-collaboration.png",
-    hideCaseStudyMedia: true,
     company: "High Alpha x Colaboratory",
     role: "Lead Product Designer",
     team: "Ethan Grove, Chad Hostetter, Kristin Martin & Colaboratory Team",
@@ -691,15 +703,15 @@ export const projects: ProjectDetails[] = [
       "Create a style guide and a start to a scalable component library",
       "Deliver an MVP version to be built and iterated on",
     ],
-    challengeImage: "/placeholder.svg",
-    challengeImageAlt: "CoLab Report — core value prop mockup (Colab-Report-ROQ.png)",
+    challengeImage: "/projects/brand-x-brand-collaboration/placeholders/Colab-Report-ROQ.svg",
+    challengeImageAlt: "CoLab Report — core value prop mockup",
     sections: [
       {
         title: "Kickoff — Learning the problem, personas, and vision",
         content:
           "Before jumping into design, the team needed to gain more insights about the problem they would be solving in the industry, the vision of a possible solution, and the audience they would be designing for. They held several meetings with Colaboratory's CEO, CTO, and Head of Customer Success to learn more about the current standing of things.",
-        image: "/placeholder.svg",
-        imageAlt: "FigJam kickoff and discovery planning board (colab-board.png)",
+        image: "/projects/brand-x-brand-collaboration/placeholders/colab-board.svg",
+        imageAlt: "FigJam kickoff and discovery planning board",
         subItems: [
           {
             title: "Finding the minimum needed for GTM",
@@ -737,8 +749,8 @@ export const projects: ProjectDetails[] = [
       {
         title: "Discovery — Defining user needs and fast follows",
         content: "",
-        image: "/placeholder.svg",
-        imageAlt: "CoLab report and dashboard scoping mockup (reports-colab-2.png)",
+        image: "/projects/brand-x-brand-collaboration/placeholders/reports-colab-2.svg",
+        imageAlt: "CoLab report and dashboard scoping mockup",
         subItems: [
           {
             title: "Defining user needs and fast follows",
@@ -769,16 +781,16 @@ export const projects: ProjectDetails[] = [
         content: "",
         carousel: [
           {
-            image: "/placeholder.svg",
-            alt: "Colaboratory style guide and foundational design system (foundation3.png)",
+            image: "/projects/brand-x-brand-collaboration/placeholders/foundation3.svg",
+            alt: "Colaboratory style guide and foundational design system",
           },
           {
-            image: "/placeholder.svg",
-            alt: "Flexible and modular design exploration (flexibility.png)",
+            image: "/projects/brand-x-brand-collaboration/placeholders/flexibility.svg",
+            alt: "Flexible and modular design exploration",
           },
           {
-            image: "/placeholder.svg",
-            alt: "CoLab reports UI — manual-first iterate approach (colab-reports-2.png)",
+            image: "/projects/brand-x-brand-collaboration/placeholders/colab-reports-2.svg",
+            alt: "CoLab reports UI — manual-first iterate approach",
           },
         ],
         subItems: [
@@ -802,29 +814,29 @@ export const projects: ProjectDetails[] = [
       {
         title: "The MVP",
         content: "",
-        image: "/placeholder.svg",
-        imageAlt: "Full MVP scope overview diagram (mvp.png)",
+        image: "/projects/brand-x-brand-collaboration/placeholders/mvp.svg",
+        imageAlt: "Full MVP scope overview diagram",
         subItems: [
           {
             title: "New member sign in flow",
             content:
               "The business was open to anyone signing up, but there were some restrictions to fully automating the flow at first because it required an in-person meeting to gather insights about the company and close a sale. The MVP version involved a request of info that automated an email to schedule a meeting. After the closed sale, some manual work was done to create an account for the new customer.",
-            image: "/placeholder.svg",
-            imageAlt: "New member landing and sign-up page (prod-landing.png)",
+            image: "/projects/brand-x-brand-collaboration/placeholders/prod-landing.svg",
+            imageAlt: "New member landing and sign-up page",
           },
           {
             title: "Dashboard to view all CoLab reports & Playbooks",
             content:
               "The insights and recommendations had been decided to be hand-delivered for beta customers until the product was ready. For the MVP, an avenue was needed for the CS team to deliver the report and a way for the customer to view it — and to see all reports that were delivered. Initially it started as just a list, but it quickly evolved to also show other resources to assist in making a decision.",
-            image: "/placeholder.svg",
-            imageAlt: "Dashboard showing CoLab reports list view (prod-sign-in.png)",
+            image: "/projects/brand-x-brand-collaboration/placeholders/prod-sign-in.svg",
+            imageAlt: "Dashboard showing CoLab reports list view",
           },
           {
             title: "Login page for existing customers",
             content:
               "With new members having access to the software after account creation, there needed to be a login screen to access what they just purchased. Combining elements from the brand team and utilizing an existing framework, they designed a login that conveyed the right brand voice to users.",
-            image: "/placeholder.svg",
-            imageAlt: "Login page — brand-forward sign-in experience (prod-discover-brand-2.png)",
+            image: "/projects/brand-x-brand-collaboration/placeholders/prod-discover-brand-2.svg",
+            imageAlt: "Login page — brand-forward sign-in experience",
           },
           {
             title: "Further anticipating user needs + exploration",
@@ -839,16 +851,16 @@ export const projects: ProjectDetails[] = [
           "This engagement wrapped as designed: the MVP scope — sign-up flow, reporting dashboard, and a foundational design system — was fully defined and handed off for development as the High Alpha placement concluded. From there, Colaboratory took the platform to launch, onboarding beta customers and generating new leads on top of the foundation built here.\n\nThe anticipatory exploration from discovery — dashboard iterations, brand profiles, a discover page — has continued to inform the product since, even where the specific designs shifted from what was originally proposed.",
         carousel: [
           {
-            image: "/placeholder.svg",
-            alt: "Live Colaboratory product — launch screenshot 1 (clab.png)",
+            image: "/projects/brand-x-brand-collaboration/placeholders/clab.svg",
+            alt: "Live Colaboratory product — launch screenshot 1",
           },
           {
-            image: "/placeholder.svg",
-            alt: "Live Colaboratory product — launch screenshot 2 (clab2.png)",
+            image: "/projects/brand-x-brand-collaboration/placeholders/clab2.svg",
+            alt: "Live Colaboratory product — launch screenshot 2",
           },
           {
-            image: "/placeholder.svg",
-            alt: "Live Colaboratory product — launch screenshot 3 (clab3.png)",
+            image: "/projects/brand-x-brand-collaboration/placeholders/clab3.svg",
+            alt: "Live Colaboratory product — launch screenshot 3",
           },
         ],
       },
